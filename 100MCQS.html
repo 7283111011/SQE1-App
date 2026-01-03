@@ -3,32 +3,447 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SQE1 FLK1 – Facts Deck</title>
+<title>SQE1 FLK1 – 100 Practice MCQs</title>
+
 <style>
-  body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;background:#f6f7fb;color:#0f172a}
-  .wrap{max-width:980px;margin:0 auto;padding:20px}
-  .btnlink{
-    height:40px;
-    padding:0 14px;
-    border-radius:10px;
-    border:1px solid rgba(0,0,0,.15);
-    background:#ffffff;
-    color:#0f172a;
-    font-size:12px;
-    letter-spacing:.08em;
-    text-transform:uppercase;
-    text-decoration:none;
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-  }
+:root{
+  --bg1:#f6f7fb;
+  --bg2:#eef2ff;
+  --ink:#0f172a;
+  --muted:rgba(15,23,42,.70);
+  --card:rgba(255,255,255,.76);
+  --white:#ffffff;
+  --ok:#059669;
+  --bad:#dc2626;
+  --hair:rgba(0,0,0,.12);
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;
+  background:
+    radial-gradient(800px 500px at 20% 10%, rgba(186,230,253,.65), transparent 60%),
+    radial-gradient(800px 500px at 80% 20%, rgba(221,214,254,.60), transparent 60%),
+    linear-gradient(180deg,var(--bg1),var(--bg2));
+  color:var(--ink);
+}
+
+.topbar{
+  position:sticky;
+  top:0;
+  z-index:10;
+  background:rgba(246,247,251,.90);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--hair);
+  padding:10px;
+}
+
+.topbar-inner{
+  max-width:980px;
+  margin:0 auto;
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.score{
+  font-size:12px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:rgba(15,23,42,.85);
+}
+
+.actions{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  align-items:center;
+}
+
+.btn, .btnlink{
+  height:38px;
+  padding:0 12px;
+  border-radius:10px;
+  border:1px solid var(--hair);
+  background:rgba(255,255,255,.90);
+  color:var(--ink);
+  font-size:12px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  text-decoration:none;
+}
+
+.btn:disabled{
+  opacity:.45;
+}
+
+.jumpbox{
+  display:flex;
+  gap:8px;
+  align-items:center;
+}
+
+.jumpbox input{
+  width:90px;
+  height:38px;
+  border-radius:10px;
+  border:1px solid var(--hair);
+  background:rgba(255,255,255,.90);
+  padding:0 10px;
+  font-size:14px;
+}
+
+.container{
+  max-width:980px;
+  margin:0 auto;
+  padding:18px 12px 80px 12px;
+}
+
+.card{
+  background:var(--card);
+  backdrop-filter:blur(16px);
+  border-radius:22px;
+  padding:18px;
+  border:1px solid rgba(255,255,255,.70);
+  box-shadow:0 18px 48px rgba(15,23,42,.12);
+}
+
+.meta{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  flex-wrap:wrap;
+  align-items:center;
+  margin-bottom:10px;
+}
+
+.badge{
+  font-size:11px;
+  letter-spacing:.10em;
+  text-transform:uppercase;
+  color:var(--muted);
+}
+
+.qpos{
+  font-size:11px;
+  letter-spacing:.10em;
+  text-transform:uppercase;
+  color:var(--muted);
+}
+
+.stem{
+  font-size:16px;
+  line-height:1.55;
+  margin:10px 0 14px 0;
+}
+
+.option{
+  display:flex;
+  gap:10px;
+  padding:12px;
+  border-radius:12px;
+  background:var(--white);
+  border:1px solid rgba(0,0,0,.12);
+  margin-bottom:10px;
+  align-items:flex-start;
+}
+
+.option input{
+  margin-top:3px;
+}
+
+.option.correct{
+  background:#ecfdf5;
+  border-color:rgba(5,150,105,.40);
+}
+
+.option.wrong{
+  background:#fef2f2;
+  border-color:rgba(220,38,38,.35);
+}
+
+.status{
+  margin-top:8px;
+  font-size:12px;
+  letter-spacing:.10em;
+  text-transform:uppercase;
+  color:rgba(15,23,42,.70);
+}
+
+.explain{
+  display:none;
+  margin-top:14px;
+  background:#ffffff;
+  border-radius:14px;
+  padding:12px;
+  border:1px solid rgba(0,0,0,.12);
+}
+
+.explain .label{
+  font-size:12px;
+  letter-spacing:.10em;
+  text-transform:uppercase;
+  color:var(--muted);
+  margin-bottom:6px;
+}
+
+.navbar{
+  margin-top:16px;
+  display:flex;
+  gap:10px;
+  justify-content:space-between;
+  flex-wrap:wrap;
+}
+
+@media (max-width:768px){
+  .topbar-inner{flex-direction:column; align-items:flex-start;}
+  .actions{width:100%; justify-content:space-between;}
+}
 </style>
 </head>
+
 <body>
-  <div class="wrap">
-    <a class="btnlink" href="100MCQS.html">100 Practice MCQs</a>
-    <div style="height:16px"></div>
-    <div>This is the placeholder index.html. If you paste your full facts deck HTML here, keep the button above at the top.</div>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="score" id="score">Correct 0 • Answered 0 • 100</div>
+
+    <div class="actions">
+      <div class="jumpbox">
+        <input id="jumpInput" inputmode="numeric" pattern="[0-9]*" placeholder="Q #" aria-label="Jump to question number">
+        <button class="btn" id="jumpBtn" type="button">Go</button>
+      </div>
+
+      <button class="btn" id="resetBtn" type="button">Reset</button>
+      <a class="btnlink" href="index.html">Facts deck</a>
+    </div>
   </div>
+</div>
+
+<div class="container">
+  <div class="card" id="card"></div>
+</div>
+
+<script>
+/* =========================
+   1) DATA
+   Replace MCQS with your full 100 items.
+   correct is a zero-based index.
+   ========================= */
+
+const MCQS = [
+  {
+    id: 1,
+    topic: "Contract Law",
+    stem: "A shop displays a product in its window with a price tag. A customer demands it at that price.",
+    options: [
+      "The display is an offer which has been accepted.",
+      "The display is an invitation to treat; the customer makes the offer.",
+      "A unilateral contract is formed by entering the shop.",
+      "A contract exists only if refusal is unreasonable."
+    ],
+    correct: 1,
+    principle: "Displays of goods are generally invitations to treat. The customer makes the offer at the till.",
+    authority: "Fisher v Bell; Pharmaceutical Society v Boots"
+  }
+  // Add questions 2–100 here
+];
+
+/* =========================
+   2) UTILITIES
+   ========================= */
+
+function shuffle(arr){
+  for(let i = arr.length - 1; i > 0; i--){
+    const j = Math.floor(Math.random() * (i + 1));
+    const tmp = arr[i];
+    arr[i] = arr[j];
+    arr[j] = tmp;
+  }
+  return arr;
+}
+
+/* Randomize on every load */
+let ORDERED = shuffle(MCQS.slice());
+
+/* State: selected option per question id */
+let answered = {};  // { [id]: selectedIndex }
+
+/* Current index into ORDERED */
+let idx = 0;
+
+const scoreEl = document.getElementById("score");
+const cardEl = document.getElementById("card");
+const resetBtn = document.getElementById("resetBtn");
+const jumpInput = document.getElementById("jumpInput");
+const jumpBtn = document.getElementById("jumpBtn");
+
+function computeScore(){
+  let a = 0;
+  let c = 0;
+  for(const q of ORDERED){
+    if(Object.prototype.hasOwnProperty.call(answered, q.id)){
+      a += 1;
+      if(answered[q.id] === q.correct) c += 1;
+    }
+  }
+  scoreEl.textContent = `Correct ${c} • Answered ${a} • ${ORDERED.length}`;
+}
+
+function render(){
+  const q = ORDERED[idx];
+
+  const isAnswered = Object.prototype.hasOwnProperty.call(answered, q.id);
+  const chosen = isAnswered ? answered[q.id] : null;
+
+  cardEl.innerHTML = "";
+
+  const meta = document.createElement("div");
+  meta.className = "meta";
+
+  const badge = document.createElement("div");
+  badge.className = "badge";
+  badge.textContent = q.topic;
+
+  const qpos = document.createElement("div");
+  qpos.className = "qpos";
+  qpos.textContent = `Question ${idx + 1} of ${ORDERED.length} (ID ${q.id})`;
+
+  meta.appendChild(badge);
+  meta.appendChild(qpos);
+
+  const stem = document.createElement("div");
+  stem.className = "stem";
+  stem.textContent = q.stem;
+
+  cardEl.appendChild(meta);
+  cardEl.appendChild(stem);
+
+  const optionsWrap = document.createElement("div");
+
+  q.options.forEach((opt, optIdx) => {
+    const label = document.createElement("label");
+    label.className = "option";
+
+    const input = document.createElement("input");
+    input.type = "radio";
+    input.name = "q_" + q.id;
+    input.disabled = isAnswered;
+
+    if(chosen === optIdx){
+      input.checked = true;
+    }
+
+    input.addEventListener("change", () => {
+      if(Object.prototype.hasOwnProperty.call(answered, q.id)) return;
+      answered[q.id] = optIdx;
+      computeScore();
+      render();
+    });
+
+    const text = document.createElement("div");
+    text.textContent = opt;
+
+    label.appendChild(input);
+    label.appendChild(text);
+
+    if(isAnswered){
+      if(optIdx === q.correct) label.classList.add("correct");
+      if(chosen === optIdx && chosen !== q.correct) label.classList.add("wrong");
+    }
+
+    optionsWrap.appendChild(label);
+  });
+
+  cardEl.appendChild(optionsWrap);
+
+  const status = document.createElement("div");
+  status.className = "status";
+  if(!isAnswered){
+    status.textContent = "Select an option to answer";
+  } else {
+    status.textContent = (chosen === q.correct) ? "Correct" : "Incorrect";
+  }
+  cardEl.appendChild(status);
+
+  const explain = document.createElement("div");
+  explain.className = "explain";
+  if(isAnswered){
+    explain.style.display = "block";
+    explain.innerHTML =
+      `<div class="label">Principle</div>` +
+      `<div>${q.principle}</div>` +
+      `<div style="height:10px"></div>` +
+      `<div class="label">Authority</div>` +
+      `<div>${q.authority}</div>`;
+  }
+  cardEl.appendChild(explain);
+
+  const nav = document.createElement("div");
+  nav.className = "navbar";
+
+  const prev = document.createElement("button");
+  prev.className = "btn";
+  prev.type = "button";
+  prev.textContent = "Previous";
+  prev.disabled = (idx === 0);
+  prev.addEventListener("click", () => {
+    if(idx > 0){
+      idx -= 1;
+      render();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  });
+
+  const next = document.createElement("button");
+  next.className = "btn";
+  next.type = "button";
+  next.textContent = "Next";
+  next.disabled = (idx >= ORDERED.length - 1) || (!isAnswered);
+  next.addEventListener("click", () => {
+    if(idx < ORDERED.length - 1){
+      idx += 1;
+      render();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  });
+
+  nav.appendChild(prev);
+  nav.appendChild(next);
+
+  cardEl.appendChild(nav);
+}
+
+resetBtn.addEventListener("click", () => {
+  answered = {};
+  ORDERED = shuffle(MCQS.slice());
+  idx = 0;
+  computeScore();
+  render();
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
+
+jumpBtn.addEventListener("click", () => {
+  const raw = (jumpInput.value || "").trim();
+  const n = parseInt(raw, 10);
+  if(!Number.isFinite(n)) return;
+
+  /* Jump by displayed position (1..N) */
+  if(n >= 1 && n <= ORDERED.length){
+    idx = n - 1;
+    render();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+});
+
+computeScore();
+render();
+</script>
 </body>
 </html>
