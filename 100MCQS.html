@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SQE1 FLK1: 100 Practice MCQs</title>
+<style>
+  :root {
+    --bg1: #f6f7fb;
+    --bg2: #f2f7ff;
+    --card: rgba(255,255,255,0.62);
+    --cardSolid: #ffffff;
+    --ink: #0f172a;
+    --muted: rgba(15, 23, 42, 0.70);
+    --hairline: rgba(15, 23, 42, 0.12);
+    --shadow: 0 18px 48px rgba(15, 23, 42, 0.12);
+    --shadow2: 0 6px 18px rgba(15, 23, 42, 0.10);
+    --radius: 26px;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { height: 100%; }
+  body {
+    margin: 0;
+    color: var(--ink);
+    background:
+      radial-gradient(900px 600px at 18% 12%, rgba(186, 230, 253, 0.55), transparent 60%),
+      radial-gradient(900px 700px at 82% 18%, rgba(216, 180, 254, 0.45), transparent 60%),
+      radial-gradient(900px 700px at 62% 86%, rgba(187, 247, 208, 0.45), transparent 60%),
+      linear-gradient(180deg, var(--bg1), var(--bg2));
+    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  }
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+    padding: 12px 12px 10px 12px;
+    background: rgba(246,247,251,0.85);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--hairline);
+  }
+
+  .topbar-inner {
+    width: min(980px, 100%);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .scorebox {
+    display: inline-flex;
+    gap: 10px;
+    align-items: center;
+    padding: 10px 12px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.70);
+    border: 1px solid var(--hairline);
+    box-shadow: var(--shadow2);
+    color: rgba(15, 23, 42, 0.85);
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    flex-wrap: wrap;
+  }
+
+  .actions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .btn {
+    height: 38px;
+    padding: 0 12px;
+    border-radius: 12px;
+    border: 1px solid var(--hairline);
+    background: rgba(255,255,255,0.70);
+    backdrop-filter: blur(10px);
+    box-shadow: var(--shadow2);
+    color: rgba(15, 23, 42, 0.85);
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .btn:active { transform: translateY(1px); }
+
+  .container {
+    width: min(980px, 100%);
+    margin: 0 auto;
+    padding: 18px 12px 70px 12px;
+  }
+
+  .qcard {
+    position: relative;
+    border-radius: var(--radius);
+    background: var(--card);
+    backdrop-filter: blur(18px);
+    box-shadow: var(--shadow);
+    border: 1px solid rgba(255,255,255,0.55);
+    overflow: hidden;
+    margin: 14px 0;
+  }
+
+  .qcard::before {
+    content: "";
+    position: absolute;
+    inset: -60px;
+    pointer-events: none;
+    background:
+      radial-gradient(520px 280px at 15% 20%, rgba(255, 255, 255, 0.65), transparent 60%),
+      radial-gradient(520px 280px at 85% 22%, rgba(255, 255, 255, 0.55), transparent 62%),
+      radial-gradient(520px 320px at 65% 92%, rgba(255, 255, 255, 0.50), transparent 62%);
+  }
+
+  .qinner {
+    position: relative;
+    padding: 20px 20px 18px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.60);
+    border: 1px solid var(--hairline);
+    box-shadow: var(--shadow2);
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .qid {
+    font-size: 12px;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .stem {
+    font-size: 17px;
+    line-height: 1.6;
+    color: rgba(15, 23, 42, 0.92);
+  }
+
+  .options { display: grid; gap: 10px; }
+
+  .opt {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    padding: 12px 12px;
+    border-radius: 14px;
+    border: 1px solid rgba(15, 23, 42, 0.14);
+    background: rgba(255,255,255,0.76);
+  }
+
+  .opt input { margin-top: 3px; }
+
+  .opt.correct {
+    border-color: rgba(5, 150, 105, 0.35);
+    background: rgba(236, 253, 245, 0.88);
+  }
+
+  .opt.wrong {
+    border-color: rgba(220, 38, 38, 0.30);
+    background: rgba(254, 242, 242, 0.88);
+  }
+
+  .controls {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .explain {
+    display: none;
+    background: var(--cardSolid);
+    border: 1px solid var(--hairline);
+    border-radius: 16px;
+    padding: 14px 14px;
+    box-shadow: var(--shadow2);
+  }
+
+  .explain .label {
+    font-size: 12px;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+
+  .explain .text {
+    font-size: 15px;
+    line-height: 1.55;
+  }
+
+  .explain .auth {
+    margin-top: 10px;
+    font-size: 13px;
+    color: rgba(15, 23, 42, 0.72);
+  }
+
+  .jump { display: inline-flex; gap: 8px; align-items: center; }
+  .jump input {
+    width: 92px;
+    height: 38px;
+    border-radius: 12px;
+    border: 1px solid var(--hairline);
+    background: rgba(255,255,255,0.80);
+    padding: 0 10px;
+    font-size: 14px;
+  }
+
+  @media (max-width: 768px) {
+    .qinner { padding: 16px 14px 14px 14px; }
+    .stem { font-size: 16px; }
+    .topbar-inner { flex-direction: column; align-items: flex-start; }
+    .actions { width: 100%; justify-content: space-between; flex-wrap: wrap; }
+  }
+</style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="topbar-inner">
+      <div class="scorebox" id="scoreBox">Correct 0 • Answered 0 • 100</div>
+      <div class="actions">
+        <div class="jump">
+          <input id="jumpInput" inputmode="numeric" pattern="[0-9]*" placeholder="Q #" aria-label="Jump to question number" />
+          <button class="btn" id="jumpBtn" type="button">Go</button>
+        </div>
+        <button class="btn" id="resetBtn" type="button">Reset</button>
+        <a class="btn" href="Index.html">Facts Deck</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container" id="container"></div>
+
+<script>
+  const MCQS = [{"id": 1, "topic": "Contract Law", "stem": "A shop displays a product in its window with a price tag. A customer demands it at that price, asserting acceptance of an offer.", "options": ["A binding contract exists because the display is an offer accepted by the customer.", "No contract because display is generally an invitation to treat; the customer makes the offer at the till.", "A contract exists because price tags are unilateral offers.", "A contract exists only if the shop refuses unreasonably."], "correct_idx": 1, "principle": "Displays of goods are generally invitations to treat; the customer makes the offer and the shop may accept or refuse.", "authority": "Fisher v Bell [1961] 1 QB 394; Pharmaceutical Society v Boots [1953] 1 QB 401"}, {"id": 2, "topic": "Contract Law", "stem": "An offer states: 'Acceptance must reach me by 5pm Friday.' The offeree posts an acceptance letter on Thursday, but it arrives Monday.", "options": ["A contract formed on posting under the postal rule.", "No contract because the offer required receipt by 5pm Friday.", "A contract formed when the letter arrived Monday.", "A contract formed when the offeror opened the letter."], "correct_idx": 1, "principle": "The postal rule is displaced where the offer makes receipt essential by clear terms.", "authority": "Holwell Securities v Hughes [1974] 1 WLR 155; Adams v Lindsell (1818) 1 B & Ald 681"}, {"id": 3, "topic": "Contract Law", "stem": "An offeree replies to an offer: 'I accept, but only if you include delivery for free.' The offeror remains silent.", "options": ["Acceptance is valid because the offeree said 'I accept'.", "No contract because the reply is a counter-offer that rejects the original offer.", "A contract exists because silence is acceptance.", "A contract exists because delivery is a minor term."], "correct_idx": 1, "principle": "An acceptance must mirror the offer; a variation is a counter-offer and rejects the original offer.", "authority": "Hyde v Wrench (1840) 3 Beav 334"}, {"id": 4, "topic": "Contract Law", "stem": "A debtor owes £10,000. The creditor agrees to accept £7,000 in full settlement. The debtor pays £7,000 on time. The creditor sues for the balance.", "options": ["The creditor is bound because the agreement was in writing.", "The creditor is not bound because part payment is not good consideration, subject to recognised exceptions.", "The creditor is bound because consideration is never needed for settlement.", "The creditor is estopped in all cases once part payment is made."], "correct_idx": 1, "principle": "Part payment of a debt is not good consideration for a promise to forgo the balance, absent fresh consideration or a recognised exception; promissory estoppel may operate in limited circumstances.", "authority": "Foakes v Beer (1884) 9 App Cas 605; Central London Property v High Trees [1947] KB 130"}, {"id": 5, "topic": "Contract Law", "stem": "A party signs a written contract containing an exclusion clause without reading it. There was no misrepresentation as to the document’s nature.", "options": ["The clause is not incorporated because it was not read.", "The clause is incorporated by signature, subject to limited exceptions.", "The clause is incorporated only if separately initialled.", "The clause is never incorporated if it excludes negligence."], "correct_idx": 1, "principle": "Signature generally incorporates contractual terms even if unread, subject to limited exceptions.", "authority": "L’Estrange v Graucob [1934] 2 KB 394"}, {"id": 6, "topic": "Contract Law", "stem": "A hotel places an exclusion notice behind the reception desk. The guest pays at reception and sees the notice only after paying.", "options": ["The term is incorporated because it is displayed on the premises.", "The term is not incorporated because notice was given after the contract was formed.", "The term is incorporated unless it is unreasonable under UCTA.", "The term is incorporated only if printed in large font."], "correct_idx": 1, "principle": "An exclusion clause must be brought to the customer’s attention before or at the time of contracting.", "authority": "Olley v Marlborough Court [1949] 1 KB 532"}, {"id": 7, "topic": "Contract Law", "stem": "A seller promises to repair a defect. The buyer continues to use the goods for months after learning of the defect and then seeks rescission for misrepresentation.", "options": ["Rescission is always available for misrepresentation.", "Rescission may be barred by affirmation, lapse of time, third-party rights, or impossibility of restitution.", "Rescission is available only for innocent misrepresentation.", "Rescission is barred only if a court order is required."], "correct_idx": 1, "principle": "Rescission is an equitable remedy and can be barred by affirmation, lapse of time, third-party rights, or inability to restore parties substantially to pre-contract position.", "authority": "Erlanger v New Sombrero Phosphate (1878) 3 App Cas 1218"}, {"id": 8, "topic": "Contract Law", "stem": "A party suffers loss and unreasonably refuses an available substitute transaction that would have reduced the loss. They claim full damages.", "options": ["They can recover full damages regardless of their conduct.", "They cannot recover losses that they could have reasonably avoided by mitigation.", "They must always accept the cheapest substitute available.", "Mitigation applies only in tort, not contract."], "correct_idx": 1, "principle": "Claimants must take reasonable steps to mitigate loss; avoidable losses are not recoverable.", "authority": "British Westinghouse v Underground Electric [1912] AC 673"}, {"id": 9, "topic": "Contract Law", "stem": "A builder’s performance is defective. The cost of cure is very high compared with the loss of amenity. The claimant seeks cost of cure damages.", "options": ["Cost of cure is always awarded if requested.", "Cost of cure may be refused where it is disproportionate; alternative measures may be used.", "Only nominal damages are available for defective performance.", "Cost of cure is available only in consumer contracts."], "correct_idx": 1, "principle": "Cost of cure damages are subject to reasonableness and proportionality.", "authority": "Ruxley Electronics v Forsyth [1996] AC 344"}, {"id": 10, "topic": "Contract Law", "stem": "A contract is frustrated by a supervening event. The claimant has paid £5,000 in advance. The defendant incurred £3,000 expenses before frustration.", "options": ["All money paid is automatically returned and expenses are ignored.", "The court may allow the defendant to retain some or all of the advance to cover expenses.", "The claimant can never recover sums paid on a frustrated contract.", "The claimant can recover expenses in addition to full repayment automatically."], "correct_idx": 1, "principle": "On frustration, sums paid may be recoverable, but the court has discretion to allow retention for expenses.", "authority": "Law Reform (Frustrated Contracts) Act 1943"}, {"id": 11, "topic": "Contract Law", "stem": "A guarantee is given orally and not recorded in writing. The creditor seeks to enforce it against the guarantor.", "options": ["Enforceable because oral contracts are generally valid.", "Unenforceable unless evidenced in writing and signed by the guarantor (or authorised agent).", "Enforceable only if there is consideration.", "Unenforceable only if it is a consumer guarantee."], "correct_idx": 1, "principle": "A guarantee must be evidenced in writing and signed to be enforceable.", "authority": "Statute of Frauds 1677, s.4"}, {"id": 12, "topic": "Contract Law", "stem": "A minor enters a contract for a non-essential luxury item. The seller sues for the price.", "options": ["The contract is always binding on a minor.", "The contract is generally voidable or unenforceable unless it is for necessaries or a beneficial contract of service.", "The contract is binding if the minor can pay.", "The seller can enforce because the minor benefited."], "correct_idx": 1, "principle": "Minors are bound for necessaries and certain beneficial contracts of service, but not generally for non-necessaries.", "authority": "Nash v Inman [1908] 2 KB 1"}, {"id": 13, "topic": "Contract Law", "stem": "A seller excludes liability for death caused by negligence in a business-to-business contract. The buyer later sues after a fatal accident.", "options": ["The exclusion is effective if clearly drafted.", "The exclusion is ineffective because liability for death or personal injury caused by negligence cannot be excluded.", "The exclusion is effective if the parties are experienced businesses.", "The exclusion is effective if the price reflected the risk."], "correct_idx": 1, "principle": "Liability for death or personal injury resulting from negligence cannot be excluded or restricted under UCTA.", "authority": "UCTA 1977, s.2(1)"}, {"id": 14, "topic": "Contract Law", "stem": "An offeror revokes an offer by sending an email, but the offeree does not read it until after they post an acceptance letter.", "options": ["Revocation is effective when sent.", "Revocation is effective when communicated to the offeree; acceptance by post may still be effective if revocation not communicated first.", "Revocation is always ineffective once an offer is made.", "Revocation is effective only if received by registered post."], "correct_idx": 1, "principle": "Revocation is effective only on communication; timing and method matter, and postal acceptance may form a contract if revocation was not communicated beforehand.", "authority": "Byrne v Van Tienhoven (1880) 5 CPD 344; Entores v Miles Far East [1955] 2 QB 327"}, {"id": 15, "topic": "Contract Law", "stem": "A buyer is a company purchasing goods for business use. The goods are defective. The buyer asserts rights under the Consumer Rights Act 2015.", "options": ["The CRA 2015 applies because any purchaser is a consumer.", "The Sale of Goods Act 1979 applies because the buyer is not a consumer.", "Both CRA 2015 and SGA 1979 apply concurrently.", "No implied terms apply in business contracts."], "correct_idx": 1, "principle": "The CRA 2015 applies to consumers; business purchases are governed by the Sale of Goods Act 1979 (subject to agreed terms and UCTA).", "authority": "SGA 1979; CRA 2015, s.2 (consumer definition)"}, {"id": 16, "topic": "Tort Law", "stem": "A claimant suffers a foreseeable minor injury, but an unknown vulnerability makes it severe. The defendant argues the severity was unforeseeable.", "options": ["Liability is limited to foreseeable severity.", "Defendant is liable for full extent once the type of harm is foreseeable.", "No liability because claimant was unusually vulnerable.", "Liability depends on claimant disclosure of vulnerability."], "correct_idx": 1, "principle": "Once the type of harm is foreseeable, the defendant is liable for the full extent of injury (thin skull rule).", "authority": "Smith v Leech Brain [1962] 2 QB 405"}, {"id": 17, "topic": "Tort Law", "stem": "A claimant seeks to impose a duty of care in a novel situation. Which test is applied?", "options": ["Foreseeability only.", "Foreseeability, proximity, and whether it is fair, just and reasonable.", "Proximity only.", "Strict liability for all foreseeable harm."], "correct_idx": 1, "principle": "In novel duty cases, the court applies the Caparo tripartite approach.", "authority": "Caparo Industries v Dickman [1990] 2 AC 605"}, {"id": 18, "topic": "Tort Law", "stem": "A defendant negligently spills oil into a harbour. A fire results from an unusual ignition. The defendant argues the fire was unforeseeable.", "options": ["Defendant liable for all direct consequences regardless of foreseeability.", "Defendant liable only for types of damage that were reasonably foreseeable.", "Defendant not liable unless intention to cause harm is proved.", "Defendant liable only if the claimant is a public authority."], "correct_idx": 1, "principle": "In negligence, a defendant is liable only for damage of a kind that was reasonably foreseeable.", "authority": "Overseas Tankship (Wagon Mound No 1) [1961] AC 388"}, {"id": 19, "topic": "Tort Law", "stem": "A claimant fails to wear a seatbelt and suffers worse injuries. Liability is established against the defendant.", "options": ["Damages are barred entirely.", "Damages may be reduced to reflect claimant’s contributory fault.", "Damages increase because defendant was negligent first.", "Contributory negligence applies only to property damage."], "correct_idx": 1, "principle": "Contributory negligence reduces damages where claimant’s fault contributed causally to the damage.", "authority": "Law Reform (Contributory Negligence) Act 1945"}, {"id": 20, "topic": "Tort Law", "stem": "A claimant knowingly and freely accepts a specific risk and is injured as a result.", "options": ["Volenti never applies in negligence.", "Volenti can be a complete defence if genuine consent to the risk is proved.", "Volenti only reduces damages.", "Volenti applies only to trespass."], "correct_idx": 1, "principle": "Volenti is a complete defence where the claimant freely and fully consented to the risk.", "authority": "ICI v Shatwell [1965] AC 656"}, {"id": 21, "topic": "Tort Law", "stem": "A bystander suffers psychiatric injury after seeing a disaster on live television. They had no close ties to victims.", "options": ["Recoverable because psychiatric injury is foreseeable.", "Unlikely recoverable because secondary victims must satisfy control mechanisms including close ties and proximity.", "Always recoverable if medically recognised.", "Recoverable only if claimant was a rescuer."], "correct_idx": 1, "principle": "Secondary victims must satisfy control mechanisms including close ties, proximity, and direct perception.", "authority": "Alcock v Chief Constable of South Yorkshire [1992] 1 AC 310"}, {"id": 22, "topic": "Tort Law", "stem": "A claimant sues for public nuisance but suffered only the same inconvenience as the public at large.", "options": ["They can sue without more because public nuisance is strict liability.", "They need special damage beyond the public at large to sue privately.", "They can sue only if they are a public official.", "They can sue only if they own land."], "correct_idx": 1, "principle": "Private actions for public nuisance require special damage beyond that of the general public.", "authority": "AG v PYA Quarries [1957] 2 QB 169"}, {"id": 23, "topic": "Tort Law", "stem": "A visitor is injured by a defect caused by a competent independent contractor. The occupier had taken reasonable steps to select a competent contractor.", "options": ["Occupier always liable for contractor negligence.", "Occupier may avoid liability if it was reasonable to entrust the work and reasonable steps were taken to ensure competence and, where appropriate, inspection.", "Occupier not liable in all cases involving contractors.", "Occupier liable only if the contractor is uninsured."], "correct_idx": 1, "principle": "OLA 1957 s.2(4)(b) provides a defence where reasonable steps are taken regarding competent contractors.", "authority": "Occupiers’ Liability Act 1957, s.2(4)(b)"}, {"id": 24, "topic": "Tort Law", "stem": "A defendant claims a right to continue an otherwise actionable nuisance by long use.", "options": ["A right arises after 5 years.", "A right may arise after 20 years’ uninterrupted actionable nuisance as of right.", "A right arises only if granted by deed.", "A right arises only if the claimant consented."], "correct_idx": 1, "principle": "A prescriptive right to commit a nuisance can arise after 20 years’ actionable nuisance as of right.", "authority": "Sturges v Bridgman (1879) 11 Ch D 852"}, {"id": 25, "topic": "Tort Law", "stem": "A claimant seeks negligence damages for the cost of repairing a dangerously defective building, with no personal injury or property damage beyond the defect itself.", "options": ["Recoverable as property damage.", "Not generally recoverable in negligence as pure economic loss; remedy is typically contractual or statutory.", "Recoverable under Rylands v Fletcher.", "Recoverable if defendant is a public authority."], "correct_idx": 1, "principle": "Costs of repairing a defective product/building are generally pure economic loss and not recoverable in negligence absent a special relationship.", "authority": "Murphy v Brentwood DC [1991] 1 AC 398"}, {"id": 26, "topic": "Tort Law", "stem": "A consumer is injured by a defective product. The producer argues they exercised all reasonable care.", "options": ["Reasonable care is a complete defence under CPA.", "CPA imposes strict liability; reasonable care is not a defence to liability, though specific statutory defences exist.", "Claim must be brought only in contract.", "Producer is liable only if they knew of the defect."], "correct_idx": 1, "principle": "The CPA imposes strict liability for defective products, subject to statutory defences.", "authority": "Consumer Protection Act 1987, Part I"}, {"id": 27, "topic": "Tort Law", "stem": "An employee commits a tort closely connected to their employment. The claimant sues the employer.", "options": ["Employer never liable for intentional torts.", "Employer may be liable if the tort is closely connected with employment and it is fair and just to impose liability.", "Employer liable only if expressly authorised.", "Employer liable only if the employee is insured."], "correct_idx": 1, "principle": "The close connection test governs many vicarious liability cases.", "authority": "Lister v Hesley Hall [2002] 1 AC 215"}, {"id": 28, "topic": "Tort Law", "stem": "A claimant brings a defamation claim for a publication that caused only trivial harm.", "options": ["Claim succeeds because any harm is sufficient.", "Claim requires serious harm to reputation (and serious financial loss for bodies trading for profit).", "Claim succeeds only if malice is proved.", "Claim succeeds if the statement is offensive."], "correct_idx": 1, "principle": "Defamation requires serious harm to reputation under the statutory threshold.", "authority": "Defamation Act 2013, s.1"}, {"id": 29, "topic": "Tort Law", "stem": "A defendant brings a large quantity of a hazardous substance onto land; it escapes and causes damage.", "options": ["Strict liability requires intention.", "Strict liability may arise for escape of a dangerous thing from non-natural use, subject to defences.", "No liability unless negligence is proved.", "Liability arises only for personal injury."], "correct_idx": 1, "principle": "Rylands imposes strict liability for escape from non-natural use, subject to defences.", "authority": "Rylands v Fletcher (1868) LR 3 HL 330"}, {"id": 30, "topic": "Tort Law", "stem": "A claimant seeks bereavement damages after a death caused by negligence.", "options": ["Any close relative can claim bereavement damages.", "Only specified categories of claimants can claim bereavement damages.", "Bereavement damages are assessed individually by the court with no statutory limits.", "Bereavement damages include grief counselling expenses as a head of loss."], "correct_idx": 1, "principle": "Bereavement damages are limited to statutory categories of claimants.", "authority": "Fatal Accidents Act 1976, s.1A"}, {"id": 31, "topic": "Business Law", "stem": "A shareholder claims that company assets belong to them personally because they own all the shares.", "options": ["Correct because shareholders own company property.", "Incorrect because the company is a separate legal person and owns its own property.", "Correct only if the company is insolvent.", "Correct if the shareholder is a director."], "correct_idx": 1, "principle": "A company is a separate legal person distinct from its members and owns its property.", "authority": "Salomon v A Salomon & Co Ltd [1897] AC 22"}, {"id": 32, "topic": "Business Law", "stem": "A promoter signs a contract 'for and on behalf of' a company that has not yet been incorporated. The other party sues after the company refuses to perform.", "options": ["The company is liable because it later incorporated.", "The promoter is personally liable because the company cannot ratify a pre-incorporation contract.", "No one is liable because the contract is void.", "The company is liable only if it adopts the contract by board resolution."], "correct_idx": 1, "principle": "A person purporting to contract for a non-existent company is personally liable; the company cannot ratify a pre-incorporation contract.", "authority": "Companies Act 2006, s.51"}, {"id": 33, "topic": "Business Law", "stem": "A director enters a transaction where they have a personal interest, without disclosure.", "options": ["Permitted if the transaction benefits the company.", "Breach because directors must avoid conflicts and disclose interests in accordance with statutory duties.", "Not a breach if shareholders later learn about it.", "Only a breach if the company suffers loss."], "correct_idx": 1, "principle": "Directors must avoid conflicts of interest and comply with disclosure obligations under the statutory duty framework.", "authority": "Companies Act 2006, ss.175, 177"}, {"id": 34, "topic": "Business Law", "stem": "A company sells a substantial non-cash asset to a director at market value without shareholder approval. Statutory thresholds are met.", "options": ["Valid without approval if at market value.", "Approval is required; without it the transaction is voidable and statutory consequences follow.", "Approval is required only for purchases, not sales.", "Approval is never required for director transactions."], "correct_idx": 1, "principle": "Shareholder approval is required for substantial property transactions involving directors where thresholds are met.", "authority": "Companies Act 2006, ss.190–196"}, {"id": 35, "topic": "Business Law", "stem": "Two individuals run a business together and share profits, but one year they make a loss. One claims there is no partnership because there was a loss.", "options": ["Correct because a loss means there is no partnership.", "Incorrect; partnership exists where persons carry on business in common with a view to profit.", "Correct unless they have a written agreement.", "Incorrect only if they registered a partnership."], "correct_idx": 1, "principle": "A partnership exists where persons carry on a business in common with a view to profit; a loss does not negate the intention.", "authority": "Partnership Act 1890, s.1"}, {"id": 36, "topic": "Business Law", "stem": "A company grants a registrable charge but fails to register it. A liquidator later challenges it.", "options": ["Charge remains valid because the creditor had actual notice.", "The charge is void against a liquidator/administrator and creditors due to non-registration.", "The charge becomes valid once the debt is repaid.", "The charge is valid if recorded in the company’s minutes."], "correct_idx": 1, "principle": "A registrable charge that is not registered is void against a liquidator/administrator and creditors.", "authority": "Companies Act 2006, ss.859A–859Q"}, {"id": 37, "topic": "Business Law", "stem": "A charge over book debts permits the company to collect and freely use the proceeds in the ordinary course of business.", "options": ["This is likely a fixed charge.", "This is likely a floating charge because of the lack of control over proceeds.", "It is neither fixed nor floating and is void.", "It is fixed if the document labels it as fixed."], "correct_idx": 1, "principle": "Control over the asset and proceeds is central; if proceeds are freely used, the charge is likely floating.", "authority": "Re Spectrum Plus Ltd [2005] UKHL 41"}, {"id": 38, "topic": "Business Law", "stem": "Directors continue trading when there is no reasonable prospect of avoiding insolvent liquidation and do not take steps to minimise losses to creditors.", "options": ["No liability because directors can trade until liquidation begins.", "Potential liability for wrongful trading if statutory conditions are met.", "Liability only if there is fraud.", "Liability only for non-executive directors."], "correct_idx": 1, "principle": "Wrongful trading can impose personal liability where directors knew or ought to have concluded there was no reasonable prospect of avoiding insolvent liquidation and failed to take steps to minimise losses.", "authority": "Insolvency Act 1986, s.214"}, {"id": 39, "topic": "Business Law", "stem": "Before insolvency, a company pays one creditor in preference to others, motivated by a desire to prefer that creditor.", "options": ["This can be challenged as a preference within the relevant period, subject to statutory conditions.", "It can never be challenged if the debt was due.", "It is automatically void without court involvement.", "It is valid if approved by directors."], "correct_idx": 0, "principle": "Preferences may be set aside where statutory conditions are met, including desire to prefer and timing.", "authority": "Insolvency Act 1986, s.239"}, {"id": 40, "topic": "Business Law", "stem": "A company transfers an asset to an associate for significantly less than market value shortly before insolvency.", "options": ["Cannot be challenged if the company was solvent at the time.", "May be challenged as a transaction at undervalue within the statutory regime.", "Is automatically void without application.", "Is valid if there is board approval."], "correct_idx": 1, "principle": "Transactions at undervalue may be set aside under the statutory insolvency regime if conditions are met.", "authority": "Insolvency Act 1986, s.238"}, {"id": 41, "topic": "Business Law", "stem": "A minority shareholder succeeds in an unfair prejudice petition. What remedy is most common?", "options": ["Damages against directors personally.", "Order that the petitioner’s shares be purchased at a fair value.", "Immediate winding up in all cases.", "Removal of the majority shareholder with no compensation."], "correct_idx": 1, "principle": "The most common remedy is an order for purchase of the petitioner’s shares at a fair value.", "authority": "Companies Act 2006, s.996"}, {"id": 42, "topic": "Business Law", "stem": "A shareholder holds 30% of shares. The company proposes a special resolution.", "options": ["The shareholder can pass the resolution alone.", "The shareholder can usually block the resolution because a special resolution requires 75%.", "The shareholder cannot affect the resolution at all.", "The shareholder can appoint directors automatically."], "correct_idx": 1, "principle": "Special resolutions generally require a 75% majority, so a 30% holder can usually block.", "authority": "Companies Act 2006, s.21"}, {"id": 43, "topic": "Business Law", "stem": "Directors wish to pay a dividend but the company has no distributable profits.", "options": ["Permitted if shareholders approve.", "Not permitted because dividends can only be paid out of distributable profits.", "Permitted if the company is solvent.", "Permitted if the articles allow it."], "correct_idx": 1, "principle": "Dividends must be paid only out of profits available for distribution.", "authority": "Companies Act 2006, Part 23"}, {"id": 44, "topic": "Business Law", "stem": "A director wants to resign from a private company using the Model Articles. What is typically required?", "options": ["A special resolution of shareholders.", "Written notice to the company.", "Court approval.", "Acceptance by the board is always required."], "correct_idx": 1, "principle": "Under the Model Articles, a director may resign by giving notice in writing to the company.", "authority": "Model Articles (Private Companies)"}, {"id": 45, "topic": "Business Law", "stem": "At a general meeting, a vote is taken on a poll. How are votes counted?", "options": ["By headcount of members present.", "By number of shares (votes) held by those voting.", "By director recommendation.", "By the chair’s casting vote only."], "correct_idx": 1, "principle": "On a poll, voting is by shares and the required majority is determined by votes cast.", "authority": "Companies Act 2006; Model Articles"}, {"id": 46, "topic": "Dispute Resolution", "stem": "Which statement best reflects the overriding objective of the CPR?", "options": ["To ensure claimants always win meritorious cases.", "To enable the court to deal with cases justly and at proportionate cost.", "To minimise judicial involvement in case management.", "To prioritise speed over fairness in all circumstances."], "correct_idx": 1, "principle": "The overriding objective is dealing with cases justly and at proportionate cost; parties must help the court further it.", "authority": "CPR r.1.1–1.3"}, {"id": 47, "topic": "Dispute Resolution", "stem": "A claim is allocated to the small claims track. What is the general position on costs recovery?", "options": ["Full recovery of solicitor costs as standard.", "Costs recovery is limited to specific categories; general solicitor costs are not usually recoverable.", "Indemnity costs are automatic.", "Costs are never recoverable under any circumstances."], "correct_idx": 1, "principle": "Small claims costs are tightly limited.", "authority": "CPR Part 27"}, {"id": 48, "topic": "Dispute Resolution", "stem": "Parties want to agree an extension of time for serving a defence. What is permitted without court permission?", "options": ["Any extension agreed by the parties.", "One extension of up to 28 days.", "One extension of up to 56 days.", "No extension can be agreed at all."], "correct_idx": 1, "principle": "The parties may agree one extension of up to 28 days for a defence; further extension requires the court.", "authority": "CPR 15.5"}, {"id": 49, "topic": "Dispute Resolution", "stem": "A claimant serves the claim form on Monday. They want to serve particulars separately. When must particulars be served?", "options": ["Within 7 days of issue.", "Within 14 days after service of the claim form, and within the claim form validity period.", "Within 28 days after acknowledgement of service.", "Only at the directions questionnaire stage."], "correct_idx": 1, "principle": "Particulars may be served separately within 14 days after service of the claim form, within validity period.", "authority": "CPR 7.4; CPR 7.5"}, {"id": 50, "topic": "Dispute Resolution", "stem": "When is summary judgment available?", "options": ["Whenever the defendant disputes liability.", "Where the claimant or defendant has no real prospect of success and there is no other compelling reason for trial.", "Only after a full trial.", "Only in small claims."], "correct_idx": 1, "principle": "Summary judgment requires no real prospect of success and no other compelling reason for trial.", "authority": "CPR Part 24"}, {"id": 51, "topic": "Dispute Resolution", "stem": "Which is a ground for strike out?", "options": ["The claim is unpopular.", "No reasonable grounds, abuse of process, or failure to comply with rules or orders.", "The judge believes the defendant is credible.", "The claimant is unrepresented."], "correct_idx": 1, "principle": "Strike out can be ordered for no reasonable grounds, abuse, or non-compliance.", "authority": "CPR 3.4"}, {"id": 52, "topic": "Dispute Resolution", "stem": "A claimant accepts a defendant’s Part 36 offer after the relevant period. What is the usual costs consequence?", "options": ["Claimant gets all costs to trial.", "Claimant usually gets costs to expiry and pays defendant’s costs thereafter, unless unjust.", "Defendant pays all costs.", "No costs consequences attach to Part 36."], "correct_idx": 1, "principle": "Late acceptance usually shifts costs after expiry unless unjust.", "authority": "CPR 36.13"}, {"id": 53, "topic": "Dispute Resolution", "stem": "What is the effect of a genuine without prejudice settlement communication?", "options": ["It is always admissible at trial.", "It is privileged and generally inadmissible, subject to recognised exceptions.", "It is binding as a contract automatically.", "It must be disclosed on standard disclosure."], "correct_idx": 1, "principle": "Without prejudice communications are privileged and generally inadmissible.", "authority": "Rush & Tompkins v GLC [1989] AC 1280"}, {"id": 54, "topic": "Dispute Resolution", "stem": "Which factor is most relevant to track allocation?", "options": ["Interest claimed.", "Value and complexity of the claim, evidence, and trial length.", "The claimant’s preference only.", "The parties’ nationality."], "correct_idx": 1, "principle": "Allocation depends on value and complexity and related case management factors.", "authority": "CPR Part 26; PD 26"}, {"id": 55, "topic": "Dispute Resolution", "stem": "Which statement best describes limitation?", "options": ["It extinguishes the right in all cases.", "It is generally a procedural bar to the remedy, subject to statute.", "It applies only to criminal cases.", "It can always be extended by agreement."], "correct_idx": 1, "principle": "Limitation generally bars the remedy rather than extinguishing the right, subject to statutory scheme.", "authority": "Limitation Act 1980"}, {"id": 56, "topic": "Dispute Resolution", "stem": "A contract provides interest on late payment. The claimant sues for debt. How should interest usually be claimed?", "options": ["Under statutory interest only.", "Under the contractual interest term (and statutory interest only if applicable where no contractual term).", "Interest cannot be claimed in debt actions.", "Only as damages for inconvenience."], "correct_idx": 1, "principle": "Contractual interest should be claimed where it applies; statutory interest is a fallback where no contractual rate is pleaded or available.", "authority": "Senior Courts Act 1981 s.35A; County Courts Act 1984 s.69"}, {"id": 57, "topic": "Dispute Resolution", "stem": "What is the civil standard of proof?", "options": ["Beyond reasonable doubt.", "Balance of probabilities.", "Clear and convincing evidence.", "Proof to a moral certainty."], "correct_idx": 1, "principle": "Civil disputes are proved on the balance of probabilities.", "authority": "Re B (Children) [2008] UKHL 35"}, {"id": 58, "topic": "Dispute Resolution", "stem": "A party unreasonably refuses ADR. What is a potential consequence?", "options": ["Automatic strike out.", "Adverse costs consequences.", "Contempt of court.", "Criminal sanctions."], "correct_idx": 1, "principle": "Unreasonable refusal of ADR can lead to adverse costs consequences.", "authority": "Halsey v Milton Keynes NHS Trust [2004] 1 WLR 3002"}, {"id": 59, "topic": "Dispute Resolution", "stem": "When may a claimant obtain default judgment?", "options": ["If the defendant files a defence late by one day, automatically.", "Where the defendant has not filed an acknowledgement or defence within the relevant time limits (subject to rules).", "Only after allocation.", "Only with the defendant’s consent."], "correct_idx": 1, "principle": "Default judgment is available where no acknowledgement or defence is filed in time, subject to CPR requirements and exceptions.", "authority": "CPR Part 12"}, {"id": 60, "topic": "Dispute Resolution", "stem": "An appeal from a District Judge in the County Court generally lies to which judge?", "options": ["High Court Judge.", "Circuit Judge.", "Magistrates’ Court.", "Crown Court."], "correct_idx": 1, "principle": "Appeals from District Judges ordinarily lie to a Circuit Judge.", "authority": "CPR Part 52"}, {"id": 61, "topic": "Legal System", "stem": "A literal reading of a statute would create an absurd result. What approach permits modification to avoid absurdity?", "options": ["Literal rule.", "Golden rule.", "Purposive rule only.", "Ejusdem generis."], "correct_idx": 1, "principle": "The golden rule permits departure from literal meaning to avoid absurdity.", "authority": "Adler v George [1964] 2 QB 7 (illustrative)"}, {"id": 62, "topic": "Legal System", "stem": "Which approach focuses on the defect the statute was intended to remedy?", "options": ["Literal rule.", "Mischief rule.", "Nosciitur a sociis.", "Expressio unius."], "correct_idx": 1, "principle": "The mischief rule looks to the defect and construes the statute to suppress it and advance the remedy.", "authority": "Heydon’s Case (1584) 3 Co Rep 7a"}, {"id": 63, "topic": "Legal System", "stem": "If Parliament legislates comprehensively in an area previously governed by prerogative, what is the effect?", "options": ["Prerogative prevails over statute.", "Statute displaces prerogative to the extent of overlap.", "Prerogative and statute operate concurrently regardless of overlap.", "Courts cannot review the issue."], "correct_idx": 1, "principle": "Statute displaces prerogative to the extent it covers the field.", "authority": "AG v De Keyser’s Royal Hotel [1920] AC 508"}, {"id": 64, "topic": "Legal System", "stem": "When is the Court of Appeal generally bound by its own decisions?", "options": ["Never.", "Generally yes, subject to recognised exceptions.", "Only in criminal cases.", "Only if the Supreme Court approves."], "correct_idx": 1, "principle": "The Court of Appeal is generally bound by its own prior decisions, subject to exceptions.", "authority": "Young v Bristol Aeroplane [1944] KB 718"}, {"id": 65, "topic": "Legal System", "stem": "A person sues for defamation based on statements made in Parliament. What is the position?", "options": ["Defamation claim can proceed if malice is proved.", "Statements in parliamentary proceedings attract absolute privilege.", "Privilege applies only in the House of Lords.", "Privilege applies only to MPs, not witnesses."], "correct_idx": 1, "principle": "Statements made in parliamentary proceedings are protected by absolute privilege.", "authority": "Bill of Rights 1689, Art 9"}, {"id": 66, "topic": "Legal System", "stem": "What is the general time limit for filing a judicial review claim?", "options": ["Six years.", "Promptly and in any event within three months.", "Within 28 days.", "Within 12 months."], "correct_idx": 1, "principle": "Judicial review must be filed promptly and in any event within three months.", "authority": "CPR 54.5"}, {"id": 67, "topic": "Legal System", "stem": "What is the test for apparent bias?", "options": ["Whether the judge feels impartial.", "Fair-minded and informed observer: real possibility of bias.", "Any allegation of bias suffices.", "Bias must be proved beyond reasonable doubt."], "correct_idx": 1, "principle": "Apparent bias asks whether a fair-minded and informed observer would conclude there is a real possibility of bias.", "authority": "Porter v Magill [2002] 2 AC 357"}, {"id": 68, "topic": "Legal System", "stem": "Which ground of judicial review concerns a decision so unreasonable that no reasonable authority could have made it?", "options": ["Illegality.", "Irrationality (Wednesbury).", "Proportionality.", "Legitimate expectation."], "correct_idx": 1, "principle": "Wednesbury irrationality addresses extreme unreasonableness.", "authority": "Associated Provincial Picture Houses v Wednesbury [1948] 1 KB 223"}, {"id": 69, "topic": "Legal System", "stem": "Which statement is most consistent with orthodox parliamentary sovereignty?", "options": ["Parliament can make irrepealable statutes.", "Parliament cannot bind successor Parliaments; later statutes can repeal earlier ones.", "Courts can invalidate Acts of Parliament for unreasonableness.", "The executive can override statute via prerogative."], "correct_idx": 1, "principle": "Parliament cannot bind successor Parliaments; later statutes prevail under implied repeal (subject to constitutional nuance).", "authority": "Dicey (orthodox doctrine)"}, {"id": 70, "topic": "Legal System", "stem": "Which statement best describes retained EU law post-Brexit?", "options": ["All EU law ceased to apply immediately with no saving.", "Certain EU-derived law was retained in domestic law subject to amendment or repeal.", "Retained EU law is supreme over Acts of Parliament forever.", "Only EU regulations were retained, not directives."], "correct_idx": 1, "principle": "EU-derived law was retained through domestic legislation, subject to modification.", "authority": "European Union (Withdrawal) Act 2018"}, {"id": 71, "topic": "Legal Services (Professional Conduct)", "stem": "A solicitor gives a cost estimate which later becomes materially inaccurate. What should the solicitor do?", "options": ["Nothing until the bill is issued.", "Update the client promptly with revised costs information.", "Withdraw from the retainer automatically.", "Only update if the client asks."], "correct_idx": 1, "principle": "Solicitors should keep clients informed, including updating material changes to cost estimates so clients can make informed decisions.", "authority": "SRA Standards and Regulations (client information and service)"}, {"id": 72, "topic": "Legal Services (Professional Conduct)", "stem": "A solicitor holds confidential information from a former client that would help a current client. What is the correct approach?", "options": ["Disclose it to the current client to act in their best interests.", "Maintain confidentiality unless disclosure is permitted or required by law.", "Disclose it if the solicitor believes it is true.", "Disclose it if the former client is uncontactable."], "correct_idx": 1, "principle": "Confidentiality duties continue and generally prevent disclosure without lawful basis or consent.", "authority": "SRA Code of Conduct (Confidentiality); common law"}, {"id": 73, "topic": "Legal Services (Professional Conduct)", "stem": "A solicitor has a personal relationship with a proposed mediator and recommends that mediator without telling the client.", "options": ["Permitted if the mediator is competent.", "The solicitor should disclose the relationship and manage conflicts to protect independence and client interests.", "Permitted if the client does not ask about relationships.", "Required because it speeds up settlement."], "correct_idx": 1, "principle": "Material connections should be disclosed and conflicts managed to preserve independence and client best interests.", "authority": "SRA Code of Conduct (conflicts, independence)"}, {"id": 74, "topic": "Legal Services (Professional Conduct)", "stem": "Which statement best describes permissible witness preparation?", "options": ["Solicitors may coach witnesses to give consistent evidence.", "Solicitors may prepare witnesses, but must not influence the substance or encourage untruthful evidence.", "Solicitors must not meet witnesses before trial.", "Solicitors may draft the witness’s answers for them to memorise."], "correct_idx": 1, "principle": "Preparation is permitted, but coaching that alters substance or truthfulness is prohibited.", "authority": "SRA Code of Conduct (integrity; court duties)"}, {"id": 75, "topic": "Legal Services (Professional Conduct)", "stem": "A solicitor plans an unsolicited in-person approach to accident victims to offer services. What is the risk?", "options": ["No risk; solicitation is unrestricted.", "Risk of breaching rules on publicity and solicitation; communications must not be misleading or intrusive.", "Only a data protection issue.", "Only an issue if the victim complains."], "correct_idx": 1, "principle": "Solicitors must comply with conduct rules on publicity and avoid improper solicitation.", "authority": "SRA Code of Conduct (publicity and communications)"}, {"id": 76, "topic": "Legal Services (Professional Conduct)", "stem": "A property is purchased by a company. The director gives instructions and asks the solicitor to treat the director as the client. What is the correct position?", "options": ["The director is the client because they give instructions.", "The company is the client unless the solicitor also accepts a personal retainer.", "Both are automatically clients.", "The parent company is always the client."], "correct_idx": 1, "principle": "The client is the legal person retained (the company) unless the retainer extends to individuals.", "authority": "Separate legal personality; engagement principles"}, {"id": 77, "topic": "Legal Services (Professional Conduct)", "stem": "A solicitor knows a key authority is directly adverse to their client’s case. What is the correct approach?", "options": ["Ignore it if the other side might not find it.", "Draw it to the court’s attention where required by duties of candour and the administration of justice.", "Mention it only if asked by the judge.", "Only mention it in costs submissions."], "correct_idx": 1, "principle": "Solicitors have duties to the court and to uphold the administration of justice; concealment of adverse authority can breach professional duties.", "authority": "SRA Code of Conduct (court duties)"}, {"id": 78, "topic": "Legal Services (Professional Conduct)", "stem": "A third party funder instructs a solicitor to prioritise settlement to recover the funder’s money, contrary to the client’s instructions. What should the solicitor do?", "options": ["Follow the funder’s instructions.", "Act in the client’s best interests and maintain independence; manage third-party influence appropriately.", "Withdraw immediately in all cases.", "Disclose the client’s confidential information to the funder."], "correct_idx": 1, "principle": "Independence and client best interests require resisting improper third-party influence.", "authority": "SRA Principles; SRA Code of Conduct"}, {"id": 79, "topic": "Legal Services (Professional Conduct)", "stem": "A solicitor holds money on account for costs. Which is the safer baseline assumption for handling client money?", "options": ["Treat as office money immediately.", "Treat as client money unless and until properly transferred in accordance with rules and entitlement.", "Treat as the solicitor’s money once an invoice is drafted.", "Transfer to office account whenever convenient."], "correct_idx": 1, "principle": "Client money must be handled in accordance with the Accounts Rules and only transferred when properly due and documented.", "authority": "SRA Accounts Rules (client money)"}, {"id": 80, "topic": "Legal Services (Professional Conduct)", "stem": "A disabled client needs adjustments to access services. What is the solicitor’s general duty?", "options": ["No duty unless requested in writing.", "Make reasonable adjustments to avoid substantial disadvantage.", "Adjustments are optional and discretionary.", "Adjustments apply only to employers."], "correct_idx": 1, "principle": "Service providers and employers must make reasonable adjustments where required by statute.", "authority": "Equality Act 2010, ss.20–21"}, {"id": 81, "topic": "Legal Services (AML)", "stem": "A solicitor suspects money laundering during a transaction. What is the safest immediate step?", "options": ["Continue to avoid disrupting the client relationship.", "Make an internal/external report as required and avoid tipping off; do not proceed without appropriate authorisation where required.", "Tell the client about the suspicion to encourage candour.", "Refuse to act and return all funds immediately without further steps."], "correct_idx": 1, "principle": "Where there is knowledge or suspicion, reporting obligations apply and tipping off is prohibited; proceeding may require appropriate consent/authorisation.", "authority": "Proceeds of Crime Act 2002; Money Laundering Regulations 2017"}, {"id": 82, "topic": "Legal Services (AML)", "stem": "For standard CDD, which is the commonly used threshold for identifying a beneficial owner in a company?", "options": ["5% ownership.", "More than 25% ownership or control (subject to the risk-based approach and other control indicators).", "More than 50% ownership only.", "Any shareholder regardless of percentage."], "correct_idx": 1, "principle": "CDD requires identification and verification of beneficial owners, commonly those owning or controlling more than 25%.", "authority": "Money Laundering Regulations 2017"}, {"id": 83, "topic": "Legal Services (AML)", "stem": "In a firm, who typically submits the SAR to the NCA after an internal report?", "options": ["Any receptionist.", "The nominated officer (MLRO) or designated person.", "The client.", "The opposing solicitor."], "correct_idx": 1, "principle": "Internal reports are escalated to the nominated officer, who submits a SAR where appropriate.", "authority": "POCA 2002; SAR regime"}, {"id": 84, "topic": "Legal Services (AML)", "stem": "After a SAR is made and consent is refused, what is the effect during the moratorium period?", "options": ["Proceeding is always lawful immediately.", "Proceeding may risk an offence; the moratorium period restrains proceeding, subject to statutory timing rules.", "The transaction must proceed to avoid tipping off.", "Only the bank is restricted, not the solicitor."], "correct_idx": 1, "principle": "Where consent is refused, a moratorium period applies and proceeding may be restricted during that period.", "authority": "POCA 2002 (consent/moratorium provisions)"}, {"id": 85, "topic": "Legal Services (AML)", "stem": "When should CDD generally be completed?", "options": ["Only after funds are received.", "Before establishing a business relationship or carrying out an occasional transaction, subject to limited exceptions.", "Only at matter conclusion.", "Only if the client is overseas."], "correct_idx": 1, "principle": "CDD is generally required before establishing the relationship or executing the transaction, with limited exceptions under the regulations.", "authority": "Money Laundering Regulations 2017"}, {"id": 86, "topic": "Legal Services (AML)", "stem": "Which scenario most strongly indicates a need for enhanced due diligence?", "options": ["A low-value domestic matter.", "A high-risk third country connection or complex ownership structure with elevated risk factors.", "A matter with a long-standing client.", "A cash purchase of office supplies."], "correct_idx": 1, "principle": "EDD is required where higher risk factors are present, including certain high-risk country connections and complex structures.", "authority": "Money Laundering Regulations 2017"}, {"id": 87, "topic": "Legal Services (AML)", "stem": "Which is the best distinction?", "options": ["They are the same concept.", "Source of funds is the origin of the specific transaction monies; source of wealth concerns how the client acquired their overall wealth.", "Source of wealth refers only to salary.", "Source of funds refers only to borrowed funds."], "correct_idx": 1, "principle": "Source of funds is transaction-specific; source of wealth is the origin of the client’s overall wealth.", "authority": "Risk-based AML practice under MLR 2017"}, {"id": 88, "topic": "Legal Services (AML)", "stem": "A firm wants to rely on another regulated entity’s CDD. What is a key point?", "options": ["Reliance transfers all responsibility to the third party.", "The firm remains responsible and must ensure conditions for reliance are met and information is obtained promptly.", "Reliance is prohibited in all cases.", "Reliance is permitted only for domestic clients."], "correct_idx": 1, "principle": "Reliance can be used only under statutory conditions and responsibility remains with the relying firm.", "authority": "Money Laundering Regulations 2017"}, {"id": 89, "topic": "Legal Services (AML)", "stem": "A client is a politically exposed person. What is the general implication?", "options": ["No change, PEP status is irrelevant.", "Apply enhanced measures, including senior management approval and source of wealth/funds checks.", "Refuse to act in all cases.", "Only record the fact in the file with no further action."], "correct_idx": 1, "principle": "PEP status triggers enhanced measures under the regulations.", "authority": "Money Laundering Regulations 2017 (PEP provisions)"}, {"id": 90, "topic": "Legal Services (AML)", "stem": "Which is part of ongoing monitoring?", "options": ["No monitoring once CDD is completed.", "Scrutinising transactions and keeping documents up to date, including refreshing CDD where appropriate.", "Monitoring is only for banks.", "Monitoring applies only to clients resident overseas."], "correct_idx": 1, "principle": "Ongoing monitoring includes scrutiny of transactions and keeping CDD information up to date on a risk basis.", "authority": "Money Laundering Regulations 2017"}, {"id": 91, "topic": "Business Law (Tax)", "stem": "A VAT-registered business has input tax of £12,000 and output tax of £9,000 for the period. What is the position?", "options": ["Pay £3,000 to HMRC.", "Repayment position: reclaim £3,000 from HMRC.", "No VAT consequence.", "Pay £21,000 to HMRC."], "correct_idx": 1, "principle": "Where input tax exceeds output tax, the business is in a repayment position and may reclaim the difference.", "authority": "Value Added Tax Act 1994 (VAT accounting)"}, {"id": 92, "topic": "Business Law (Tax)", "stem": "A taxpayer has unused capital losses this year. How are they generally relieved?", "options": ["Carry forward against future gains.", "Carry back against future income tax.", "Carry forward the annual exempt amount.", "Convert to trading losses."], "correct_idx": 0, "principle": "Unused capital losses are carried forward to set against future chargeable gains (subject to statutory rules).", "authority": "TCGA 1992"}, {"id": 93, "topic": "Business Law (Tax)", "stem": "In a general partnership, who is taxed on trading profits?", "options": ["The partnership as a separate taxpayer.", "Each partner on their share of profits.", "The managing partner only.", "No one until profits are distributed."], "correct_idx": 1, "principle": "Partners are taxed individually on their share of partnership profits.", "authority": "UK income tax principles for partnerships"}, {"id": 94, "topic": "Business Law (Tax)", "stem": "A shareholder receives dividends above the dividend allowance. How are they taxed?", "options": ["As capital gains.", "At dividend tax rates according to the taxpayer’s band.", "As employment income subject to NIC.", "Not taxed because corporation tax has already been paid."], "correct_idx": 1, "principle": "Dividends above the allowance are taxed at dividend rates according to band; corporation tax does not eliminate shareholder income tax.", "authority": "Income tax rules on dividends"}, {"id": 95, "topic": "Business Law (Tax)", "stem": "Which statement best describes basic loss relief for a sole trader?", "options": ["Losses can never reduce tax.", "Losses can be relieved against other income of the same year or carried back, subject to statutory conditions.", "Losses can only be carried forward against dividends.", "Losses automatically create a tax refund in all cases."], "correct_idx": 1, "principle": "Trading loss relief is governed by statute and may be set against other income of the same year or carried back, subject to conditions.", "authority": "Income Tax Act 2007 (loss relief provisions)"}, {"id": 96, "topic": "Business Law (Tax)", "stem": "Which entity generally pays corporation tax on profits?", "options": ["Individuals.", "Companies.", "Partnerships.", "Charities in all cases."], "correct_idx": 1, "principle": "Companies are subject to corporation tax on profits under the statutory regime.", "authority": "CTA 2009/2010"}, {"id": 97, "topic": "Business Law (Tax)", "stem": "Which is a key requirement for Business Relief?", "options": ["Ownership for at least two years (subject to rules) and qualifying business property.", "Ownership for at least one month.", "Any investment asset qualifies automatically.", "Relief is automatic for all partnerships."], "correct_idx": 0, "principle": "Business Relief requires qualifying business property and minimum ownership periods; eligibility depends on asset type and business nature.", "authority": "Inheritance Tax Act 1984 (Business Relief provisions)"}, {"id": 98, "topic": "Business Law (Tax)", "stem": "Which is correct about VAT registration?", "options": ["It is always voluntary and never mandatory.", "Registration is required if taxable turnover exceeds the statutory threshold, with voluntary registration available in some cases.", "Registration is only for companies.", "Registration is required only for zero-rated businesses."], "correct_idx": 1, "principle": "VAT registration is mandatory above the threshold; voluntary registration may be available.", "authority": "Value Added Tax Act 1994"}, {"id": 99, "topic": "Business Law (Tax)", "stem": "Which statement is correct about the annual exempt amount for CGT?", "options": ["Unused annual exempt amount can usually be carried forward.", "Annual exempt amount is use-it-or-lose-it and cannot generally be carried forward.", "Annual exempt amount is refundable.", "Annual exempt amount applies only to companies."], "correct_idx": 1, "principle": "The annual exempt amount cannot generally be carried forward; unused amount is lost.", "authority": "TCGA 1992 (annual exempt amount framework)"}, {"id": 100, "topic": "Business Law (Tax)", "stem": "A director-shareholder takes funds from a company. Which is a key distinction for tax?", "options": ["Dividends are subject to NIC like salary.", "Salary is employment income and generally subject to PAYE and NIC; dividends are taxed under dividend rules and do not attract employee NIC.", "Dividends are not taxable.", "Salary is always tax-free up to any amount."], "correct_idx": 1, "principle": "Salary is employment income subject to PAYE/NIC; dividends are taxed under dividend rules and do not attract employee NIC.", "authority": "Income tax and NIC framework"}];
+
+  function shuffleArray(arr) {
+    for (let i = arr.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
+  }
+
+  // Randomize order on every page load
+  let ORDERED = shuffleArray(MCQS.slice());
+
+  const KEY = "sqe1_flk1_mcq_score_v1";
+      saveOrder(ORDERED);
+  }
+
+  const KEY = "sqe1_flk1_mcq_score_v1"; "sqe1_flk1_mcq_score_v1";
+
+  function loadState() {
+    try { return JSON.parse(localStorage.getItem(KEY) || "{}"); } catch(e) { return {}; }
+  }
+  function saveState(state) {
+    localStorage.setItem(KEY, JSON.stringify(state));
+  }
+  function computeTotals(state) {
+    let answered = 0;
+    let correct = 0;
+    for (const q of MCQS) {
+      const s = state[q.id];
+      if (s && typeof s.selected === "number") {
+        answered += 1;
+        if (s.selected === q.correct_idx) correct += 1;
+      }
+    }
+    return { answered, correct };
+  }
+
+  const container = document.getElementById("container");
+  const scoreBox = document.getElementById("scoreBox");
+  const jumpInput = document.getElementById("jumpInput");
+  const jumpBtn = document.getElementById("jumpBtn");
+  const resetBtn = document.getElementById("resetBtn");
+
+  let state = loadState();
+
+  function updateScore() {
+    const t = computeTotals(state);
+    scoreBox.textContent = `Correct ${t.correct} • Answered ${t.answered} • 100`;
+  }
+
+  function render() {
+    container.innerHTML = "";
+    ORDERED.forEach((q) => {
+      const card = document.createElement("section");
+      card.className = "qcard";
+      card.id = "q" + q.id;
+
+      const inner = document.createElement("div");
+      inner.className = "qinner";
+
+      const meta = document.createElement("div");
+      meta.className = "meta";
+
+      const badge = document.createElement("div");
+      badge.className = "badge";
+      badge.innerHTML = `&#9679; ${q.topic}`;
+
+      const qid = document.createElement("div");
+      qid.className = "qid";
+      qid.textContent = `Q${q.id} / 100`;
+
+      meta.appendChild(badge);
+      meta.appendChild(qid);
+
+      const stem = document.createElement("div");
+      stem.className = "stem";
+      stem.textContent = q.stem;
+
+      const options = document.createElement("div");
+      options.className = "options";
+
+      const explain = document.createElement("div");
+      explain.className = "explain";
+      explain.innerHTML = `
+        <div class="label">Principle</div>
+        <div class="text">${q.principle}</div>
+        <div class="auth"><strong>Authority:</strong> ${q.authority}</div>
+      `;
+
+      const controls = document.createElement("div");
+      controls.className = "controls";
+
+            // No submit button: selection locks and marks immediately
+
+      controls.appendChild(status);
+
+const saved = state[q.id];
+      let selected = saved && typeof saved.selected === "number" ? saved.selected : null;
+      let locked = saved && saved.locked === true;
+
+      q.options.forEach((optText, idx) => {
+        const label = document.createElement("label");
+        label.className = "opt";
+
+        const input = document.createElement("input");
+        input.type = "radio";
+        input.name = "q" + q.id;
+        input.value = String(idx);
+        input.disabled = locked;
+
+        if (selected === idx) input.checked = true;
+
+                input.addEventListener("change", () => {
+          selected = idx;
+          lockAndMark();
+        });
+
+        const span = document.createElement("div");
+        span.textContent = optText;
+
+        label.appendChild(input);
+        label.appendChild(span);
+        options.appendChild(label);
+      });
+
+      function applyMarking() {
+        const labels = options.querySelectorAll(".opt");
+        labels.forEach((lab, idx) => {
+          lab.classList.remove("correct", "wrong");
+          if (!locked) return;
+          if (idx === q.correct_idx) lab.classList.add("correct");
+          if (selected === idx && selected !== q.correct_idx) lab.classList.add("wrong");
+        });
+        explain.style.display = locked ? "block" : "none";
+        status.textContent = locked
+          ? (selected === q.correct_idx ? "Correct" : "Incorrect")
+          : (selected === null ? "Not answered" : "Selected");
+      }
+
+      function lockAndMark() {
+        if (locked) return;
+        if (selected === null) {
+          status.textContent = "Not answered";
+          return;
+        }
+        locked = true;
+        options.querySelectorAll("input[type=radio]").forEach(r => r.disabled = true);
+        state[q.id] = { selected: selected, locked: true };
+        saveState(state);
+        updateScore();
+        applyMarking();
+      }
+state[q.id] = { selected: selected, locked: true };
+        saveState(state);
+        updateScore();
+        applyMarking();
+      });
+
+      if (locked) {
+        options.querySelectorAll("input[type=radio]").forEach(r => r.disabled = true);
+      }
+      applyMarking();
+
+      inner.appendChild(meta);
+      inner.appendChild(stem);
+      inner.appendChild(options);
+      inner.appendChild(controls);
+      inner.appendChild(explain);
+
+      card.appendChild(inner);
+      container.appendChild(card);
+    });
+    updateScore();
+  }
+
+  jumpBtn.addEventListener("click", () => {
+    const n = parseInt((jumpInput.value || "").trim(), 10);
+    if (!Number.isFinite(n) || n < 1 || n > 100) return;
+    const el = document.getElementById("q" + n);
+    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+  });
+
+  resetBtn.addEventListener("click", () => {
+    localStorage.removeItem(KEY);
+    state = loadState();
+    ORDERED = shuffleArray(MCQS.slice());
+    render();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+    state = loadState();
+    resetOrder();
+    render();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+
+  render();
+</script>
+</body>
+</html>
