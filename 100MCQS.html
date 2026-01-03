@@ -3,28 +3,29 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SQE1 FLK1 – 100 Practice MCQs</title>
+<title>SQE1 FLK1 – Practice MCQs</title>
 
 <style>
 :root{
   --bg1:#f6f7fb;
   --bg2:#eef2ff;
   --ink:#0f172a;
-  --muted:rgba(15,23,42,.70);
-  --card:rgba(255,255,255,.76);
-  --white:#ffffff;
+  --muted:rgba(15,23,42,.7);
+  --card:rgba(255,255,255,.78);
+  --white:#fff;
   --ok:#059669;
   --bad:#dc2626;
   --hair:rgba(0,0,0,.12);
 }
 
 *{box-sizing:border-box}
+
 body{
   margin:0;
   font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;
   background:
-    radial-gradient(800px 500px at 20% 10%, rgba(186,230,253,.65), transparent 60%),
-    radial-gradient(800px 500px at 80% 20%, rgba(221,214,254,.60), transparent 60%),
+    radial-gradient(800px 500px at 20% 10%,#bae6fd,transparent 60%),
+    radial-gradient(800px 500px at 80% 20%,#ddd6fe,transparent 60%),
     linear-gradient(180deg,var(--bg1),var(--bg2));
   color:var(--ink);
 }
@@ -33,7 +34,7 @@ body{
   position:sticky;
   top:0;
   z-index:10;
-  background:rgba(246,247,251,.90);
+  background:rgba(246,247,251,.92);
   backdrop-filter:blur(10px);
   border-bottom:1px solid var(--hair);
   padding:10px;
@@ -43,66 +44,39 @@ body{
   max-width:980px;
   margin:0 auto;
   display:flex;
-  gap:10px;
   flex-wrap:wrap;
-  align-items:center;
+  gap:10px;
   justify-content:space-between;
+  align-items:center;
 }
 
 .score{
   font-size:12px;
   letter-spacing:.08em;
   text-transform:uppercase;
-  color:rgba(15,23,42,.85);
 }
 
 .actions{
   display:flex;
   gap:10px;
   flex-wrap:wrap;
-  align-items:center;
 }
 
-.btn, .btnlink{
+.btn{
   height:38px;
   padding:0 12px;
   border-radius:10px;
   border:1px solid var(--hair);
-  background:rgba(255,255,255,.90);
-  color:var(--ink);
+  background:#fff;
   font-size:12px;
   letter-spacing:.08em;
   text-transform:uppercase;
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  text-decoration:none;
-}
-
-.btn:disabled{
-  opacity:.45;
-}
-
-.jumpbox{
-  display:flex;
-  gap:8px;
-  align-items:center;
-}
-
-.jumpbox input{
-  width:90px;
-  height:38px;
-  border-radius:10px;
-  border:1px solid var(--hair);
-  background:rgba(255,255,255,.90);
-  padding:0 10px;
-  font-size:14px;
 }
 
 .container{
   max-width:980px;
   margin:0 auto;
-  padding:18px 12px 80px 12px;
+  padding:18px 12px 80px;
 }
 
 .card{
@@ -110,27 +84,19 @@ body{
   backdrop-filter:blur(16px);
   border-radius:22px;
   padding:18px;
-  border:1px solid rgba(255,255,255,.70);
+  border:1px solid rgba(255,255,255,.7);
   box-shadow:0 18px 48px rgba(15,23,42,.12);
 }
 
 .meta{
   display:flex;
   justify-content:space-between;
-  gap:10px;
   flex-wrap:wrap;
-  align-items:center;
+  gap:10px;
   margin-bottom:10px;
 }
 
-.badge{
-  font-size:11px;
-  letter-spacing:.10em;
-  text-transform:uppercase;
-  color:var(--muted);
-}
-
-.qpos{
+.badge,.qpos{
   font-size:11px;
   letter-spacing:.10em;
   text-transform:uppercase;
@@ -140,7 +106,7 @@ body{
 .stem{
   font-size:16px;
   line-height:1.55;
-  margin:10px 0 14px 0;
+  margin:12px 0 16px;
 }
 
 .option{
@@ -148,24 +114,21 @@ body{
   gap:10px;
   padding:12px;
   border-radius:12px;
-  background:var(--white);
-  border:1px solid rgba(0,0,0,.12);
+  background:#fff;
+  border:1px solid var(--hair);
   margin-bottom:10px;
-  align-items:flex-start;
 }
 
-.option input{
-  margin-top:3px;
-}
+.option input{margin-top:3px}
 
 .option.correct{
   background:#ecfdf5;
-  border-color:rgba(5,150,105,.40);
+  border-color:var(--ok);
 }
 
 .option.wrong{
   background:#fef2f2;
-  border-color:rgba(220,38,38,.35);
+  border-color:var(--bad);
 }
 
 .status{
@@ -173,16 +136,16 @@ body{
   font-size:12px;
   letter-spacing:.10em;
   text-transform:uppercase;
-  color:rgba(15,23,42,.70);
+  color:var(--muted);
 }
 
 .explain{
   display:none;
   margin-top:14px;
-  background:#ffffff;
+  background:#fff;
   border-radius:14px;
   padding:12px;
-  border:1px solid rgba(0,0,0,.12);
+  border:1px solid var(--hair);
 }
 
 .explain .label{
@@ -196,14 +159,8 @@ body{
 .navbar{
   margin-top:16px;
   display:flex;
-  gap:10px;
   justify-content:space-between;
-  flex-wrap:wrap;
-}
-
-@media (max-width:768px){
-  .topbar-inner{flex-direction:column; align-items:flex-start;}
-  .actions{width:100%; justify-content:space-between;}
+  gap:10px;
 }
 </style>
 </head>
@@ -213,15 +170,9 @@ body{
 <div class="topbar">
   <div class="topbar-inner">
     <div class="score" id="score">Correct 0 • Answered 0 • 100</div>
-
     <div class="actions">
-      <div class="jumpbox">
-        <input id="jumpInput" inputmode="numeric" pattern="[0-9]*" placeholder="Q #" aria-label="Jump to question number">
-        <button class="btn" id="jumpBtn" type="button">Go</button>
-      </div>
-
-      <button class="btn" id="resetBtn" type="button">Reset</button>
-      <a class="btnlink" href="index.html">Facts deck</a>
+      <a class="btn" href="index.html">Facts deck</a>
+      <button class="btn" id="resetBtn">Reset</button>
     </div>
   </div>
 </div>
@@ -231,218 +182,206 @@ body{
 </div>
 
 <script>
-/* =========================
-   1) DATA
-   Replace MCQS with your full 100 items.
-   correct is a zero-based index.
-   ========================= */
+/* ======================================================
+   1) QUESTION BANK
+   ====================================================== */
+
+/*
+IMPORTANT:
+- Replace the MCQS array below with your FULL 100 (or 200).
+- Structure MUST stay the same.
+*/
 
 const MCQS = [
   {
-    id: 1,
-    topic: "Contract Law",
-    stem: "A shop displays a product in its window with a price tag. A customer demands it at that price.",
-    options: [
+    id:1,
+    topic:"Contract Law",
+    stem:"A shop displays a product in its window with a price tag. A customer demands it at that price.",
+    options:[
       "The display is an offer which has been accepted.",
       "The display is an invitation to treat; the customer makes the offer.",
-      "A unilateral contract is formed by entering the shop.",
-      "A contract exists only if refusal is unreasonable."
+      "A unilateral contract is formed.",
+      "A contract exists if refusal is unreasonable."
     ],
-    correct: 1,
-    principle: "Displays of goods are generally invitations to treat. The customer makes the offer at the till.",
-    authority: "Fisher v Bell; Pharmaceutical Society v Boots"
+    correct:1,
+    principle:"Displays of goods are generally invitations to treat.",
+    authority:"Fisher v Bell; Pharmaceutical Society v Boots"
+  },
+  {
+    id:2,
+    topic:"Contract Law",
+    stem:"An offer requires acceptance to be received by Friday. The offeree posts acceptance on Thursday; it arrives Monday.",
+    options:[
+      "A contract forms on posting.",
+      "No contract forms because receipt was required.",
+      "A contract forms when read.",
+      "Postal rule always applies."
+    ],
+    correct:1,
+    principle:"The postal rule is displaced where receipt is expressly required.",
+    authority:"Holwell Securities v Hughes"
+  },
+  {
+    id:3,
+    topic:"Tort Law",
+    stem:"A claimant suffers severe injury due to an unknown vulnerability. The defendant argues the severity was unforeseeable.",
+    options:[
+      "Liability is limited to foreseeable severity.",
+      "Defendant is liable for full extent once type of harm foreseeable.",
+      "No liability due to vulnerability.",
+      "Liability depends on disclosure."
+    ],
+    correct:1,
+    principle:"The defendant takes the claimant as found.",
+    authority:"Smith v Leech Brain"
+  },
+  {
+    id:4,
+    topic:"Business Law",
+    stem:"A promoter contracts on behalf of a company before incorporation. The company later refuses to perform.",
+    options:[
+      "The company is bound.",
+      "The promoter is personally liable.",
+      "The contract is void.",
+      "The company can ratify later."
+    ],
+    correct:1,
+    principle:"A company cannot ratify pre-incorporation contracts.",
+    authority:"Companies Act 2006 s51"
   }
-  // Add questions 2–100 here
+  // ⬅️ PASTE YOUR REMAINING QUESTIONS HERE
 ];
 
-/* =========================
-   2) UTILITIES
-   ========================= */
+/* ======================================================
+   2) ENGINE
+   ====================================================== */
 
 function shuffle(arr){
-  for(let i = arr.length - 1; i > 0; i--){
-    const j = Math.floor(Math.random() * (i + 1));
-    const tmp = arr[i];
-    arr[i] = arr[j];
-    arr[j] = tmp;
+  for(let i=arr.length-1;i>0;i--){
+    const j=Math.floor(Math.random()*(i+1));
+    [arr[i],arr[j]]=[arr[j],arr[i]];
   }
   return arr;
 }
 
-/* Randomize on every load */
 let ORDERED = shuffle(MCQS.slice());
-
-/* State: selected option per question id */
-let answered = {};  // { [id]: selectedIndex }
-
-/* Current index into ORDERED */
+let answered = {};
 let idx = 0;
 
-const scoreEl = document.getElementById("score");
 const cardEl = document.getElementById("card");
+const scoreEl = document.getElementById("score");
 const resetBtn = document.getElementById("resetBtn");
-const jumpInput = document.getElementById("jumpInput");
-const jumpBtn = document.getElementById("jumpBtn");
 
-function computeScore(){
-  let a = 0;
-  let c = 0;
-  for(const q of ORDERED){
-    if(Object.prototype.hasOwnProperty.call(answered, q.id)){
-      a += 1;
-      if(answered[q.id] === q.correct) c += 1;
+function updateScore(){
+  let a=0,c=0;
+  ORDERED.forEach(q=>{
+    if(answered[q.id]!==undefined){
+      a++;
+      if(answered[q.id]===q.correct) c++;
     }
-  }
+  });
   scoreEl.textContent = `Correct ${c} • Answered ${a} • ${ORDERED.length}`;
 }
 
 function render(){
   const q = ORDERED[idx];
-
-  const isAnswered = Object.prototype.hasOwnProperty.call(answered, q.id);
-  const chosen = isAnswered ? answered[q.id] : null;
+  const isAnswered = answered[q.id]!==undefined;
+  const chosen = answered[q.id];
 
   cardEl.innerHTML = "";
 
-  const meta = document.createElement("div");
-  meta.className = "meta";
-
-  const badge = document.createElement("div");
-  badge.className = "badge";
-  badge.textContent = q.topic;
-
-  const qpos = document.createElement("div");
-  qpos.className = "qpos";
-  qpos.textContent = `Question ${idx + 1} of ${ORDERED.length} (ID ${q.id})`;
-
-  meta.appendChild(badge);
-  meta.appendChild(qpos);
-
-  const stem = document.createElement("div");
-  stem.className = "stem";
-  stem.textContent = q.stem;
-
+  const meta=document.createElement("div");
+  meta.className="meta";
+  meta.innerHTML = `
+    <div class="badge">${q.topic}</div>
+    <div class="qpos">Question ${idx+1} of ${ORDERED.length}</div>
+  `;
   cardEl.appendChild(meta);
+
+  const stem=document.createElement("div");
+  stem.className="stem";
+  stem.textContent=q.stem;
   cardEl.appendChild(stem);
 
-  const optionsWrap = document.createElement("div");
+  q.options.forEach((opt,i)=>{
+    const label=document.createElement("label");
+    label.className="option";
 
-  q.options.forEach((opt, optIdx) => {
-    const label = document.createElement("label");
-    label.className = "option";
+    const input=document.createElement("input");
+    input.type="radio";
+    input.name="q_"+q.id;
+    input.disabled=isAnswered;
 
-    const input = document.createElement("input");
-    input.type = "radio";
-    input.name = "q_" + q.id;
-    input.disabled = isAnswered;
+    if(chosen===i) input.checked=true;
 
-    if(chosen === optIdx){
-      input.checked = true;
-    }
-
-    input.addEventListener("change", () => {
-      if(Object.prototype.hasOwnProperty.call(answered, q.id)) return;
-      answered[q.id] = optIdx;
-      computeScore();
+    input.onchange=()=>{
+      if(isAnswered) return;
+      answered[q.id]=i;
+      updateScore();
       render();
-    });
-
-    const text = document.createElement("div");
-    text.textContent = opt;
+    };
 
     label.appendChild(input);
-    label.appendChild(text);
+    label.appendChild(document.createTextNode(opt));
 
     if(isAnswered){
-      if(optIdx === q.correct) label.classList.add("correct");
-      if(chosen === optIdx && chosen !== q.correct) label.classList.add("wrong");
+      if(i===q.correct) label.classList.add("correct");
+      if(i===chosen && i!==q.correct) label.classList.add("wrong");
     }
 
-    optionsWrap.appendChild(label);
+    cardEl.appendChild(label);
   });
 
-  cardEl.appendChild(optionsWrap);
-
-  const status = document.createElement("div");
-  status.className = "status";
-  if(!isAnswered){
-    status.textContent = "Select an option to answer";
-  } else {
-    status.textContent = (chosen === q.correct) ? "Correct" : "Incorrect";
-  }
+  const status=document.createElement("div");
+  status.className="status";
+  status.textContent = isAnswered
+    ? (chosen===q.correct?"Correct":"Incorrect")
+    : "Select an option to answer";
   cardEl.appendChild(status);
 
-  const explain = document.createElement("div");
-  explain.className = "explain";
   if(isAnswered){
-    explain.style.display = "block";
-    explain.innerHTML =
-      `<div class="label">Principle</div>` +
-      `<div>${q.principle}</div>` +
-      `<div style="height:10px"></div>` +
-      `<div class="label">Authority</div>` +
-      `<div>${q.authority}</div>`;
+    const exp=document.createElement("div");
+    exp.className="explain";
+    exp.style.display="block";
+    exp.innerHTML = `
+      <div class="label">Principle</div>
+      ${q.principle}
+      <br><br>
+      <div class="label">Authority</div>
+      ${q.authority}
+    `;
+    cardEl.appendChild(exp);
   }
-  cardEl.appendChild(explain);
 
-  const nav = document.createElement("div");
-  nav.className = "navbar";
+  const nav=document.createElement("div");
+  nav.className="navbar";
 
-  const prev = document.createElement("button");
-  prev.className = "btn";
-  prev.type = "button";
-  prev.textContent = "Previous";
-  prev.disabled = (idx === 0);
-  prev.addEventListener("click", () => {
-    if(idx > 0){
-      idx -= 1;
-      render();
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
-  });
+  const prev=document.createElement("button");
+  prev.className="btn";
+  prev.textContent="Previous";
+  prev.disabled = idx===0;
+  prev.onclick=()=>{idx--;render();};
 
-  const next = document.createElement("button");
-  next.className = "btn";
-  next.type = "button";
-  next.textContent = "Next";
-  next.disabled = (idx >= ORDERED.length - 1) || (!isAnswered);
-  next.addEventListener("click", () => {
-    if(idx < ORDERED.length - 1){
-      idx += 1;
-      render();
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
-  });
+  const next=document.createElement("button");
+  next.className="btn";
+  next.textContent="Next";
+  next.disabled = idx===ORDERED.length-1 || !isAnswered;
+  next.onclick=()=>{idx++;render();};
 
   nav.appendChild(prev);
   nav.appendChild(next);
-
   cardEl.appendChild(nav);
 }
 
-resetBtn.addEventListener("click", () => {
-  answered = {};
-  ORDERED = shuffle(MCQS.slice());
-  idx = 0;
-  computeScore();
+resetBtn.onclick=()=>{
+  answered={};
+  ORDERED=shuffle(MCQS.slice());
+  idx=0;
+  updateScore();
   render();
-  window.scrollTo({ top: 0, behavior: "smooth" });
-});
+};
 
-jumpBtn.addEventListener("click", () => {
-  const raw = (jumpInput.value || "").trim();
-  const n = parseInt(raw, 10);
-  if(!Number.isFinite(n)) return;
-
-  /* Jump by displayed position (1..N) */
-  if(n >= 1 && n <= ORDERED.length){
-    idx = n - 1;
-    render();
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  }
-});
-
-computeScore();
+updateScore();
 render();
 </script>
 </body>
