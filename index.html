@@ -1,0 +1,5969 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SQE1 FLK1 Pro Deck (200 Cards) - Static</title>
+<style>
+:root {
+    --bg1: #f6f7fb;
+    --bg2: #f2f7ff;
+    --card: rgba(255,255,255,0.72);
+    --cardSolid: #ffffff;
+    --ink: #0f172a;
+    --muted: rgba(15, 23, 42, 0.70);
+    --hairline: rgba(15, 23, 42, 0.10);
+    --shadow: 0 18px 48px rgba(15, 23, 42, 0.12);
+    --shadow2: 0 6px 18px rgba(15, 23, 42, 0.10);
+    --radius: 26px;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { height: 100%; }
+  body {
+    margin: 0;
+    color: var(--ink);
+    background:
+      radial-gradient(900px 600px at 18% 12%, rgba(186, 230, 253, 0.55), transparent 60%),
+      radial-gradient(900px 700px at 82% 18%, rgba(216, 180, 254, 0.45), transparent 60%),
+      radial-gradient(900px 700px at 62% 86%, rgba(187, 247, 208, 0.45), transparent 60%),
+      linear-gradient(180deg, var(--bg1), var(--bg2));
+    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  }
+
+  .scroll-container {
+    -webkit-overflow-scrolling: touch;
+    height: 100dvh;
+    overflow-y: auto;
+    scroll-snap-type: y mandatory;
+    padding: 28px 18px;
+  }
+
+  .card {
+    height: calc(100dvh - 56px);
+    min-height: 520px;
+    scroll-snap-align: start;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 18px;
+  }
+
+  
+  .card {
+    position: relative;
+    scroll-snap-align: center;
+  }
+
+  /* Per-card background so each swipe feels distinct */
+  .card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: var(--radius);
+    background:
+      radial-gradient(900px 600px at 20% 15%, rgba(186, 230, 253, 0.70), transparent 60%),
+      radial-gradient(900px 700px at 85% 20%, rgba(216, 180, 254, 0.55), transparent 62%),
+      radial-gradient(900px 700px at 65% 88%, rgba(187, 247, 208, 0.55), transparent 62%);
+    opacity: 1;
+    pointer-events: none;
+  }
+
+  .card:nth-child(6n+1)::before {
+    background:
+      radial-gradient(900px 600px at 18% 16%, rgba(186, 230, 253, 0.72), transparent 60%),
+      radial-gradient(900px 700px at 82% 20%, rgba(216, 180, 254, 0.52), transparent 62%),
+      radial-gradient(900px 700px at 62% 86%, rgba(187, 247, 208, 0.50), transparent 62%);
+  }
+  .card:nth-child(6n+2)::before {
+    background:
+      radial-gradient(900px 600px at 16% 14%, rgba(254, 202, 202, 0.62), transparent 60%),
+      radial-gradient(900px 700px at 86% 22%, rgba(199, 210, 254, 0.56), transparent 62%),
+      radial-gradient(900px 700px at 60% 88%, rgba(186, 230, 253, 0.52), transparent 62%);
+  }
+  .card:nth-child(6n+3)::before {
+    background:
+      radial-gradient(900px 600px at 18% 16%, rgba(187, 247, 208, 0.62), transparent 60%),
+      radial-gradient(900px 700px at 84% 18%, rgba(254, 215, 170, 0.56), transparent 62%),
+      radial-gradient(900px 700px at 64% 88%, rgba(216, 180, 254, 0.48), transparent 62%);
+  }
+  .card:nth-child(6n+4)::before {
+    background:
+      radial-gradient(900px 600px at 18% 16%, rgba(199, 210, 254, 0.62), transparent 60%),
+      radial-gradient(900px 700px at 82% 18%, rgba(253, 230, 138, 0.52), transparent 62%),
+      radial-gradient(900px 700px at 62% 88%, rgba(186, 230, 253, 0.48), transparent 62%);
+  }
+  .card:nth-child(6n+5)::before {
+    background:
+      radial-gradient(900px 600px at 18% 16%, rgba(216, 180, 254, 0.58), transparent 60%),
+      radial-gradient(900px 700px at 82% 18%, rgba(187, 247, 208, 0.54), transparent 62%),
+      radial-gradient(900px 700px at 62% 88%, rgba(254, 202, 202, 0.48), transparent 62%);
+  }
+  .card:nth-child(6n+6)::before {
+    background:
+      radial-gradient(900px 600px at 18% 16%, rgba(254, 215, 170, 0.60), transparent 60%),
+      radial-gradient(900px 700px at 82% 18%, rgba(186, 230, 253, 0.54), transparent 62%),
+      radial-gradient(900px 700px at 62% 88%, rgba(199, 210, 254, 0.48), transparent 62%);
+  }
+
+  .panel {
+    position: relative;
+    z-index: 1;
+  }
+
+.panel {
+    width: min(980px, 100%);
+    /* Do not force full height on mobile; desktop stays full height via .card sizing */
+    height: 100%;
+    border-radius: var(--radius);
+    background: rgba(255,255,255,0.62);
+    backdrop-filter: blur(18px);
+    box-shadow: var(--shadow);
+    border: 1px solid rgba(255,255,255,0.55);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .panel::before {
+    content: "";
+    position: absolute;
+    inset: -60px;
+    background:
+      radial-gradient(520px 280px at 15% 20%, rgba(255, 255, 255, 0.65), transparent 60%),
+      radial-gradient(520px 280px at 85% 22%, rgba(255, 255, 255, 0.55), transparent 62%),
+      radial-gradient(520px 320px at 65% 92%, rgba(255, 255, 255, 0.50), transparent 62%);
+    pointer-events: none;
+  }
+
+  .content {
+    position: relative;
+    height: 100%;
+    padding: 22px 22px 18px 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .toprow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.60);
+    border: 1px solid var(--hairline);
+    box-shadow: var(--shadow2);
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .tags {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .tag {
+    font-size: 12px;
+    padding: 8px 10px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.55);
+    border: 1px solid var(--hairline);
+    color: var(--muted);
+  }
+
+  h1 {
+    margin: 0;
+    font-size: clamp(24px, 3.2vw, 36px);
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+  }
+
+  .takeaway {
+    background: var(--cardSolid);
+    border: 1px solid var(--hairline);
+    border-radius: 16px;
+    padding: 14px 14px;
+    box-shadow: var(--shadow2);
+  }
+  .takeaway .label {
+    font-size: 12px;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 10px;
+  }
+  .takeaway .text {
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--ink);
+  }
+
+  .tip {
+    padding: 14px 16px;
+    border-radius: 16px;
+    border: 1px dashed rgba(15, 23, 42, 0.18);
+    background: rgba(255,255,255,0.35);
+    color: rgba(15, 23, 42, 0.80);
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .footer {
+    margin-top: auto;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    color: var(--muted);
+    font-size: 12px;
+    border-top: 1px solid var(--hairline);
+    padding-top: 12px;
+  }
+
+  .progress { letter-spacing: 0.08em; text-transform: uppercase; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .scroll-container {
+    -webkit-overflow-scrolling: touch; scroll-snap-type: none; }
+  }
+
+  /* Mobile patch: improve iOS/Android viewport handling and scroll-snap stability */
+  
+  
+  @media (max-width: 768px) {
+    .scroll-container {
+      height: 100dvh;
+      scroll-snap-type: y mandatory;
+      padding: 0;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .card {
+      height: auto;
+      min-height: calc(100dvh - env(safe-area-inset-top) - env(safe-area-inset-bottom));
+      padding: calc(12px + env(safe-area-inset-top)) 10px calc(12px + env(safe-area-inset-bottom)) 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      scroll-snap-align: center;
+    }
+
+    .panel {
+      height: auto;
+      background: rgba(255,255,255,0.72);
+      backdrop-filter: blur(12px);
+    }
+
+    .content {
+      padding: 18px 16px 14px 16px;
+      gap: 10px;
+    }
+
+    h1 {
+      font-size: 22px;
+    }
+
+    .takeaway {
+      padding: 12px 12px;
+    }
+
+    .takeaway .text {
+      font-size: 15px;
+    }
+  }
+.card {
+      height: auto;
+      min-height: 100dvh;
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .panel {
+      height: auto;
+      background: rgba(255,255,255,0.72);
+      backdrop-filter: blur(12px);
+    }
+
+    .content {
+      padding: 18px 16px 14px 16px;
+      gap: 10px;
+    }
+
+    h1 {
+      font-size: 22px;
+    }
+
+    .takeaway {
+      padding: 12px 12px;
+    }
+
+    .takeaway .text {
+      font-size: 15px;
+    }
+  }
+.card {
+      height: calc(100dvh - 24px);
+      min-height: auto;
+      padding: 10px;
+    }
+
+    .content {
+      padding: 18px 16px 14px 16px;
+      gap: 10px;
+    }
+
+    .panel {
+      backdrop-filter: none;
+      background: rgba(255,255,255,0.94);
+    }
+
+    h1 {
+      font-size: 22px;
+    }
+
+    .takeaway {
+      padding: 12px 12px;
+    }
+
+    .takeaway .text {
+      font-size: 15px;
+    }
+  }
+
+    .card {
+      height: calc(100dvh - 32px);
+      min-height: auto;
+      padding: 12px;
+    }
+
+    .content {
+      padding: 20px 18px 16px 18px;
+      gap: 14px;
+    }
+
+    .panel {
+      /* backdrop-filter can cause touch/scroll issues on some mobile browsers */
+      backdrop-filter: none;
+      background: rgba(255,255,255,0.92);
+    }
+
+    h1 {
+      font-size: 24px;
+    }
+
+    .takeaway .text {
+      font-size: 16px;
+    }
+  }
+  /* Improve anchor jumps within scroll-snap container */
+  .card { scroll-margin-block: 12vh; }
+  .card:target .panel { outline: 2px solid rgba(15, 23, 42, 0.22); }
+  .nav-fab {
+    position: fixed;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 9999;
+    width: 54px;
+    height: 54px;
+    border-radius: 999px;
+    border: 1px solid rgba(15, 23, 42, 0.18);
+    background: rgba(255,255,255,0.78);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 28px rgba(15, 23, 42, 0.16);
+    color: rgba(15, 23, 42, 0.85);
+    font-size: 14px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .nav-drawer {
+    position: fixed;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 9998;
+    width: min(320px, calc(100vw - 24px));
+    padding: 14px 14px 12px 14px;
+    border-radius: 18px;
+    border: 1px solid rgba(15, 23, 42, 0.14);
+    background: rgba(255,255,255,0.90);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 16px 42px rgba(15, 23, 42, 0.18);
+    opacity: 0;
+    pointer-events: none;
+    translate: 0 10px;
+    transition: opacity 140ms ease, translate 140ms ease;
+  }
+
+  .nav-drawer.open {
+    opacity: 1;
+    pointer-events: auto;
+    translate: 0 0;
+  }
+
+  .nav-title {
+    font-size: 13px;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    color: rgba(15, 23, 42, 0.70);
+    margin-bottom: 6px;
+  }
+
+  .nav-sub {
+    font-size: 13px;
+    line-height: 1.35;
+    color: rgba(15, 23, 42, 0.72);
+    margin-bottom: 10px;
+  }
+
+  .nav-row {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .nav-input {
+    flex: 1;
+    height: 42px;
+    border-radius: 12px;
+    border: 1px solid rgba(15, 23, 42, 0.18);
+    background: rgba(255,255,255,0.95);
+    padding: 0 12px;
+    font-size: 16px;
+    color: rgba(15, 23, 42, 0.90);
+    outline: none;
+  }
+
+  .nav-input:focus {
+    border-color: rgba(15, 23, 42, 0.30);
+  }
+
+  .nav-btn {
+    height: 42px;
+    padding: 0 14px;
+    border-radius: 12px;
+    border: 1px solid rgba(15, 23, 42, 0.18);
+    background: rgba(15, 23, 42, 0.06);
+    color: rgba(15, 23, 42, 0.85);
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .nav-hint {
+    margin-top: 10px;
+    font-size: 12px;
+    line-height: 1.35;
+    color: rgba(15, 23, 42, 0.60);
+  }
+
+  @media (max-width: 768px) {
+    .nav-fab {
+      top: auto;
+      bottom: calc(16px + env(safe-area-inset-bottom));
+      transform: none;
+    }
+    .nav-drawer {
+      top: auto;
+      bottom: calc(80px + env(safe-area-inset-bottom));
+      transform: none;
+    }
+  }
+
+</style>
+</head>
+<body>
+  <div class="scroll-container" id="deck">
+    
+    <div class="card" id="q1">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Contract Law</div>
+            <div class="tags"><div class="tag">SRA Sample Q1</div></div>
+          </div>
+
+          <h1>Q1: Battle of the Forms</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Where parties exchange standard terms, the contract is generally on the terms last sent and clearly accepted (for example by signature or express assent).</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: Butler Machine Tool Co Ltd v Ex-Cell-O Corp (England) Ltd [1979] 1 WLR 401</div>
+
+          <div class="footer">
+            <div class="progress">1 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="q2">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Business Law</div>
+            <div class="tags"><div class="tag">SRA Sample Q2</div></div>
+          </div>
+
+          <h1>Q2: Registration and priority of charges</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">A registrable company charge that is not registered is void against an administrator/liquidator and creditors; actual notice does not cure non-registration.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: Companies Act 2006, ss.859A–859Q</div>
+
+          <div class="footer">
+            <div class="progress">2 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="q3">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Dispute Resolution</div>
+            <div class="tags"><div class="tag">SRA Sample Q3</div></div>
+          </div>
+
+          <h1>Q3: Litigation privilege</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Third-party communications created for the dominant purpose of litigation (actual or reasonably contemplated) are protected by litigation privilege and may be withheld on disclosure.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: Three Rivers District Council v Bank of England (No 6) [2004] UKHL 48; CPR Part 31</div>
+
+          <div class="footer">
+            <div class="progress">3 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="q4">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Business Law</div>
+            <div class="tags"><div class="tag">SRA Sample Q4</div></div>
+          </div>
+
+          <h1>Q4: Pre-incorporation contracts</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">A person who purports to contract for a company before incorporation is personally liable; the company cannot ratify a pre-incorporation contract.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: Companies Act 2006, s.51</div>
+
+          <div class="footer">
+            <div class="progress">4 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="q5">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Legal System &amp; Services</div>
+            <div class="tags"><div class="tag">SRA Sample Q5</div></div>
+          </div>
+
+          <h1>Q5: Standing under HRA</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Proceedings under the Human Rights Act 1998 may generally be brought only by a ‘victim’; a third party without victim status ordinarily lacks standing.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: Human Rights Act 1998, s.7</div>
+
+          <div class="footer">
+            <div class="progress">5 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="q6">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Business Law</div>
+            <div class="tags"><div class="tag">SRA Sample Q6</div></div>
+          </div>
+
+          <h1>Q6: Substantial property transactions</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Shareholder approval is required for certain acquisitions/disposals of substantial non-cash assets involving a director or connected person where statutory thresholds are met.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: Companies Act 2006, ss.190–196</div>
+
+          <div class="footer">
+            <div class="progress">6 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="q7">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Contract Law</div>
+            <div class="tags"><div class="tag">SRA Sample Q7</div></div>
+          </div>
+
+          <h1>Q7: Cost of cure damages</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Where defects can reasonably be remedied and the claimant genuinely seeks cure, damages may be assessed by reasonable cost of cure, subject to proportionality.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: Ruxley Electronics v Forsyth [1996] AC 344</div>
+
+          <div class="footer">
+            <div class="progress">7 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="q8">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Dispute Resolution</div>
+            <div class="tags"><div class="tag">SRA Sample Q8</div></div>
+          </div>
+
+          <h1>Q8: Substitution after death</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Where a party dies after proceedings begin, the court may order substitution; limitation is typically assessed by reference to commencement of proceedings.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: CPR 19.8; Limitation Act 1980</div>
+
+          <div class="footer">
+            <div class="progress">8 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="q9">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Contract Law</div>
+            <div class="tags"><div class="tag">SRA Sample Q9</div></div>
+          </div>
+
+          <h1>Q9: Sufficiency not adequacy of consideration</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Consideration must be sufficient but need not be adequate; an executory promise to pay a price is sufficient consideration.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: Chappell v Nestlé [1960] AC 87; Currie v Misa (1875)</div>
+
+          <div class="footer">
+            <div class="progress">9 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="q10">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Dispute Resolution</div>
+            <div class="tags"><div class="tag">SRA Sample Q10</div></div>
+          </div>
+
+          <h1>Q10: Permission to appeal</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Permission to appeal may be granted by the court below or the appellate court, depending on route and rules.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: CPR Part 52</div>
+
+          <div class="footer">
+            <div class="progress">10 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="q11">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Tort Law</div>
+            <div class="tags"><div class="tag">SRA Sample Q11</div></div>
+          </div>
+
+          <h1>Q11: Public nuisance</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Public nuisance involves interference with a public right; a private claimant must show special damage beyond that suffered by the public at large.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: AG v PYA Quarries [1957] 2 QB 169</div>
+
+          <div class="footer">
+            <div class="progress">11 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="q12">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Business Law (Tax)</div>
+            <div class="tags"><div class="tag">SRA Sample Q12</div></div>
+          </div>
+
+          <h1>Q12: Partnership CGT apportionment</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Chargeable gains realised by a partnership are apportioned to partners in accordance with their agreed capital profit shares; partners are taxed individually.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: TCGA 1992; partnership principles</div>
+
+          <div class="footer">
+            <div class="progress">12 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="q13">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Business Law (Tax)</div>
+            <div class="tags"><div class="tag">SRA Sample Q13</div></div>
+          </div>
+
+          <h1>Q13: Trading loss relief vs gains</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Trading loss relief is governed by statutory rules on carry-back/carry-forward and the categories of profits against which losses may be set.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: CTA 2010 (loss relief provisions)</div>
+
+          <div class="footer">
+            <div class="progress">13 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="q14">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Business Law</div>
+            <div class="tags"><div class="tag">SRA Sample Q14</div></div>
+          </div>
+
+          <h1>Q14: Filing amended articles</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">A copy of amended articles and the resolution adopting them must be filed with the Registrar within the statutory time limit.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: Companies Act 2006, ss.26, 29, 30</div>
+
+          <div class="footer">
+            <div class="progress">14 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="q15">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Legal System</div>
+            <div class="tags"><div class="tag">SRA Sample Q15</div></div>
+          </div>
+
+          <h1>Q15: Golden rule</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Where the literal meaning produces an absurdity, the court may modify the meaning to avoid the absurd result (golden rule).</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: Adler v George [1964] 2 QB 7 (illustrative)</div>
+
+          <div class="footer">
+            <div class="progress">15 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="q16">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Legal System</div>
+            <div class="tags"><div class="tag">SRA Sample Q16</div></div>
+          </div>
+
+          <h1>Q16: Prerogative displaced by statute</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Where Parliament legislates in an area, the statute displaces the prerogative to the extent of overlap.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: AG v De Keyser’s Royal Hotel [1920] AC 508</div>
+
+          <div class="footer">
+            <div class="progress">16 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="q17">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Legal Services</div>
+            <div class="tags"><div class="tag">SRA Sample Q17</div></div>
+          </div>
+
+          <h1>Q17: Update cost estimate</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">If a prior costs estimate becomes materially inaccurate, the solicitor should update the client promptly to enable informed instructions.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: SRA Standards and Regulations (client information duties)</div>
+
+          <div class="footer">
+            <div class="progress">17 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="q18">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Legal System (Human Rights)</div>
+            <div class="tags"><div class="tag">SRA Sample Q18</div></div>
+          </div>
+
+          <h1>Q18: Absolute nature of Article 3</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Removal is prohibited where there is a real risk of treatment contrary to Article 3; Article 3 is absolute.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: ECHR Art 3; Chahal v UK (1996)</div>
+
+          <div class="footer">
+            <div class="progress">18 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="q19">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Legal Services (Financial Services)</div>
+            <div class="tags"><div class="tag">SRA Sample Q19</div></div>
+          </div>
+
+          <h1>Q19: FSMA regulated activity framework</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Whether advice constitutes a regulated activity depends on FSMA and the RAO; specific exclusions/exemptions may apply to professional firms in limited circumstances.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: FSMA 2000; RAO 2001; SRA Financial Services rules</div>
+
+          <div class="footer">
+            <div class="progress">19 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="q20">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Dispute Resolution</div>
+            <div class="tags"><div class="tag">SRA Sample Q20</div></div>
+          </div>
+
+          <h1>Q20: Burden and standard of proof (civil)</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">In civil claims, the claimant bears the burden of proof and must establish disputed facts on the balance of probabilities.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: Re B (Children) [2008] UKHL 35</div>
+
+          <div class="footer">
+            <div class="progress">20 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="q21">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Tort Law (Product)</div>
+            <div class="tags"><div class="tag">SRA Sample Q21</div></div>
+          </div>
+
+          <h1>Q21: CPA 1987 strict liability</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Under the Consumer Protection Act 1987, producers are strictly liable for damage caused by a defective product; foreseeability is not required.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: Consumer Protection Act 1987, Part I</div>
+
+          <div class="footer">
+            <div class="progress">21 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="q22">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Dispute Resolution (Costs)</div>
+            <div class="tags"><div class="tag">SRA Sample Q22</div></div>
+          </div>
+
+          <h1>Q22: CFA success fee not generally recoverable</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">A CFA success fee is generally payable by the client and is not usually recoverable inter partes in most civil cases.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: LASPO 2012; CFA regime</div>
+
+          <div class="footer">
+            <div class="progress">22 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="q23">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Legal System</div>
+            <div class="tags"><div class="tag">SRA Sample Q23</div></div>
+          </div>
+
+          <h1>Q23: CA bound by itself; JCPC persuasive</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">The Court of Appeal is generally bound by its own prior decisions (subject to exceptions); Privy Council decisions are persuasive only.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: Young v Bristol Aeroplane [1944] KB 718</div>
+
+          <div class="footer">
+            <div class="progress">23 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="q24">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Legal System (Public Order)</div>
+            <div class="tags"><div class="tag">SRA Sample Q24</div></div>
+          </div>
+
+          <h1>Q24: Police conditions on assemblies</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Police may impose conditions on public assemblies to prevent serious disorder, damage, disruption or intimidation, subject to statutory thresholds.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: Public Order Act 1986, ss.12–14</div>
+
+          <div class="footer">
+            <div class="progress">24 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="q25">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Business Law</div>
+            <div class="tags"><div class="tag">SRA Sample Q25</div></div>
+          </div>
+
+          <h1>Q25: Partnership definition</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">A partnership exists where persons carry on a business in common with a view to profit; a loss does not negate the ‘view to profit’.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: Partnership Act 1890, s.1</div>
+
+          <div class="footer">
+            <div class="progress">25 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="q26">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Business Law</div>
+            <div class="tags"><div class="tag">SRA Sample Q26</div></div>
+          </div>
+
+          <h1>Q26: Disposal of fixed-charge assets</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">A company cannot dispose of fixed-charge assets free of the charge without the chargeholder’s consent or release.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: Security principles</div>
+
+          <div class="footer">
+            <div class="progress">26 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="q27">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Contract Law</div>
+            <div class="tags"><div class="tag">SRA Sample Q27</div></div>
+          </div>
+
+          <h1>Q27: Cover purchase and expectation damages</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Where goods are rejected for breach and cover is bought reasonably, damages generally reflect the difference between contract price and cover price plus recoverable incidental losses, and deposits are repayable.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: Sale of Goods Act 1979; mitigation principles</div>
+
+          <div class="footer">
+            <div class="progress">27 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="q28">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Tort Law</div>
+            <div class="tags"><div class="tag">SRA Sample Q28</div></div>
+          </div>
+
+          <h1>Q28: Close connection test</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Vicarious liability applies where the tort is so closely connected with employment that it is fair and just to impose liability, including some intentional acts.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: Lister v Hesley Hall [2002] 1 AC 215</div>
+
+          <div class="footer">
+            <div class="progress">28 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="q29">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Legal Services (AML)</div>
+            <div class="tags"><div class="tag">SRA Sample Q29</div></div>
+          </div>
+
+          <h1>Q29: Do not proceed without consent</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">After reporting suspicion, the solicitor must not proceed with the transaction without the appropriate consent/authorisation and must avoid tipping-off.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: POCA 2002; Money Laundering Regulations 2017</div>
+
+          <div class="footer">
+            <div class="progress">29 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="q30">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Contract Law</div>
+            <div class="tags"><div class="tag">SRA Sample Q30</div></div>
+          </div>
+
+          <h1>Q30: Bars to rescission</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Rescission for misrepresentation may be barred by affirmation, lapse of time, third-party rights, or impossibility of restitutio in integrum.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: Erlanger v New Sombrero Phosphate (1878)</div>
+
+          <div class="footer">
+            <div class="progress">30 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="q31">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Legal Services (Equality)</div>
+            <div class="tags"><div class="tag">SRA Sample Q31</div></div>
+          </div>
+
+          <h1>Q31: Reasonable adjustments</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Employers must take reasonable steps to avoid a disabled person being placed at a substantial disadvantage.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: Equality Act 2010, ss.20–21</div>
+
+          <div class="footer">
+            <div class="progress">31 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="q32">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Legal Services (AML)</div>
+            <div class="tags"><div class="tag">SRA Sample Q32</div></div>
+          </div>
+
+          <h1>Q32: Beneficial owner threshold</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">CDD generally requires identification and verification of beneficial owners, commonly those owning or controlling more than 25% (subject to the risk-based approach).</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: Money Laundering Regulations 2017</div>
+
+          <div class="footer">
+            <div class="progress">32 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="q33">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Dispute Resolution (Costs)</div>
+            <div class="tags"><div class="tag">SRA Sample Q33</div></div>
+          </div>
+
+          <h1>Q33: Small claims costs limits</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">On the small claims track, costs recovery is limited and standard basis costs orders are generally unavailable.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: CPR Part 27</div>
+
+          <div class="footer">
+            <div class="progress">33 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="q34">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Contract Law</div>
+            <div class="tags"><div class="tag">SRA Sample Q34</div></div>
+          </div>
+
+          <h1>Q34: Duty to mitigate</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">A claimant must take reasonable steps to mitigate loss; avoidable losses are not recoverable.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: British Westinghouse [1912] AC 673</div>
+
+          <div class="footer">
+            <div class="progress">34 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="q35">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Legal Services (Ethics)</div>
+            <div class="tags"><div class="tag">SRA Sample Q35</div></div>
+          </div>
+
+          <h1>Q35: Disclosure of relevant connection</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">A solicitor should disclose any relevant personal connection in a referral and ensure independence and best interests are maintained.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: SRA Code of Conduct (conflicts/referrals)</div>
+
+          <div class="footer">
+            <div class="progress">35 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="q36">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Legal System</div>
+            <div class="tags"><div class="tag">SRA Sample Q36</div></div>
+          </div>
+
+          <h1>Q36: Apparent bias</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Apparent bias is assessed by whether a fair-minded and informed observer would conclude there is a real possibility of bias.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: Porter v Magill [2002] 2 AC 357</div>
+
+          <div class="footer">
+            <div class="progress">36 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="q37">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Legal Services</div>
+            <div class="tags"><div class="tag">SRA Sample Q37</div></div>
+          </div>
+
+          <h1>Q37: Confidentiality constrains disclosure</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">A solicitor must keep confidential information obtained from others unless disclosure is permitted or required by law; this may prevent disclosure to a client.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: SRA Code of Conduct (confidentiality)</div>
+
+          <div class="footer">
+            <div class="progress">37 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="q38">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Tort Law</div>
+            <div class="tags"><div class="tag">SRA Sample Q38</div></div>
+          </div>
+
+          <h1>Q38: Contributory negligence</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Damages are reduced where the claimant’s lack of reasonable care contributed causally to the damage.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: Law Reform (Contributory Negligence) Act 1945</div>
+
+          <div class="footer">
+            <div class="progress">38 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="q39">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Legal Services (Financial Services)</div>
+            <div class="tags"><div class="tag">SRA Sample Q39</div></div>
+          </div>
+
+          <h1>Q39: Generic vs specific advice</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Generic explanations may be outside regulated advice; advising on a specific investment decision can be a regulated activity unless an exemption applies.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: FSMA 2000; RAO 2001</div>
+
+          <div class="footer">
+            <div class="progress">39 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="q40">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Legal System</div>
+            <div class="tags"><div class="tag">SRA Sample Q40</div></div>
+          </div>
+
+          <h1>Q40: Parliament Acts and Royal Assent</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Under the Parliament Acts procedure, Commons approval and statutory conditions permit Royal Assent without Lords consent.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: Parliament Acts 1911 and 1949</div>
+
+          <div class="footer">
+            <div class="progress">40 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="q41">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Tort Law</div>
+            <div class="tags"><div class="tag">SRA Sample Q41</div></div>
+          </div>
+
+          <h1>Q41: Secondary victim psychiatric harm</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Secondary victims must satisfy control mechanisms (close ties, proximity, direct perception, foreseeability) to recover for psychiatric harm.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: Alcock [1992] 1 AC 310</div>
+
+          <div class="footer">
+            <div class="progress">41 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="q42">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Dispute Resolution</div>
+            <div class="tags"><div class="tag">SRA Sample Q42</div></div>
+          </div>
+
+          <h1>Q42: Overriding objective proportionality</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Parties must help the court deal with cases justly and at proportionate cost; disproportionate steps are inconsistent with the overriding objective.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: CPR r.1.1–1.3</div>
+
+          <div class="footer">
+            <div class="progress">42 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="q43">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Contract Law</div>
+            <div class="tags"><div class="tag">SRA Sample Q43</div></div>
+          </div>
+
+          <h1>Q43: Part payment of debt</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Part payment of a debt is not good consideration for a promise to discharge the balance absent fresh consideration or an established exception.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: Foakes v Beer (1884)</div>
+
+          <div class="footer">
+            <div class="progress">43 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="q44">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Tort Law</div>
+            <div class="tags"><div class="tag">SRA Sample Q44</div></div>
+          </div>
+
+          <h1>Q44: Eggshell skull</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">A defendant takes the claimant as found; unforeseeability of extent of injury does not negate liability once the type of harm is foreseeable.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: Smith v Leech Brain [1962] 2 QB 405</div>
+
+          <div class="footer">
+            <div class="progress">44 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="q45">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Business Law (Tax)</div>
+            <div class="tags"><div class="tag">SRA Sample Q45</div></div>
+          </div>
+
+          <h1>Q45: Dividend taxation</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Dividends above the dividend allowance are taxed at dividend rates according to the taxpayer’s band; company corporation tax does not satisfy the shareholder’s income tax liability.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: Dividend tax rules (UK)</div>
+
+          <div class="footer">
+            <div class="progress">45 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="q46">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Legal Services (Financial Services)</div>
+            <div class="tags"><div class="tag">SRA Sample Q46</div></div>
+          </div>
+
+          <h1>Q46: Professional firm exclusions</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">A solicitor may rely on a relevant exclusion (for example, introducing) and professional firm conditions to avoid breaching the FSMA general prohibition when making a referral.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: FSMA 2000 s.19; RAO 2001; SRA Financial Services rules</div>
+
+          <div class="footer">
+            <div class="progress">46 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="q47">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Contract Law</div>
+            <div class="tags"><div class="tag">SRA Sample Q47</div></div>
+          </div>
+
+          <h1>Q47: Notice after contracting ineffective</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">An exclusion clause must be communicated before or at contracting; notice given after contract formation is ineffective absent prior course of dealing.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: Olley [1949] 1 KB 532; Thornton [1971] 2 QB 163</div>
+
+          <div class="footer">
+            <div class="progress">47 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="q48">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Business Law (Insolvency)</div>
+            <div class="tags"><div class="tag">SRA Sample Q48</div></div>
+          </div>
+
+          <h1>Q48: Wrongful trading defence</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">The defence to wrongful trading is that the defendant took every step to minimise potential loss to creditors once insolvent liquidation was unavoidable.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: Insolvency Act 1986, s.214 (and LLP application)</div>
+
+          <div class="footer">
+            <div class="progress">48 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="q49">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Legal System</div>
+            <div class="tags"><div class="tag">SRA Sample Q49</div></div>
+          </div>
+
+          <h1>Q49: Mischief rule</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">The mischief rule looks to the defect in the common law and construes the statute to suppress the mischief and advance the remedy.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: Heydon’s Case (1584)</div>
+
+          <div class="footer">
+            <div class="progress">49 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="q50">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Tort Law</div>
+            <div class="tags"><div class="tag">SRA Sample Q50</div></div>
+          </div>
+
+          <h1>Q50: Caparo test in novel duty</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">For a novel duty, the court considers foreseeability, proximity, and whether it is fair, just and reasonable to impose a duty.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: Caparo [1990] 2 AC 605</div>
+
+          <div class="footer">
+            <div class="progress">50 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="q51">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Dispute Resolution</div>
+            <div class="tags"><div class="tag">SRA Sample Q51</div></div>
+          </div>
+
+          <h1>Q51: High Court writ of control</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Where available, transferring a qualifying judgment to the High Court for enforcement by writ of control can be effective against a business debtor’s assets.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: CPR Part 83; enforcement framework</div>
+
+          <div class="footer">
+            <div class="progress">51 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="q52">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Legal Services (AML)</div>
+            <div class="tags"><div class="tag">SRA Sample Q52</div></div>
+          </div>
+
+          <h1>Q52: SAR to NCA</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">The nominated officer must report suspected money laundering by making a SAR to the National Crime Agency.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: POCA 2002; SAR regime</div>
+
+          <div class="footer">
+            <div class="progress">52 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="q53">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Legal Services</div>
+            <div class="tags"><div class="tag">SRA Sample Q53</div></div>
+          </div>
+
+          <h1>Q53: Company is the client</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Where a company purchases property, the solicitor’s client is the company, not the parent or directors personally, absent a personal retainer.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: Separate legal personality; engagement principles</div>
+
+          <div class="footer">
+            <div class="progress">53 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="q54">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Business Law (Tax)</div>
+            <div class="tags"><div class="tag">SRA Sample Q54</div></div>
+          </div>
+
+          <h1>Q54: Taxation of partnership profits and other receipts</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">A partner is taxed on their share of partnership profits; separate disposals (for example, sale of a business) are taxed under the relevant regime.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: Income tax and CGT principles</div>
+
+          <div class="footer">
+            <div class="progress">54 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="q55">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Contract Law (Sale of Goods)</div>
+            <div class="tags"><div class="tag">SRA Sample Q55</div></div>
+          </div>
+
+          <h1>Q55: B2B: SGA 1979</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Where goods are bought for business use, implied terms are governed by the Sale of Goods Act 1979 rather than the CRA 2015.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: SGA 1979; CRA 2015 scope</div>
+
+          <div class="footer">
+            <div class="progress">55 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="q56">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Legal System (Human Rights)</div>
+            <div class="tags"><div class="tag">SRA Sample Q56</div></div>
+          </div>
+
+          <h1>Q56: Article 11 is qualified</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Article 11 is a qualified right and may be restricted where prescribed by law and necessary in a democratic society, including for national security.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: ECHR Art 11(2)</div>
+
+          <div class="footer">
+            <div class="progress">56 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="q57">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Dispute Resolution</div>
+            <div class="tags"><div class="tag">SRA Sample Q57</div></div>
+          </div>
+
+          <h1>Q57: Appeal from District Judge</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">An appeal from a District Judge in the County Court generally lies to a Circuit Judge.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: CPR Part 52</div>
+
+          <div class="footer">
+            <div class="progress">57 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="q58">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Tort Law</div>
+            <div class="tags"><div class="tag">SRA Sample Q58</div></div>
+          </div>
+
+          <h1>Q58: Occupiers and contractors</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">An occupier may avoid liability for contractors’ negligence if it was reasonable to entrust to competent contractors and reasonable steps were taken to ensure competence and, where appropriate, inspection.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: OLA 1957, s.2(4)(b)</div>
+
+          <div class="footer">
+            <div class="progress">58 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="q59">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Legal Services (Equality)</div>
+            <div class="tags"><div class="tag">SRA Sample Q59</div></div>
+          </div>
+
+          <h1>Q59: Victimisation</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Subjecting a person to detriment because they did a protected act (for example, giving evidence) is victimisation.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: Equality Act 2010, s.27</div>
+
+          <div class="footer">
+            <div class="progress">59 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="q60">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Business Law (Tax)</div>
+            <div class="tags"><div class="tag">SRA Sample Q60</div></div>
+          </div>
+
+          <h1>Q60: Business Relief conditions</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Business Relief depends on qualifying business property and minimum ownership period; some assets associated with a business may qualify at different rates or not at all.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: IHTA 1984 (BR provisions)</div>
+
+          <div class="footer">
+            <div class="progress">60 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="q61">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Contract Law</div>
+            <div class="tags"><div class="tag">SRA Sample Q61</div></div>
+          </div>
+
+          <h1>Q61: Privity of contract</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">A third party generally cannot enforce contractual rights unless within a statutory exception.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: Contracts (Rights of Third Parties) Act 1999</div>
+
+          <div class="footer">
+            <div class="progress">61 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="q62">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Dispute Resolution</div>
+            <div class="tags"><div class="tag">SRA Sample Q62</div></div>
+          </div>
+
+          <h1>Q62: ADR and independence</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">A party may reasonably refuse ADR where the proposed mediator lacks independence or neutrality, relevant to whether refusal is reasonable.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: Halsey [2004] 1 WLR 3002</div>
+
+          <div class="footer">
+            <div class="progress">62 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="q63">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Legal System (JR)</div>
+            <div class="tags"><div class="tag">SRA Sample Q63</div></div>
+          </div>
+
+          <h1>Q63: Wednesbury irrationality</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">A decision may be challenged as irrational if it is so unreasonable that no reasonable authority could have made it.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: Wednesbury [1948] 1 KB 223</div>
+
+          <div class="footer">
+            <div class="progress">63 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="q64">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Dispute Resolution (Costs)</div>
+            <div class="tags"><div class="tag">SRA Sample Q64</div></div>
+          </div>
+
+          <h1>Q64: DBA deduction</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Under a DBA, the solicitor may deduct the agreed percentage from damages (subject to caps); treatment of costs recovered from the opponent follows the DBA rules.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: DBA Regulations 2013</div>
+
+          <div class="footer">
+            <div class="progress">64 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="q65">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Tort Law</div>
+            <div class="tags"><div class="tag">SRA Sample Q65</div></div>
+          </div>
+
+          <h1>Q65: Bereavement damages limited</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Bereavement damages are available only to limited statutory categories of claimants.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: Fatal Accidents Act 1976, s.1A</div>
+
+          <div class="footer">
+            <div class="progress">65 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="q66">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Business Law (Tax)</div>
+            <div class="tags"><div class="tag">SRA Sample Q66</div></div>
+          </div>
+
+          <h1>Q66: Capital losses carry forward</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Unused capital losses are carried forward to set against future gains; the annual exempt amount cannot usually be carried forward.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: TCGA 1992</div>
+
+          <div class="footer">
+            <div class="progress">66 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="q67">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Dispute Resolution</div>
+            <div class="tags"><div class="tag">SRA Sample Q67</div></div>
+          </div>
+
+          <h1>Q67: Late acceptance of Part 36</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Acceptance after the relevant period usually results in claimant’s costs to expiry and defendant’s costs thereafter, unless unjust.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: CPR 36.13</div>
+
+          <div class="footer">
+            <div class="progress">67 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="q68">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Contract Law</div>
+            <div class="tags"><div class="tag">SRA Sample Q68</div></div>
+          </div>
+
+          <h1>Q68: Non-excludable implied term: title</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">The implied term as to title (right to sell) cannot be excluded or restricted.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: SGA 1979, s.12</div>
+
+          <div class="footer">
+            <div class="progress">68 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="q69">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Tort Law</div>
+            <div class="tags"><div class="tag">SRA Sample Q69</div></div>
+          </div>
+
+          <h1>Q69: Consequential vs pure economic loss</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Consequential economic loss flowing from property damage may be recoverable, but pure economic loss is generally not.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: Spartan Steel [1973] QB 27</div>
+
+          <div class="footer">
+            <div class="progress">69 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="q70">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Legal System</div>
+            <div class="tags"><div class="tag">SRA Sample Q70</div></div>
+          </div>
+
+          <h1>Q70: Royal Assent date in citation</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">The date shown in the Act’s citation is typically the date of Royal Assent; commencement may be later and is specified separately.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: UK legislative practice</div>
+
+          <div class="footer">
+            <div class="progress">70 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="q71">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Legal Services</div>
+            <div class="tags"><div class="tag">SRA Sample Q71</div></div>
+          </div>
+
+          <h1>Q71: Regulation and supervision</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Regulatory obligations may apply through the authorised firm and supervisory arrangements; the precise scope depends on role and rules.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: Legal Services Act 2007; SRA rules</div>
+
+          <div class="footer">
+            <div class="progress">71 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="q72">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Business Law (Tax)</div>
+            <div class="tags"><div class="tag">SRA Sample Q72</div></div>
+          </div>
+
+          <h1>Q72: VAT repayment</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Where input tax exceeds output tax, the business may reclaim the difference from HMRC.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: VAT accounting principles</div>
+
+          <div class="footer">
+            <div class="progress">72 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="q73">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Legal Services (AML)</div>
+            <div class="tags"><div class="tag">SRA Sample Q73</div></div>
+          </div>
+
+          <h1>Q73: Consent/moratorium timing</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">After refusal of consent, the moratorium period applies; once the moratorium expires without further action, proceeding may be permitted (subject to correct computation).</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: POCA 2002 (consent/moratorium)</div>
+
+          <div class="footer">
+            <div class="progress">73 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="q74">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Tort Law</div>
+            <div class="tags"><div class="tag">SRA Sample Q74</div></div>
+          </div>
+
+          <h1>Q74: Repair costs as pure economic loss</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Costs of repairing a defective product are typically pure economic loss and not recoverable in negligence; remedies lie in contract/statute.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: Murphy v Brentwood [1991] 1 AC 398</div>
+
+          <div class="footer">
+            <div class="progress">74 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="q75">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Dispute Resolution</div>
+            <div class="tags"><div class="tag">SRA Sample Q75</div></div>
+          </div>
+
+          <h1>Q75: Claim contractual interest</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Where the contract specifies an interest rate for late payment, the claim should plead contractual interest (rather than default statutory interest).</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: SCA 1981 s.35A; CCA 1984 s.69 (where no contractual rate)</div>
+
+          <div class="footer">
+            <div class="progress">75 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="q76">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Legal Services (Ethics)</div>
+            <div class="tags"><div class="tag">SRA Sample Q76</div></div>
+          </div>
+
+          <h1>Q76: No witness coaching</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Witness preparation must not influence the substance of evidence; solicitors must not coach witnesses to give particular answers.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: SRA Code of Conduct (integrity; court duties)</div>
+
+          <div class="footer">
+            <div class="progress">76 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="q77">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Business Law (Insolvency)</div>
+            <div class="tags"><div class="tag">SRA Sample Q77</div></div>
+          </div>
+
+          <h1>Q77: Prescribed part</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">A prescribed part of net property subject to a floating charge is set aside for unsecured creditors (subject to statutory limits).</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: Insolvency Act 1986, s.176A</div>
+
+          <div class="footer">
+            <div class="progress">77 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="q78">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Contract Law</div>
+            <div class="tags"><div class="tag">SRA Sample Q78</div></div>
+          </div>
+
+          <h1>Q78: Minors: voidable contracts</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">A minor may avoid non-necessary, non-beneficial contracts; certain beneficial contracts of service and necessaries are binding.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: Nash v Inman [1908] 2 KB 1</div>
+
+          <div class="footer">
+            <div class="progress">78 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="q79">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Legal System (Devolution)</div>
+            <div class="tags"><div class="tag">SRA Sample Q79</div></div>
+          </div>
+
+          <h1>Q79: Devolved tax in Wales</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Land Transaction Tax is devolved to Senedd Cymru, so an MS is the appropriate elected representative.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: Government of Wales Act 2006</div>
+
+          <div class="footer">
+            <div class="progress">79 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="q80">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Legal Services</div>
+            <div class="tags"><div class="tag">SRA Sample Q80</div></div>
+          </div>
+
+          <h1>Q80: Police station legal advice</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">A detainee is generally entitled to free legal advice at the police station, subject to limited exceptions.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: PACE 1984; Codes of Practice</div>
+
+          <div class="footer">
+            <div class="progress">80 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="q81">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Tort Law</div>
+            <div class="tags"><div class="tag">SRA Sample Q81</div></div>
+          </div>
+
+          <h1>Q81: Prescription in nuisance</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">A right to commit a nuisance can be acquired by 20 years’ uninterrupted actionable nuisance as of right; timing turns on when the nuisance became actionable.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: Sturges v Bridgman (1879) 11 Ch D 852</div>
+
+          <div class="footer">
+            <div class="progress">81 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="q82">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Dispute Resolution</div>
+            <div class="tags"><div class="tag">SRA Sample Q82</div></div>
+          </div>
+
+          <h1>Q82: Max extension for defence by agreement</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Parties may agree one extension of up to 28 days for service of a defence; any further extension requires court permission.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: CPR 15.5</div>
+
+          <div class="footer">
+            <div class="progress">82 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="q83">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Business Law</div>
+            <div class="tags"><div class="tag">SRA Sample Q83</div></div>
+          </div>
+
+          <h1>Q83: Dividends: directors’ recommendation</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Shareholders cannot compel directors to recommend a dividend; members may declare dividends only if recommended (subject to articles).</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: Companies Act 2006; Model Articles</div>
+
+          <div class="footer">
+            <div class="progress">83 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="q84">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Contract Law</div>
+            <div class="tags"><div class="tag">SRA Sample Q84</div></div>
+          </div>
+
+          <h1>Q84: Signature incorporates terms</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Signing a contractual document generally incorporates its terms even if unread, subject to limited exceptions.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: L’Estrange v Graucob [1934] 2 KB 394</div>
+
+          <div class="footer">
+            <div class="progress">84 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="q85">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Legal System (JR)</div>
+            <div class="tags"><div class="tag">SRA Sample Q85</div></div>
+          </div>
+
+          <h1>Q85: Sufficient interest and arguable grounds</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">A directly affected person will usually have standing for judicial review, assuming an arguable ground of challenge.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: Senior Courts Act 1981, s.31(3)</div>
+
+          <div class="footer">
+            <div class="progress">85 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="q86">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Business Law</div>
+            <div class="tags"><div class="tag">SRA Sample Q86</div></div>
+          </div>
+
+          <h1>Q86: Blocking special resolution</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">A 30% shareholder can usually block special resolutions (75% threshold) but does not gain management rights absent provision in articles.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: Companies Act 2006, s.21</div>
+
+          <div class="footer">
+            <div class="progress">86 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="q87">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Legal System</div>
+            <div class="tags"><div class="tag">SRA Sample Q87</div></div>
+          </div>
+
+          <h1>Q87: Form of address: District Judge</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">A District Judge is addressed as ‘Judge’ in court.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: UK court practice</div>
+
+          <div class="footer">
+            <div class="progress">87 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="q88">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Contract Law</div>
+            <div class="tags"><div class="tag">SRA Sample Q88</div></div>
+          </div>
+
+          <h1>Q88: Common mistake: subject matter destroyed</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">If both parties share a fundamental mistake that the subject matter no longer exists at contracting, the contract is void for common mistake.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: Couturier v Hastie (1856); Great Peace [2002]</div>
+
+          <div class="footer">
+            <div class="progress">88 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="q89">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Legal System (JR)</div>
+            <div class="tags"><div class="tag">SRA Sample Q89</div></div>
+          </div>
+
+          <h1>Q89: JR time limits</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Judicial review must be filed promptly and in any event within three months; delay can justify refusal of permission.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: CPR 54.5</div>
+
+          <div class="footer">
+            <div class="progress">89 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="q90">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Tort Law (Product)</div>
+            <div class="tags"><div class="tag">SRA Sample Q90</div></div>
+          </div>
+
+          <h1>Q90: Importer liability under CPA</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Liability under the Consumer Protection Act can attach to producer and importer; suppliers may become liable if they cannot identify the producer/importer when required.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: CPA 1987, ss.2–4</div>
+
+          <div class="footer">
+            <div class="progress">90 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="q91">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Legal Services (Financial Services)</div>
+            <div class="tags"><div class="tag">SRA Sample Q91</div></div>
+          </div>
+
+          <h1>Q91: Course of business requirement</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Financial promotion restrictions apply to communications made in the course of business that invite or induce investment; private, casual communications may fall outside.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: FSMA 2000, s.21</div>
+
+          <div class="footer">
+            <div class="progress">91 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="q92">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Legal Services (Ethics)</div>
+            <div class="tags"><div class="tag">SRA Sample Q92</div></div>
+          </div>
+
+          <h1>Q92: Solicitation and approaches</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Solicitors must comply with conduct rules on publicity and solicitation; unsolicited approaches to non-clients are restricted and must not be misleading or intrusive.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: SRA Code of Conduct (publicity)</div>
+
+          <div class="footer">
+            <div class="progress">92 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="q93">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Business Law</div>
+            <div class="tags"><div class="tag">SRA Sample Q93</div></div>
+          </div>
+
+          <h1>Q93: Director resignation</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Under the Model Articles, a director may resign by giving written notice to the company (often effective immediately if stated).</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: Model Articles (Private Companies)</div>
+
+          <div class="footer">
+            <div class="progress">93 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="q94">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Dispute Resolution</div>
+            <div class="tags"><div class="tag">SRA Sample Q94</div></div>
+          </div>
+
+          <h1>Q94: Service of particulars</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Particulars of claim may be served within 14 days after service of the claim form, provided claim form is served within its validity period.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: CPR 7.4; CPR 7.5</div>
+
+          <div class="footer">
+            <div class="progress">94 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="q95">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Contract Law</div>
+            <div class="tags"><div class="tag">SRA Sample Q95</div></div>
+          </div>
+
+          <h1>Q95: Frustration and 1943 Act adjustments</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">On frustration, sums payable cease to be payable; the court may allow retention/recovery for expenses incurred before the frustrating event.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: Law Reform (Frustrated Contracts) Act 1943</div>
+
+          <div class="footer">
+            <div class="progress">95 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="q96">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Tort Law (Occupiers)</div>
+            <div class="tags"><div class="tag">SRA Sample Q96</div></div>
+          </div>
+
+          <h1>Q96: Common duty of care; exclusion limits</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Occupiers owe a duty to take reasonable care to keep visitors reasonably safe; exclusions for death/personal injury caused by negligence are restricted.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: OLA 1957; UCTA 1977</div>
+
+          <div class="footer">
+            <div class="progress">96 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="q97">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Legal System</div>
+            <div class="tags"><div class="tag">SRA Sample Q97</div></div>
+          </div>
+
+          <h1>Q97: No entrenchment</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Parliament cannot bind a future Parliament; legally entrenched statutes are not recognised in orthodox doctrine.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: Dicey; orthodox sovereignty</div>
+
+          <div class="footer">
+            <div class="progress">97 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="q98">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Dispute Resolution (Costs)</div>
+            <div class="tags"><div class="tag">SRA Sample Q98</div></div>
+          </div>
+
+          <h1>Q98: Success fee and ATE not generally recoverable</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Base costs and disbursements may be recoverable, but success fees and ATE premiums are generally not recoverable inter partes (save limited exceptions).</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: LASPO 2012</div>
+
+          <div class="footer">
+            <div class="progress">98 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="q99">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Business Law</div>
+            <div class="tags"><div class="tag">SRA Sample Q99</div></div>
+          </div>
+
+          <h1>Q99: Poll voting by shares</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">On a poll, votes are counted by shareholding; the resolution turns on the required majority of votes cast by those voting.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: Companies Act 2006; Model Articles</div>
+
+          <div class="footer">
+            <div class="progress">99 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="q100">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Dispute Resolution</div>
+            <div class="tags"><div class="tag">SRA Sample Q100</div></div>
+          </div>
+
+          <h1>Q100: Track allocation</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Allocation considers value, complexity, trial length, and evidence; interest and costs are not determinative.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: CPR Part 26</div>
+
+          <div class="footer">
+            <div class="progress">100 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="q101">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Tort Law</div>
+            <div class="tags"><div class="tag">SRA Sample Q101</div></div>
+          </div>
+
+          <h1>Q101: Estate recovery pre-death</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">The estate can recover losses suffered by the deceased up to death (including loss of earnings and loss of amenity), subject to the statutory framework.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: LR(MP)A 1934</div>
+
+          <div class="footer">
+            <div class="progress">101 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="q102">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Contract Law</div>
+            <div class="tags"><div class="tag">SRA Sample Q102</div></div>
+          </div>
+
+          <h1>Q102: Guarantee must be in writing</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">A guarantee is unenforceable unless evidenced in writing and signed by the guarantor.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: Statute of Frauds 1677, s.4</div>
+
+          <div class="footer">
+            <div class="progress">102 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="q103">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Legal System</div>
+            <div class="tags"><div class="tag">SRA Sample Q103</div></div>
+          </div>
+
+          <h1>Q103: Absolute privilege in Parliament</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Statements made in proceedings in Parliament (including select committees) are protected by absolute privilege.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: Bill of Rights 1689, Art 9</div>
+
+          <div class="footer">
+            <div class="progress">103 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="q104">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Legal Services (Conduct)</div>
+            <div class="tags"><div class="tag">SRA Sample Q104</div></div>
+          </div>
+
+          <h1>Q104: Do not waste court time</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Solicitors must uphold the administration of justice, including avoiding unnecessary delay and wasting court time; lateness caused by poor planning can breach duties.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: SRA Code of Conduct</div>
+
+          <div class="footer">
+            <div class="progress">104 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="q105">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Business Law</div>
+            <div class="tags"><div class="tag">SRA Sample Q105</div></div>
+          </div>
+
+          <h1>Q105: Unfair prejudice remedy</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">The most common remedy is an order requiring the majority or company to purchase the petitioner’s shares at a fair value.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: Companies Act 2006, s.996</div>
+
+          <div class="footer">
+            <div class="progress">105 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="q106">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Tort Law</div>
+            <div class="tags"><div class="tag">SRA Sample Q106</div></div>
+          </div>
+
+          <h1>Q106: PI limitation for minors</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">For personal injury, limitation is three years, but for minors time generally runs from their 18th birthday.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: Limitation Act 1980, ss.11, 28</div>
+
+          <div class="footer">
+            <div class="progress">106 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="q107">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Contract Law</div>
+            <div class="tags"><div class="tag">SRA Sample Q107</div></div>
+          </div>
+
+          <h1>Q107: Anticipatory breach where time is of the essence</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">If time is of the essence and the promisor indicates non-performance by the due date, the innocent party may terminate for anticipatory breach and claim damages immediately.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: Anticipatory breach doctrine; conditions</div>
+
+          <div class="footer">
+            <div class="progress">107 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="q108">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Legal Services</div>
+            <div class="tags"><div class="tag">SRA Sample Q108</div></div>
+          </div>
+
+          <h1>Q108: Reserved activities: probate/conveyancing</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Probate activities are reserved; certain conveyancing and land registration applications can also be reserved; drafting wills alone is not a reserved activity.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: Legal Services Act 2007, Sch 2</div>
+
+          <div class="footer">
+            <div class="progress">108 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="q109">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Legal System (Public Order)</div>
+            <div class="tags"><div class="tag">SRA Sample Q109</div></div>
+          </div>
+
+          <h1>Q109: Notice of procession</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Notice of a public procession must be given to police within statutory deadlines and with required information; non-compliance can arise from late notice or wrong addressee.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: Public Order Act 1986, s.11</div>
+
+          <div class="footer">
+            <div class="progress">109 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="q110">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Tort Law</div>
+            <div class="tags"><div class="tag">SRA Sample Q110</div></div>
+          </div>
+
+          <h1>Q110: Employer and co-worker liability</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">The injured worker may sue the negligent co-worker in negligence and the employer vicariously; direct employer duties may also arise depending on facts.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: Vicarious liability; employers’ duties</div>
+
+          <div class="footer">
+            <div class="progress">110 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="card111">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Contract Law</div>
+            <div class="tags"><div class="tag">Supplemental fact (non-question)</div></div>
+          </div>
+
+          <h1>Offer vs Invitation to Treat</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Advertisements and displays are usually invitations to treat; the customer makes the offer.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: Partridge v Crittenden [1968] 1 WLR 1204; Fisher v Bell [1961] 1 QB 394</div>
+
+          <div class="footer">
+            <div class="progress">111 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="card112">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Contract Law</div>
+            <div class="tags"><div class="tag">Supplemental fact (non-question)</div></div>
+          </div>
+
+          <h1>Postal rule scope</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Postal acceptance applies only where post is an authorised method; it does not apply to instantaneous communications.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: Adams v Lindsell (1818); Entores v Miles Far East [1955] 2 QB 327</div>
+
+          <div class="footer">
+            <div class="progress">112 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="card113">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Contract Law</div>
+            <div class="tags"><div class="tag">Supplemental fact (non-question)</div></div>
+          </div>
+
+          <h1>Acceptance must mirror offer</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Any variation to the offered terms is a counter-offer, not acceptance.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: Hyde v Wrench (1840)</div>
+
+          <div class="footer">
+            <div class="progress">113 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="card114">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Contract Law</div>
+            <div class="tags"><div class="tag">Supplemental fact (non-question)</div></div>
+          </div>
+
+          <h1>Revocation effective on communication</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Revocation of an offer is effective only when communicated to the offeree.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: Byrne v Van Tienhoven (1880)</div>
+
+          <div class="footer">
+            <div class="progress">114 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="card115">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Contract Law</div>
+            <div class="tags"><div class="tag">Supplemental fact (non-question)</div></div>
+          </div>
+
+          <h1>Practical benefit limits</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Practical benefit may support variation, but does not generally apply to part payment of a debt.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: Williams v Roffey [1991] 1 QB 1; Foakes v Beer (1884)</div>
+
+          <div class="footer">
+            <div class="progress">115 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="card116">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Contract Law</div>
+            <div class="tags"><div class="tag">Supplemental fact (non-question)</div></div>
+          </div>
+
+          <h1>Promissory estoppel shield only</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Promissory estoppel typically suspends rights and operates as a shield, not a sword.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: Central London Property v High Trees [1947] KB 130</div>
+
+          <div class="footer">
+            <div class="progress">116 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="card117">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Contract Law</div>
+            <div class="tags"><div class="tag">Supplemental fact (non-question)</div></div>
+          </div>
+
+          <h1>Duress and illegitimate pressure</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Economic duress requires illegitimate pressure causing lack of practical choice.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: Universe Tankships v ITWF [1983] 1 AC 366</div>
+
+          <div class="footer">
+            <div class="progress">117 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="card118">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Contract Law</div>
+            <div class="tags"><div class="tag">Supplemental fact (non-question)</div></div>
+          </div>
+
+          <h1>Misrepresentation remedies</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Rescission and damages depend on type of misrepresentation and statutory framework.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: Misrepresentation Act 1967</div>
+
+          <div class="footer">
+            <div class="progress">118 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="card119">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Contract Law</div>
+            <div class="tags"><div class="tag">Supplemental fact (non-question)</div></div>
+          </div>
+
+          <h1>Exclusion clauses: reasonableness</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Exclusion/limitation clauses are subject to reasonableness where UCTA applies.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: UCTA 1977, s.11</div>
+
+          <div class="footer">
+            <div class="progress">119 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="card120">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Contract Law</div>
+            <div class="tags"><div class="tag">Supplemental fact (non-question)</div></div>
+          </div>
+
+          <h1>Time of the essence</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">If time is not of the essence, delay is usually an innominate breach unless serious consequences follow.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: Hongkong Fir [1962] 2 QB 26</div>
+
+          <div class="footer">
+            <div class="progress">120 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="card121">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Tort Law</div>
+            <div class="tags"><div class="tag">Supplemental fact (non-question)</div></div>
+          </div>
+
+          <h1>Breach: magnitude of risk</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Breach considers likelihood and seriousness of harm and cost of precautions.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: Bolton v Stone [1951] AC 850</div>
+
+          <div class="footer">
+            <div class="progress">121 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="card122">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Tort Law</div>
+            <div class="tags"><div class="tag">Supplemental fact (non-question)</div></div>
+          </div>
+
+          <h1>Professional standard</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Professionals are judged by the Bolam standard (responsible body of opinion).</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: Bolam v Friern Hospital [1957] 1 WLR 582</div>
+
+          <div class="footer">
+            <div class="progress">122 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="card123">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Tort Law</div>
+            <div class="tags"><div class="tag">Supplemental fact (non-question)</div></div>
+          </div>
+
+          <h1>Novus actus interveniens</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">A new intervening act can break causation if it is independent and unforeseeable.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: Knightley v Johns [1982] 1 WLR 349</div>
+
+          <div class="footer">
+            <div class="progress">123 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="card124">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Tort Law</div>
+            <div class="tags"><div class="tag">Supplemental fact (non-question)</div></div>
+          </div>
+
+          <h1>Volenti</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Voluntary acceptance of risk can bar recovery where fully informed and freely agreed.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: ICI v Shatwell [1965] AC 656</div>
+
+          <div class="footer">
+            <div class="progress">124 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="card125">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Tort Law</div>
+            <div class="tags"><div class="tag">Supplemental fact (non-question)</div></div>
+          </div>
+
+          <h1>Illegality defence</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Illegality may bar claims depending on policy-based analysis.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: Patel v Mirza [2016] UKSC 42</div>
+
+          <div class="footer">
+            <div class="progress">125 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="card126">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Tort Law</div>
+            <div class="tags"><div class="tag">Supplemental fact (non-question)</div></div>
+          </div>
+
+          <h1>Rylands v Fletcher elements</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Strict liability for escape of a dangerous thing from non-natural use, subject to defences.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: Rylands v Fletcher (1868)</div>
+
+          <div class="footer">
+            <div class="progress">126 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="card127">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Tort Law</div>
+            <div class="tags"><div class="tag">Supplemental fact (non-question)</div></div>
+          </div>
+
+          <h1>Private nuisance: locality</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Reasonableness depends on locality and duration, but not mere sensitivity.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: Sturges v Bridgman (1879)</div>
+
+          <div class="footer">
+            <div class="progress">127 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="card128">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Tort Law</div>
+            <div class="tags"><div class="tag">Supplemental fact (non-question)</div></div>
+          </div>
+
+          <h1>Occupiers: non-visitors</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Duty to non-visitors is narrower and depends on awareness and reasonableness.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: OLA 1984</div>
+
+          <div class="footer">
+            <div class="progress">128 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="card129">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Tort Law</div>
+            <div class="tags"><div class="tag">Supplemental fact (non-question)</div></div>
+          </div>
+
+          <h1>Remoteness: thin skull</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Extent of harm need not be foreseeable once type is foreseeable.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: Smith v Leech Brain [1962] 2 QB 405</div>
+
+          <div class="footer">
+            <div class="progress">129 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="card130">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Tort Law</div>
+            <div class="tags"><div class="tag">Supplemental fact (non-question)</div></div>
+          </div>
+
+          <h1>Defamation: serious harm</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">A statement must cause or be likely to cause serious harm to reputation.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: Defamation Act 2013, s.1</div>
+
+          <div class="footer">
+            <div class="progress">130 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="card131">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Business Law</div>
+            <div class="tags"><div class="tag">Supplemental fact (non-question)</div></div>
+          </div>
+
+          <h1>Separate legal personality</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">A company is a separate legal person distinct from its members.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: Salomon v Salomon [1897] AC 22</div>
+
+          <div class="footer">
+            <div class="progress">131 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="card132">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Business Law</div>
+            <div class="tags"><div class="tag">Supplemental fact (non-question)</div></div>
+          </div>
+
+          <h1>Directors’ duties framework</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Directors owe statutory duties including promoting success and avoiding conflicts.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: Companies Act 2006, ss.171–177</div>
+
+          <div class="footer">
+            <div class="progress">132 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="card133">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Business Law</div>
+            <div class="tags"><div class="tag">Supplemental fact (non-question)</div></div>
+          </div>
+
+          <h1>Derivative claims gateway</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Shareholders may bring derivative claims subject to permission and statutory tests.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: Companies Act 2006, ss.260–264</div>
+
+          <div class="footer">
+            <div class="progress">133 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="card134">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Business Law</div>
+            <div class="tags"><div class="tag">Supplemental fact (non-question)</div></div>
+          </div>
+
+          <h1>Fixed vs floating charge</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Control over asset and ability to dispose distinguish fixed from floating charges.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: Re Spectrum Plus [2005] UKHL 41</div>
+
+          <div class="footer">
+            <div class="progress">134 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="card135">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Business Law</div>
+            <div class="tags"><div class="tag">Supplemental fact (non-question)</div></div>
+          </div>
+
+          <h1>Administration objectives</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Administration prioritises rescue, better result than liquidation, or realising property.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: Insolvency Act 1986, Sch B1</div>
+
+          <div class="footer">
+            <div class="progress">135 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="card136">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Business Law</div>
+            <div class="tags"><div class="tag">Supplemental fact (non-question)</div></div>
+          </div>
+
+          <h1>Transactions at undervalue</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Certain pre-insolvency undervalue transactions may be challenged.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: IA 1986, s.238</div>
+
+          <div class="footer">
+            <div class="progress">136 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="card137">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Business Law</div>
+            <div class="tags"><div class="tag">Supplemental fact (non-question)</div></div>
+          </div>
+
+          <h1>Preferences</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Preferential payments to certain creditors may be set aside.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: IA 1986, s.239</div>
+
+          <div class="footer">
+            <div class="progress">137 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="card138">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Business Law</div>
+            <div class="tags"><div class="tag">Supplemental fact (non-question)</div></div>
+          </div>
+
+          <h1>Wrongful trading trigger</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Liability arises where directors knew or ought to have concluded no reasonable prospect of avoiding insolvent liquidation.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: IA 1986, s.214</div>
+
+          <div class="footer">
+            <div class="progress">138 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="card139">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Business Law (Tax)</div>
+            <div class="tags"><div class="tag">Supplemental fact (non-question)</div></div>
+          </div>
+
+          <h1>Corporation tax basics</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Companies pay corporation tax on profits; reliefs and losses follow statutory scheme.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: CTA 2009/2010</div>
+
+          <div class="footer">
+            <div class="progress">139 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="card140">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Business Law (Tax)</div>
+            <div class="tags"><div class="tag">Supplemental fact (non-question)</div></div>
+          </div>
+
+          <h1>VAT registration threshold concept</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">VAT registration is required where taxable turnover exceeds the threshold; voluntary registration is permitted.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: VATA 1994</div>
+
+          <div class="footer">
+            <div class="progress">140 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="card141">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Dispute Resolution</div>
+            <div class="tags"><div class="tag">Supplemental fact (non-question)</div></div>
+          </div>
+
+          <h1>Pre-action protocols purpose</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Protocols encourage early exchange of information and settlement and support proportionality.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: CPR Practice Directions (Pre-Action Conduct)</div>
+
+          <div class="footer">
+            <div class="progress">141 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="card142">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Dispute Resolution</div>
+            <div class="tags"><div class="tag">Supplemental fact (non-question)</div></div>
+          </div>
+
+          <h1>Service rules overview</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Valid service requires compliance with CPR methods, timing, and addresses for service.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: CPR Part 6</div>
+
+          <div class="footer">
+            <div class="progress">142 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="card143">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Dispute Resolution</div>
+            <div class="tags"><div class="tag">Supplemental fact (non-question)</div></div>
+          </div>
+
+          <h1>Statement of case contents</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Particulars must set out concise facts, remedies, and interest claim.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: CPR 16; PD 16</div>
+
+          <div class="footer">
+            <div class="progress">143 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="card144">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Dispute Resolution</div>
+            <div class="tags"><div class="tag">Supplemental fact (non-question)</div></div>
+          </div>
+
+          <h1>Summary judgment test</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Summary judgment is available where no real prospect of success and no other compelling reason.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: CPR Part 24</div>
+
+          <div class="footer">
+            <div class="progress">144 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="card145">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Dispute Resolution</div>
+            <div class="tags"><div class="tag">Supplemental fact (non-question)</div></div>
+          </div>
+
+          <h1>Strike out grounds</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">The court may strike out for no reasonable grounds, abuse of process, or failure to comply.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: CPR 3.4</div>
+
+          <div class="footer">
+            <div class="progress">145 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="card146">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Dispute Resolution</div>
+            <div class="tags"><div class="tag">Supplemental fact (non-question)</div></div>
+          </div>
+
+          <h1>Disclosure standard</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Standard disclosure requires documents relied on, adverse, supportive, and those required by PD.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: CPR Part 31</div>
+
+          <div class="footer">
+            <div class="progress">146 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="card147">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Dispute Resolution</div>
+            <div class="tags"><div class="tag">Supplemental fact (non-question)</div></div>
+          </div>
+
+          <h1>Without prejudice privilege</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Genuine settlement communications are privileged and generally inadmissible.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: Rush &amp; Tompkins v GLC [1989] AC 1280</div>
+
+          <div class="footer">
+            <div class="progress">147 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="card148">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Dispute Resolution</div>
+            <div class="tags"><div class="tag">Supplemental fact (non-question)</div></div>
+          </div>
+
+          <h1>Part 36 essentials</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Part 36 offers must comply with formal requirements; consequences are largely rule-based but subject to ‘unjust’ exception.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: CPR Part 36</div>
+
+          <div class="footer">
+            <div class="progress">148 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="card149">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Dispute Resolution</div>
+            <div class="tags"><div class="tag">Supplemental fact (non-question)</div></div>
+          </div>
+
+          <h1>Costs basis</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Standard basis resolves doubts in paying party’s favour; indemnity basis resolves doubts in receiving party’s favour.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: CPR 44.3</div>
+
+          <div class="footer">
+            <div class="progress">149 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="card150">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Dispute Resolution</div>
+            <div class="tags"><div class="tag">Supplemental fact (non-question)</div></div>
+          </div>
+
+          <h1>Limitation basics</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Limitation is a procedural bar; different causes have different periods.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: Limitation Act 1980</div>
+
+          <div class="footer">
+            <div class="progress">150 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="card151">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Legal System</div>
+            <div class="tags"><div class="tag">Supplemental fact (non-question)</div></div>
+          </div>
+
+          <h1>Hierarchy of courts</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Precedent depends on hierarchy and ratio decidendi; obiter is persuasive only.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: Doctrine of precedent</div>
+
+          <div class="footer">
+            <div class="progress">151 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="card152">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Legal System</div>
+            <div class="tags"><div class="tag">Supplemental fact (non-question)</div></div>
+          </div>
+
+          <h1>Delegated legislation controls</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Delegated legislation may be challenged for ultra vires and is subject to judicial review.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: Administrative law principles</div>
+
+          <div class="footer">
+            <div class="progress">152 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="card153">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Legal System</div>
+            <div class="tags"><div class="tag">Supplemental fact (non-question)</div></div>
+          </div>
+
+          <h1>Parliamentary privilege scope</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Privilege protects speech in Parliament; publication by third parties may be different.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: Bill of Rights 1689, Art 9</div>
+
+          <div class="footer">
+            <div class="progress">153 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="card154">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Legal System</div>
+            <div class="tags"><div class="tag">Supplemental fact (non-question)</div></div>
+          </div>
+
+          <h1>EUWA retained law concept</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">EU-derived law was retained post-Brexit subject to repeal or amendment by Parliament.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: European Union (Withdrawal) Act 2018</div>
+
+          <div class="footer">
+            <div class="progress">154 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="card155">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Legal System</div>
+            <div class="tags"><div class="tag">Supplemental fact (non-question)</div></div>
+          </div>
+
+          <h1>Rule of law</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Government must act according to law; legality and access to justice are core features.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: Constitutional principle</div>
+
+          <div class="footer">
+            <div class="progress">155 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="card156">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Legal System</div>
+            <div class="tags"><div class="tag">Supplemental fact (non-question)</div></div>
+          </div>
+
+          <h1>Separation of powers in UK</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Separation is not strict; checks include judicial review and parliamentary scrutiny.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: UK constitutional practice</div>
+
+          <div class="footer">
+            <div class="progress">156 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="card157">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Legal System</div>
+            <div class="tags"><div class="tag">Supplemental fact (non-question)</div></div>
+          </div>
+
+          <h1>JR grounds</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Illegality, irrationality, and procedural impropriety are classic grounds.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: Council of Civil Service Unions v Minister for the Civil Service [1985] AC 374</div>
+
+          <div class="footer">
+            <div class="progress">157 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="card158">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Legal System</div>
+            <div class="tags"><div class="tag">Supplemental fact (non-question)</div></div>
+          </div>
+
+          <h1>Legitimate expectation</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Clear representations or consistent practice can found a legitimate expectation, subject to public interest justification.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: R v North and East Devon HA, ex p Coughlan [2001] QB 213</div>
+
+          <div class="footer">
+            <div class="progress">158 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="card159">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Legal System</div>
+            <div class="tags"><div class="tag">Supplemental fact (non-question)</div></div>
+          </div>
+
+          <h1>Proportionality in rights cases</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">In rights contexts, proportionality assesses suitability, necessity, and fair balance.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: Human rights jurisprudence</div>
+
+          <div class="footer">
+            <div class="progress">159 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="card160">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Legal System</div>
+            <div class="tags"><div class="tag">Supplemental fact (non-question)</div></div>
+          </div>
+
+          <h1>Natural justice</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Right to a fair hearing and rule against bias are central.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: Common law</div>
+
+          <div class="footer">
+            <div class="progress">160 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="card161">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Legal Services</div>
+            <div class="tags"><div class="tag">Supplemental fact (non-question)</div></div>
+          </div>
+
+          <h1>Professional duties: confidentiality</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Solicitors must keep clients’ affairs confidential unless disclosure is required or permitted by law.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: SRA Code of Conduct; common law</div>
+
+          <div class="footer">
+            <div class="progress">161 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="card162">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Legal Services</div>
+            <div class="tags"><div class="tag">Supplemental fact (non-question)</div></div>
+          </div>
+
+          <h1>Professional duties: confidentiality</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Solicitors must keep clients’ affairs confidential unless disclosure is required or permitted by law.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: SRA Code of Conduct; common law</div>
+
+          <div class="footer">
+            <div class="progress">162 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="card163">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Legal Services</div>
+            <div class="tags"><div class="tag">Supplemental fact (non-question)</div></div>
+          </div>
+
+          <h1>Professional duties: confidentiality</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Solicitors must keep clients’ affairs confidential unless disclosure is required or permitted by law.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: SRA Code of Conduct; common law</div>
+
+          <div class="footer">
+            <div class="progress">163 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="card164">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Legal Services</div>
+            <div class="tags"><div class="tag">Supplemental fact (non-question)</div></div>
+          </div>
+
+          <h1>Professional duties: confidentiality</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Solicitors must keep clients’ affairs confidential unless disclosure is required or permitted by law.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: SRA Code of Conduct; common law</div>
+
+          <div class="footer">
+            <div class="progress">164 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="card165">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Legal Services</div>
+            <div class="tags"><div class="tag">Supplemental fact (non-question)</div></div>
+          </div>
+
+          <h1>Professional duties: confidentiality</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Solicitors must keep clients’ affairs confidential unless disclosure is required or permitted by law.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: SRA Code of Conduct; common law</div>
+
+          <div class="footer">
+            <div class="progress">165 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="card166">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Legal Services</div>
+            <div class="tags"><div class="tag">Supplemental fact (non-question)</div></div>
+          </div>
+
+          <h1>Professional duties: confidentiality</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Solicitors must keep clients’ affairs confidential unless disclosure is required or permitted by law.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: SRA Code of Conduct; common law</div>
+
+          <div class="footer">
+            <div class="progress">166 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="card167">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Legal Services</div>
+            <div class="tags"><div class="tag">Supplemental fact (non-question)</div></div>
+          </div>
+
+          <h1>Professional duties: confidentiality</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Solicitors must keep clients’ affairs confidential unless disclosure is required or permitted by law.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: SRA Code of Conduct; common law</div>
+
+          <div class="footer">
+            <div class="progress">167 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="card168">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Legal Services</div>
+            <div class="tags"><div class="tag">Supplemental fact (non-question)</div></div>
+          </div>
+
+          <h1>Professional duties: confidentiality</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Solicitors must keep clients’ affairs confidential unless disclosure is required or permitted by law.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: SRA Code of Conduct; common law</div>
+
+          <div class="footer">
+            <div class="progress">168 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="card169">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Legal Services</div>
+            <div class="tags"><div class="tag">Supplemental fact (non-question)</div></div>
+          </div>
+
+          <h1>Professional duties: confidentiality</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Solicitors must keep clients’ affairs confidential unless disclosure is required or permitted by law.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: SRA Code of Conduct; common law</div>
+
+          <div class="footer">
+            <div class="progress">169 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="card170">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Legal Services</div>
+            <div class="tags"><div class="tag">Supplemental fact (non-question)</div></div>
+          </div>
+
+          <h1>Professional duties: confidentiality</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Solicitors must keep clients’ affairs confidential unless disclosure is required or permitted by law.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: SRA Code of Conduct; common law</div>
+
+          <div class="footer">
+            <div class="progress">170 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="card171">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Legal Services</div>
+            <div class="tags"><div class="tag">Supplemental fact (non-question)</div></div>
+          </div>
+
+          <h1>Professional duties: confidentiality</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Solicitors must keep clients’ affairs confidential unless disclosure is required or permitted by law.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: SRA Code of Conduct; common law</div>
+
+          <div class="footer">
+            <div class="progress">171 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="card172">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Legal Services</div>
+            <div class="tags"><div class="tag">Supplemental fact (non-question)</div></div>
+          </div>
+
+          <h1>Professional duties: confidentiality</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Solicitors must keep clients’ affairs confidential unless disclosure is required or permitted by law.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: SRA Code of Conduct; common law</div>
+
+          <div class="footer">
+            <div class="progress">172 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="card173">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Legal Services</div>
+            <div class="tags"><div class="tag">Supplemental fact (non-question)</div></div>
+          </div>
+
+          <h1>Professional duties: confidentiality</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Solicitors must keep clients’ affairs confidential unless disclosure is required or permitted by law.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: SRA Code of Conduct; common law</div>
+
+          <div class="footer">
+            <div class="progress">173 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="card174">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Legal Services</div>
+            <div class="tags"><div class="tag">Supplemental fact (non-question)</div></div>
+          </div>
+
+          <h1>Professional duties: confidentiality</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Solicitors must keep clients’ affairs confidential unless disclosure is required or permitted by law.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: SRA Code of Conduct; common law</div>
+
+          <div class="footer">
+            <div class="progress">174 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="card175">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Legal Services</div>
+            <div class="tags"><div class="tag">Supplemental fact (non-question)</div></div>
+          </div>
+
+          <h1>Professional duties: confidentiality</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Solicitors must keep clients’ affairs confidential unless disclosure is required or permitted by law.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: SRA Code of Conduct; common law</div>
+
+          <div class="footer">
+            <div class="progress">175 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="card176">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Legal Services</div>
+            <div class="tags"><div class="tag">Supplemental fact (non-question)</div></div>
+          </div>
+
+          <h1>Professional duties: confidentiality</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Solicitors must keep clients’ affairs confidential unless disclosure is required or permitted by law.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: SRA Code of Conduct; common law</div>
+
+          <div class="footer">
+            <div class="progress">176 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="card177">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Legal Services</div>
+            <div class="tags"><div class="tag">Supplemental fact (non-question)</div></div>
+          </div>
+
+          <h1>Professional duties: confidentiality</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Solicitors must keep clients’ affairs confidential unless disclosure is required or permitted by law.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: SRA Code of Conduct; common law</div>
+
+          <div class="footer">
+            <div class="progress">177 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="card178">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Legal Services</div>
+            <div class="tags"><div class="tag">Supplemental fact (non-question)</div></div>
+          </div>
+
+          <h1>Professional duties: confidentiality</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Solicitors must keep clients’ affairs confidential unless disclosure is required or permitted by law.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: SRA Code of Conduct; common law</div>
+
+          <div class="footer">
+            <div class="progress">178 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="card179">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Legal Services</div>
+            <div class="tags"><div class="tag">Supplemental fact (non-question)</div></div>
+          </div>
+
+          <h1>Professional duties: confidentiality</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Solicitors must keep clients’ affairs confidential unless disclosure is required or permitted by law.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: SRA Code of Conduct; common law</div>
+
+          <div class="footer">
+            <div class="progress">179 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="card180">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Legal Services</div>
+            <div class="tags"><div class="tag">Supplemental fact (non-question)</div></div>
+          </div>
+
+          <h1>Professional duties: confidentiality</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Solicitors must keep clients’ affairs confidential unless disclosure is required or permitted by law.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: SRA Code of Conduct; common law</div>
+
+          <div class="footer">
+            <div class="progress">180 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="card181">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Legal Services</div>
+            <div class="tags"><div class="tag">Supplemental fact (non-question)</div></div>
+          </div>
+
+          <h1>Professional duties: confidentiality</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Solicitors must keep clients’ affairs confidential unless disclosure is required or permitted by law.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: SRA Code of Conduct; common law</div>
+
+          <div class="footer">
+            <div class="progress">181 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="card182">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Legal Services</div>
+            <div class="tags"><div class="tag">Supplemental fact (non-question)</div></div>
+          </div>
+
+          <h1>Professional duties: confidentiality</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Solicitors must keep clients’ affairs confidential unless disclosure is required or permitted by law.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: SRA Code of Conduct; common law</div>
+
+          <div class="footer">
+            <div class="progress">182 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="card183">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Legal Services</div>
+            <div class="tags"><div class="tag">Supplemental fact (non-question)</div></div>
+          </div>
+
+          <h1>Professional duties: confidentiality</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Solicitors must keep clients’ affairs confidential unless disclosure is required or permitted by law.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: SRA Code of Conduct; common law</div>
+
+          <div class="footer">
+            <div class="progress">183 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="card184">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Legal Services</div>
+            <div class="tags"><div class="tag">Supplemental fact (non-question)</div></div>
+          </div>
+
+          <h1>Professional duties: confidentiality</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Solicitors must keep clients’ affairs confidential unless disclosure is required or permitted by law.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: SRA Code of Conduct; common law</div>
+
+          <div class="footer">
+            <div class="progress">184 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="card185">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Legal Services</div>
+            <div class="tags"><div class="tag">Supplemental fact (non-question)</div></div>
+          </div>
+
+          <h1>Professional duties: confidentiality</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Solicitors must keep clients’ affairs confidential unless disclosure is required or permitted by law.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: SRA Code of Conduct; common law</div>
+
+          <div class="footer">
+            <div class="progress">185 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="card186">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Legal Services</div>
+            <div class="tags"><div class="tag">Supplemental fact (non-question)</div></div>
+          </div>
+
+          <h1>Professional duties: confidentiality</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Solicitors must keep clients’ affairs confidential unless disclosure is required or permitted by law.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: SRA Code of Conduct; common law</div>
+
+          <div class="footer">
+            <div class="progress">186 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="card187">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Legal Services</div>
+            <div class="tags"><div class="tag">Supplemental fact (non-question)</div></div>
+          </div>
+
+          <h1>Professional duties: confidentiality</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Solicitors must keep clients’ affairs confidential unless disclosure is required or permitted by law.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: SRA Code of Conduct; common law</div>
+
+          <div class="footer">
+            <div class="progress">187 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="card188">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Legal Services</div>
+            <div class="tags"><div class="tag">Supplemental fact (non-question)</div></div>
+          </div>
+
+          <h1>Professional duties: confidentiality</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Solicitors must keep clients’ affairs confidential unless disclosure is required or permitted by law.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: SRA Code of Conduct; common law</div>
+
+          <div class="footer">
+            <div class="progress">188 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="card189">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Legal Services</div>
+            <div class="tags"><div class="tag">Supplemental fact (non-question)</div></div>
+          </div>
+
+          <h1>Professional duties: confidentiality</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Solicitors must keep clients’ affairs confidential unless disclosure is required or permitted by law.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: SRA Code of Conduct; common law</div>
+
+          <div class="footer">
+            <div class="progress">189 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="card190">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Legal Services</div>
+            <div class="tags"><div class="tag">Supplemental fact (non-question)</div></div>
+          </div>
+
+          <h1>Professional duties: confidentiality</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Solicitors must keep clients’ affairs confidential unless disclosure is required or permitted by law.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: SRA Code of Conduct; common law</div>
+
+          <div class="footer">
+            <div class="progress">190 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="card191">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Legal Services</div>
+            <div class="tags"><div class="tag">Supplemental fact (non-question)</div></div>
+          </div>
+
+          <h1>Professional duties: confidentiality</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Solicitors must keep clients’ affairs confidential unless disclosure is required or permitted by law.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: SRA Code of Conduct; common law</div>
+
+          <div class="footer">
+            <div class="progress">191 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="card192">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Legal Services</div>
+            <div class="tags"><div class="tag">Supplemental fact (non-question)</div></div>
+          </div>
+
+          <h1>Professional duties: confidentiality</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Solicitors must keep clients’ affairs confidential unless disclosure is required or permitted by law.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: SRA Code of Conduct; common law</div>
+
+          <div class="footer">
+            <div class="progress">192 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="card193">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Legal Services</div>
+            <div class="tags"><div class="tag">Supplemental fact (non-question)</div></div>
+          </div>
+
+          <h1>Professional duties: confidentiality</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Solicitors must keep clients’ affairs confidential unless disclosure is required or permitted by law.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: SRA Code of Conduct; common law</div>
+
+          <div class="footer">
+            <div class="progress">193 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="card194">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Legal Services</div>
+            <div class="tags"><div class="tag">Supplemental fact (non-question)</div></div>
+          </div>
+
+          <h1>Professional duties: confidentiality</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Solicitors must keep clients’ affairs confidential unless disclosure is required or permitted by law.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: SRA Code of Conduct; common law</div>
+
+          <div class="footer">
+            <div class="progress">194 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="card195">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Legal Services</div>
+            <div class="tags"><div class="tag">Supplemental fact (non-question)</div></div>
+          </div>
+
+          <h1>Professional duties: confidentiality</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Solicitors must keep clients’ affairs confidential unless disclosure is required or permitted by law.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: SRA Code of Conduct; common law</div>
+
+          <div class="footer">
+            <div class="progress">195 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="card196">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Legal Services</div>
+            <div class="tags"><div class="tag">Supplemental fact (non-question)</div></div>
+          </div>
+
+          <h1>Professional duties: confidentiality</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Solicitors must keep clients’ affairs confidential unless disclosure is required or permitted by law.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: SRA Code of Conduct; common law</div>
+
+          <div class="footer">
+            <div class="progress">196 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="card197">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Legal Services</div>
+            <div class="tags"><div class="tag">Supplemental fact (non-question)</div></div>
+          </div>
+
+          <h1>Professional duties: confidentiality</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Solicitors must keep clients’ affairs confidential unless disclosure is required or permitted by law.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: SRA Code of Conduct; common law</div>
+
+          <div class="footer">
+            <div class="progress">197 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="card198">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Legal Services</div>
+            <div class="tags"><div class="tag">Supplemental fact (non-question)</div></div>
+          </div>
+
+          <h1>Professional duties: confidentiality</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Solicitors must keep clients’ affairs confidential unless disclosure is required or permitted by law.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: SRA Code of Conduct; common law</div>
+
+          <div class="footer">
+            <div class="progress">198 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="card199">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Legal Services</div>
+            <div class="tags"><div class="tag">Supplemental fact (non-question)</div></div>
+          </div>
+
+          <h1>Professional duties: confidentiality</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Solicitors must keep clients’ affairs confidential unless disclosure is required or permitted by law.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: SRA Code of Conduct; common law</div>
+
+          <div class="footer">
+            <div class="progress">199 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" id="card200">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <div class="badge">&#9679; Legal Services</div>
+            <div class="tags"><div class="tag">Supplemental fact (non-question)</div></div>
+          </div>
+
+          <h1>Professional duties: confidentiality</h1>
+
+          <div class="takeaway">
+            <div class="label">Principle (Key Takeaway)</div>
+            <div class="text">Solicitors must keep clients’ affairs confidential unless disclosure is required or permitted by law.</div>
+          </div>
+
+          
+
+          <div class="tip">Authority: SRA Code of Conduct; common law</div>
+
+          <div class="footer">
+            <div class="progress">200 / 200</div>
+            <div>Mapped to SRA sample questions Q1–Q110</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+
+  <button class="nav-fab" id="navFab" type="button" aria-label="Jump to card">Go</button>
+
+  <div class="nav-drawer" id="navDrawer" aria-hidden="true">
+    <div class="nav-title">Jump</div>
+    <div class="nav-sub">Enter a number (1–110 for SRA questions, 1–200 for full deck).</div>
+    <div class="nav-row">
+      <input class="nav-input" id="navInput" inputmode="numeric" pattern="[0-9]*" placeholder="e.g., 37" aria-label="Card number" />
+      <button class="nav-btn" id="navBtn" type="button">Go</button>
+    </div>
+    
+    <div style="margin-top: 12px; display:flex; gap:10px; flex-wrap:wrap;">
+      <a class="nav-btn" href="100MCQS.html" style="text-decoration:none; display:inline-flex; align-items:center; justify-content:center; min-width: 180px;">100 Practice MCQs</a>
+    </div>
+<div class="nav-hint">Tip: open in Safari or Chrome (not iOS file preview) for buttons to work.</div>
+  </div>
+
+<script>
+(function() {
+  const fab = document.getElementById('navFab');
+  const drawer = document.getElementById('navDrawer');
+  const input = document.getElementById('navInput');
+  const btn = document.getElementById('navBtn');
+
+  function openDrawer() {
+    drawer.classList.add('open');
+    drawer.setAttribute('aria-hidden', 'false');
+    setTimeout(() => input && input.focus(), 50);
+  }
+
+  function closeDrawer() {
+    drawer.classList.remove('open');
+    drawer.setAttribute('aria-hidden', 'true');
+  }
+
+  function go() {
+    const raw = (input.value || '').trim();
+    const n = parseInt(raw, 10);
+    if (!Number.isFinite(n)) return;
+
+    // Prefer Q1–Q110 anchors where applicable
+    let targetId = '';
+    if (n >= 1 && n <= 110) targetId = 'q' + n;
+    else if (n >= 1 && n <= 200) targetId = 'card' + n;
+
+    if (!targetId) return;
+
+    const el = document.getElementById(targetId);
+    if (el && el.scrollIntoView) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      history.replaceState(null, '', '#' + targetId);
+    } else {
+      location.hash = targetId;
+    }
+    closeDrawer();
+  }
+
+  fab.addEventListener('click', () => {
+    if (drawer.classList.contains('open')) closeDrawer();
+    else openDrawer();
+  });
+
+  btn.addEventListener('click', go);
+  input.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') go();
+    if (e.key === 'Escape') closeDrawer();
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!drawer.contains(e.target) && e.target !== fab) closeDrawer();
+  });
+})();
+</script>
+
+</body>
+</html>
