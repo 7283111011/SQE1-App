@@ -1,0 +1,1664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SQE1 FLK2 Pro Deck (110 Cards) - Static</title>
+  <style>
+    :root {
+      --bg1: #f6f7fb;
+      --bg2: #f2f7ff;
+      --card: rgba(255,255,255,0.72);
+      --cardSolid: #ffffff;
+      --ink: #0f172a;
+      --muted: rgba(15, 23, 42, 0.70);
+      --hairline: rgba(15, 23, 42, 0.10);
+      --shadow: 0 18px 48px rgba(15, 23, 42, 0.12);
+      --shadow2: 0 6px 18px rgba(15, 23, 42, 0.10);
+      --radius: 26px;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(900px 600px at 18% 12%, rgba(186, 230, 253, 0.55), transparent 60%),
+        radial-gradient(900px 700px at 82% 18%, rgba(216, 180, 254, 0.45), transparent 60%),
+        radial-gradient(900px 700px at 62% 86%, rgba(187, 247, 208, 0.45), transparent 60%),
+        linear-gradient(180deg, var(--bg1), var(--bg2));
+      font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+    }
+
+    .scroll-container {
+      -webkit-overflow-scrolling: touch;
+      height: 100dvh;
+      overflow-y: auto;
+      scroll-snap-type: y mandatory;
+      padding: 28px 18px;
+    }
+
+    .card {
+      height: calc(100dvh - 56px);
+      min-height: 520px;
+      scroll-snap-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 18px;
+      position: relative;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: var(--radius);
+      background:
+        radial-gradient(900px 600px at 20% 15%, rgba(186, 230, 253, 0.70), transparent 60%),
+        radial-gradient(900px 700px at 85% 20%, rgba(216, 180, 254, 0.55), transparent 62%),
+        radial-gradient(900px 700px at 65% 88%, rgba(187, 247, 208, 0.55), transparent 62%);
+      opacity: 1;
+      pointer-events: none;
+    }
+    .card:nth-child(6n+1)::before {
+      background:
+        radial-gradient(900px 600px at 18% 16%, rgba(186, 230, 253, 0.72), transparent 60%),
+        radial-gradient(900px 700px at 82% 20%, rgba(216, 180, 254, 0.52), transparent 62%),
+        radial-gradient(900px 700px at 62% 86%, rgba(187, 247, 208, 0.50), transparent 62%);
+    }
+    .card:nth-child(6n+2)::before {
+      background:
+        radial-gradient(900px 600px at 16% 14%, rgba(254, 202, 202, 0.62), transparent 60%),
+        radial-gradient(900px 700px at 86% 22%, rgba(199, 210, 254, 0.56), transparent 62%),
+        radial-gradient(900px 700px at 60% 88%, rgba(186, 230, 253, 0.52), transparent 62%);
+    }
+    .card:nth-child(6n+3)::before {
+      background:
+        radial-gradient(900px 600px at 18% 16%, rgba(187, 247, 208, 0.62), transparent 60%),
+        radial-gradient(900px 700px at 84% 18%, rgba(254, 215, 170, 0.56), transparent 62%),
+        radial-gradient(900px 700px at 64% 88%, rgba(216, 180, 254, 0.48), transparent 62%);
+    }
+    .card:nth-child(6n+4)::before {
+      background:
+        radial-gradient(900px 600px at 18% 16%, rgba(199, 210, 254, 0.62), transparent 60%),
+        radial-gradient(900px 700px at 82% 18%, rgba(253, 230, 138, 0.52), transparent 62%),
+        radial-gradient(900px 700px at 62% 88%, rgba(186, 230, 253, 0.48), transparent 62%);
+    }
+    .card:nth-child(6n+5)::before {
+      background:
+        radial-gradient(900px 600px at 18% 16%, rgba(216, 180, 254, 0.58), transparent 60%),
+        radial-gradient(900px 700px at 82% 18%, rgba(187, 247, 208, 0.54), transparent 62%),
+        radial-gradient(900px 700px at 62% 88%, rgba(254, 202, 202, 0.48), transparent 62%);
+    }
+    .card:nth-child(6n+6)::before {
+      background:
+        radial-gradient(900px 600px at 18% 16%, rgba(254, 215, 170, 0.60), transparent 60%),
+        radial-gradient(900px 700px at 82% 18%, rgba(186, 230, 253, 0.54), transparent 62%),
+        radial-gradient(900px 700px at 62% 88%, rgba(199, 210, 254, 0.48), transparent 62%);
+    }
+
+    .panel {
+      position: relative;
+      z-index: 1;
+      width: min(980px, 100%);
+      height: 100%;
+      border-radius: var(--radius);
+      background: rgba(255,255,255,0.62);
+      backdrop-filter: blur(18px);
+      box-shadow: var(--shadow);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .content {
+      padding: 24px 32px 28px 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .toprow {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .badge {
+      font-size: 14px;
+      font-weight: 600;
+      color: rgba(15, 23, 42, 0.76);
+    }
+    .tags {
+      display: flex;
+      gap: 8px;
+    }
+    .tag {
+      font-size: 13px;
+      padding: 3px 8px;
+      border-radius: 8px;
+      background: rgba(15, 23, 42, 0.06);
+      color: rgba(15, 23, 42, 0.76);
+    }
+    h1 {
+      margin: 0;
+      font-size: 26px;
+      font-weight: 600;
+    }
+    .takeaway .label {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    .takeaway .text {
+      font-size: 17px;
+      line-height: 1.4;
+    }
+    .tip {
+      font-size: 14px;
+      color: rgba(15, 23, 42, 0.75);
+      margin-top: 4px;
+    }
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13px;
+      margin-top: 12px;
+      color: rgba(15, 23, 42, 0.70);
+    }
+    .progress {
+      font-weight: 600;
+    }
+
+    /* Navigation button and drawer */
+    .nav-fab {
+      position: fixed;
+      right: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 9999;
+      width: 54px;
+      height: 54px;
+      border-radius: 999px;
+      border: 1px solid rgba(15, 23, 42, 0.18);
+      background: rgba(255,255,255,0.78);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 10px 28px rgba(15, 23, 42, 0.16);
+      color: rgba(15, 23, 42, 0.85);
+      font-size: 14px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .nav-drawer {
+      position: fixed;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 9998;
+      width: min(320px, calc(100vw - 24px));
+      padding: 14px 14px 12px 14px;
+      border-radius: 18px;
+      border: 1px solid rgba(15, 23, 42, 0.14);
+      background: rgba(255,255,255,0.90);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 16px 42px rgba(15, 23, 42, 0.18);
+      opacity: 0;
+      pointer-events: none;
+      translate: 0 10px;
+      transition: opacity 140ms ease, translate 140ms ease;
+    }
+    .nav-drawer.open {
+      opacity: 1;
+      pointer-events: auto;
+      translate: 0 0;
+    }
+    .nav-title {
+      font-size: 13px;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      color: rgba(15, 23, 42, 0.70);
+      margin-bottom: 6px;
+    }
+    .nav-sub {
+      font-size: 13px;
+      line-height: 1.35;
+      color: rgba(15, 23, 42, 0.72);
+      margin-bottom: 10px;
+    }
+    .nav-row {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+    .nav-input {
+      flex: 1;
+      height: 42px;
+      border-radius: 12px;
+      border: 1px solid rgba(15, 23, 42, 0.18);
+      background: rgba(255,255,255,0.95);
+      padding: 0 12px;
+      font-size: 16px;
+      color: rgba(15, 23, 42, 0.90);
+      outline: none;
+    }
+    .nav-input:focus {
+      border-color: rgba(15, 23, 42, 0.30);
+    }
+    .nav-btn {
+      height: 42px;
+      padding: 0 14px;
+      border-radius: 12px;
+      border: 1px solid rgba(15, 23, 42, 0.18);
+      background: rgba(15, 23, 42, 0.06);
+      color: rgba(15, 23, 42, 0.85);
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .nav-hint {
+      margin-top: 10px;
+      font-size: 12px;
+      line-height: 1.35;
+      color: rgba(15, 23, 42, 0.60);
+    }
+    @media (max-width: 768px) {
+      .nav-fab {
+        top: auto;
+        bottom: calc(16px + env(safe-area-inset-bottom));
+        transform: none;
+      }
+      .nav-drawer {
+        top: auto;
+        bottom: calc(80px + env(safe-area-inset-bottom));
+        transform: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="scroll-container" id="deck">
+    <!-- Start of FLK2 cards -->
+    <!-- Each card summarises a principle drawn from the SQE1 FLK2 sample questions. -->
+    <!-- Card 1: Identification procedure not required when suspect is known to witness -->
+    <div class="card" id="q1">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow">
+            <span class="badge">Criminal Procedure</span>
+            <div class="tags"><span class="tag">Original Q1</span></div>
+          </div>
+          <h1>Identification procedure unnecessary if suspect is already known</h1>
+          <div class="takeaway"><div class="label">Principle</div><div class="text">Under PACE Code D, an identification procedure need not be held when the suspect is already well known to the witness; conducting a lineup would serve no useful purpose.</div></div>
+          <div class="tip">Authority: PACE Code D【357480804276642†L620-L632】</div>
+          <div class="footer"><span class="progress">1/110</span><span>Card 1</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 2: Activation of suspended sentence -->
+    <div class="card" id="q2">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow"><span class="badge">Sentencing</span><div class="tags"><span class="tag">Original Q2</span></div></div>
+          <h1>Suspended sentence must be activated if new offence committed</h1>
+          <div class="takeaway"><div class="label">Principle</div><div class="text">When an offender commits a further offence during the operational period of a suspended sentence, the court must activate the custodial sentence unless doing so would be unjust.</div></div>
+          <div class="tip">Authority: Sentencing guidelines【741107096989250†L178-L186】</div>
+          <div class="footer"><span class="progress">2/110</span><span>Card 2</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 3: Surviving trustees can continue without replacement -->
+    <div class="card" id="q3">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow"><span class="badge">Trusts</span><div class="tags"><span class="tag">Original Q3</span></div></div>
+          <h1>Surviving trustees may act without appointing a replacement</h1>
+          <div class="takeaway"><div class="label">Principle</div><div class="text">Under the Trustee Act, if one trustee dies, the remaining trustees may continue to exercise the trust powers without the need to appoint a replacement trustee.</div></div>
+          <div class="tip">Authority: Trustee Act 1925【345069650969477†L2837-L2846】</div>
+          <div class="footer"><span class="progress">3/110</span><span>Card 3</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 4: Executors should advertise for creditors and wait two months -->
+    <div class="card" id="q4">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow"><span class="badge">Probate</span><div class="tags"><span class="tag">Original Q4</span></div></div>
+          <h1>Executors must advertise for creditors and wait two months</h1>
+          <div class="takeaway"><div class="label">Principle</div><div class="text">To protect themselves against unknown creditors, executors should advertise for creditors under section 27 of the Trustee Act 1925 and wait at least two months after the advertisement before distributing the estate.</div></div>
+          <div class="tip">Authority: Trustee Act 1925【345069650969477†L2863-L2874】</div>
+          <div class="footer"><span class="progress">4/110</span><span>Card 4</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 5: Divorce revokes executor appointment -->
+    <div class="card" id="q5">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow"><span class="badge">Probate</span><div class="tags"><span class="tag">Original Q5</span></div></div>
+          <h1>Divorce removes spouse’s right to act as executor</h1>
+          <div class="takeaway"><div class="label">Principle</div><div class="text">Following divorce, a former spouse named as executor loses the right to act; surviving beneficiaries or other appointees must apply for the grant instead.</div></div>
+          <div class="tip">Authority: Probate rules【345069650969477†L2882-L2896】</div>
+          <div class="footer"><span class="progress">5/110</span><span>Card 5</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 6: Solicitor’s duty when client lies to court -->
+    <div class="card" id="q6">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow"><span class="badge">Professional Conduct</span><div class="tags"><span class="tag">Original Q6</span></div></div>
+          <h1>Solicitor must cease acting if client refuses to correct false evidence</h1>
+          <div class="takeaway"><div class="label">Principle</div><div class="text">If a client has given false evidence, the solicitor must advise them to correct it. If the client refuses, the solicitor must cease to act and not mislead the court.</div></div>
+          <div class="tip">Authority: SRA Code of Conduct【345069650969477†L2905-L2921】</div>
+          <div class="footer"><span class="progress">6/110</span><span>Card 6</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 7: Liability under authorised guarantee agreement -->
+    <div class="card" id="q7">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow"><span class="badge">Property</span><div class="tags"><span class="tag">Original Q7</span></div></div>
+          <h1>Assignor remains liable under an authorised guarantee agreement</h1>
+          <div class="takeaway"><div class="label">Principle</div><div class="text">Where a tenant assigns a lease and provides an authorised guarantee agreement, the assignor remains liable for the covenants until the assignee’s tenancy ends.</div></div>
+          <div class="tip">Authority: Landlord and Tenant law【345069650969477†L2941-L2951】</div>
+          <div class="footer"><span class="progress">7/110</span><span>Card 7</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 8: Tenant’s right to new business tenancy under s.26 LTA 1954 -->
+    <div class="card" id="q8">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow"><span class="badge">Landlord & Tenant</span><div class="tags"><span class="tag">Original Q8</span></div></div>
+          <h1>Requesting a new business tenancy between six and twelve months</h1>
+          <div class="takeaway"><div class="label">Principle</div><div class="text">Under section 26 of the Landlord and Tenant Act 1954, a business tenant may request a new tenancy; the request must give between six and twelve months’ notice and the landlord may oppose on statutory grounds.</div></div>
+          <div class="tip">Authority: Landlord and Tenant Act 1954【345069650969477†L2962-L2998】</div>
+          <div class="footer"><span class="progress">8/110</span><span>Card 8</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 9: Certainty of objects in a fixed trust -->
+    <div class="card" id="q9">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow"><span class="badge">Trusts</span><div class="tags"><span class="tag">Original Q9</span></div></div>
+          <h1>Fixed trusts require the ability to compile a complete list of beneficiaries</h1>
+          <div class="takeaway"><div class="label">Principle</div><div class="text">For a fixed trust to be valid, it must be possible to draw up a comprehensive list of all beneficiaries; this is satisfied where employee records identify all relevant persons.</div></div>
+          <div class="tip">Authority: Trust law【345069650969477†L3009-L3013】</div>
+          <div class="footer"><span class="progress">9/110</span><span>Card 9</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 10: Contingent gifts in wills -->
+    <div class="card" id="q10">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow"><span class="badge">Wills</span><div class="tags"><span class="tag">Original Q10</span></div></div>
+          <h1>Gifts conditioned on survival are contingent until conditions met</h1>
+          <div class="takeaway"><div class="label">Principle</div><div class="text">Where a gift in a will is conditioned upon a beneficiary reaching a specific age or surviving another person, the gift is contingent and only vests when the condition is fulfilled.</div></div>
+          <div class="tip">Authority: Will construction【345069650969477†L3023-L3026】</div>
+          <div class="footer"><span class="progress">10/110</span><span>Card 10</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 11: Registration of property transfers protects title -->
+    <div class="card" id="q11">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow"><span class="badge">Conveyancing</span><div class="tags"><span class="tag">Original Q11</span></div></div>
+          <h1>Register transfers promptly to protect title</h1>
+          <div class="takeaway"><div class="label">Principle</div><div class="text">Title to land is protected only upon registration; purchasers must register transfers within the statutory period (generally 30 working days) or risk losing priority to third parties.</div></div>
+          <div class="tip">Authority: Registration of property【345069650969477†L3037-L3046】</div>
+          <div class="footer"><span class="progress">11/110</span><span>Card 11</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 12: Fixtures versus chattels -->
+    <div class="card" id="q12">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow"><span class="badge">Property</span><div class="tags"><span class="tag">Original Q12</span></div></div>
+          <h1>Fixtures become part of the land based on degree and purpose of annexation</h1>
+          <div class="takeaway"><div class="label">Principle</div><div class="text">Whether an item is a fixture depends on the extent to which it is annexed to the land and the purpose of the annexation; strongly attached items intended to improve the property are likely fixtures.</div></div>
+          <div class="tip">Authority: Doctrine of fixtures【345069650969477†L3058-L3065】</div>
+          <div class="footer"><span class="progress">12/110</span><span>Card 12</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 13: Planning permission required for change of use -->
+    <div class="card" id="q13">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow"><span class="badge">Planning</span><div class="tags"><span class="tag">Original Q13</span></div></div>
+          <h1>Full planning permission is needed for changes of use outside permitted categories</h1>
+          <div class="takeaway"><div class="label">Principle</div><div class="text">Most changes of use of land or buildings require planning permission unless they fall within permitted development categories; otherwise a planning application is necessary.</div></div>
+          <div class="tip">Authority: Planning law【345069650969477†L3077-L3078】</div>
+          <div class="footer"><span class="progress">13/110</span><span>Card 13</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 14: Breach of bail conditions -->
+    <div class="card" id="q14">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow"><span class="badge">Criminal Procedure</span><div class="tags"><span class="tag">Original Q14</span></div></div>
+          <h1>Contacting a prohibited person breaches bail conditions even if invited</h1>
+          <div class="takeaway"><div class="label">Principle</div><div class="text">A defendant who is released on bail with a condition not to contact a named person breaches that condition by contacting them, even if the person invites the contact; the court may revoke bail.</div></div>
+          <div class="tip">Authority: Bail law【345069650969477†L3089-L3094】</div>
+          <div class="footer"><span class="progress">14/110</span><span>Card 14</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 15: Cohabitees not entitled on intestacy -->
+    <div class="card" id="q15">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow"><span class="badge">Succession</span><div class="tags"><span class="tag">Original Q15</span></div></div>
+          <h1>Unmarried partners do not inherit under intestacy rules</h1>
+          <div class="takeaway"><div class="label">Principle</div><div class="text">Under the intestacy rules, only spouses, civil partners and specified relatives inherit; cohabitants who are neither married nor in a civil partnership have no automatic entitlement.</div></div>
+          <div class="tip">Authority: Intestacy rules【345069650969477†L3106-L3111】</div>
+          <div class="footer"><span class="progress">15/110</span><span>Card 15</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 16: Fairness in video identification parades -->
+    <div class="card" id="q16">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow"><span class="badge">Criminal Evidence</span><div class="tags"><span class="tag">Original Q16</span></div></div>
+          <h1>Video identification must include comparable images for fairness</h1>
+          <div class="takeaway"><div class="label">Principle</div><div class="text">Under PACE Code D, video identification parades must show images of individuals with broadly similar appearance to the suspect; a significant difference in age or appearance may render the procedure unfair and the evidence inadmissible.</div></div>
+          <div class="tip">Authority: PACE Code D【345069650969477†L3121-L3136】</div>
+          <div class="footer"><span class="progress">16/110</span><span>Card 16</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 17: Causation in criminal law -->
+    <div class="card" id="q17">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow"><span class="badge">Criminal Law</span><div class="tags"><span class="tag">Original Q17</span></div></div>
+          <h1>Defendant’s act must be an operating and substantial cause of the result</h1>
+          <div class="takeaway"><div class="label">Principle</div><div class="text">For legal causation, the prosecution must prove that the defendant’s conduct was a significant or operative cause of the victim’s injury or death, though it need not be the sole cause.</div></div>
+          <div class="tip">Authority: Causation doctrine【345069650969477†L3145-L3147】</div>
+          <div class="footer"><span class="progress">17/110</span><span>Card 17</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 18: Unlawful act manslaughter -->
+    <div class="card" id="q18">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow"><span class="badge">Criminal Law</span><div class="tags"><span class="tag">Original Q18</span></div></div>
+          <h1>Dangerous unlawful acts causing death amount to constructive manslaughter</h1>
+          <div class="takeaway"><div class="label">Principle</div><div class="text">When a person commits an unlawful and dangerous act, such as arson, and it causes death, they are guilty of involuntary manslaughter even if they did not intend to harm or foresee death.</div></div>
+          <div class="tip">Authority: Criminal law【345069650969477†L3156-L3167】</div>
+          <div class="footer"><span class="progress">18/110</span><span>Card 18</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 19: Joint tenancy and survivorship -->
+    <div class="card" id="q19">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow"><span class="badge">Property</span><div class="tags"><span class="tag">Original Q19</span></div></div>
+          <h1>Right of survivorship operates on death of a joint tenant</h1>
+          <div class="takeaway"><div class="label">Principle</div><div class="text">On the death of a joint tenant, their share passes automatically to the surviving joint tenants; a joint tenant cannot bequeath their interest by will.</div></div>
+          <div class="tip">Authority: Joint tenancy doctrine【345069650969477†L3179-L3189】</div>
+          <div class="footer"><span class="progress">19/110</span><span>Card 19</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 20: Duty to locate beneficiaries beyond advertising -->
+    <div class="card" id="q20">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow"><span class="badge">Probate</span><div class="tags"><span class="tag">Original Q20</span></div></div>
+          <h1>Personal representatives must make reasonable enquiries to trace beneficiaries</h1>
+          <div class="takeaway"><div class="label">Principle</div><div class="text">Advertisements under the Trustee Act do not absolve personal representatives of the duty to locate beneficiaries; they must make reasonable enquiries to trace missing beneficiaries to avoid liability.</div></div>
+          <div class="tip">Authority: Trust law【345069650969477†L3201-L3217】</div>
+          <div class="footer"><span class="progress">20/110</span><span>Card 20</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 21: Fractional interest discount in inheritance tax valuation -->
+    <div class="card" id="q21">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow"><span class="badge">Tax</span><div class="tags"><span class="tag">Original Q21</span></div></div>
+          <h1>Fractional co-ownership interests may be valued at a discount</h1>
+          <div class="takeaway"><div class="label">Principle</div><div class="text">For inheritance tax purposes, a fractional interest in jointly owned property may be valued at less than a proportional share to reflect difficulties in selling or utilising the share.</div></div>
+          <div class="tip">Authority: Inheritance tax valuation【345069650969477†L3232-L3244】</div>
+          <div class="footer"><span class="progress">21/110</span><span>Card 21</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 22: Criminal damage and recklessness -->
+    <div class="card" id="q22">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow"><span class="badge">Criminal Law</span><div class="tags"><span class="tag">Original Q23</span></div></div>
+          <h1>Criminal damage requires intention or recklessness as to damage</h1>
+          <div class="takeaway"><div class="label">Principle</div><div class="text">A person commits criminal damage if they intentionally or recklessly damage property belonging to another; foresight of risk combined with unreasonableness satisfies recklessness.</div></div>
+          <div class="tip">Authority: Criminal Damage Act【345069650969477†L3287-L3293】</div>
+          <div class="footer"><span class="progress">22/110</span><span>Card 22</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 23: Covenants benefiting land are enforceable against covenantor -->
+    <div class="card" id="q23">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow"><span class="badge">Property</span><div class="tags"><span class="tag">Original Q24</span></div></div>
+          <h1>Original covenantor remains liable for positive covenants in deed</h1>
+          <div class="takeaway"><div class="label">Principle</div><div class="text">Where a deed contains a covenant benefiting a property, the original covenantor remains personally liable for breaches of that covenant; successors may enforce the covenant against the covenantor.</div></div>
+          <div class="tip">Authority: Covenant enforcement【345069650969477†L3304-L3313】</div>
+          <div class="footer"><span class="progress">23/110</span><span>Card 23</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 24: Capital gains tax on estate distribution -->
+    <div class="card" id="q24">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow"><span class="badge">Tax</span><div class="tags"><span class="tag">Original Q25</span></div></div>
+          <h1>Beneficiaries may owe CGT on gains from selling inherited assets</h1>
+          <div class="takeaway"><div class="label">Principle</div><div class="text">After assets are distributed to beneficiaries, any capital gain realised on disposal is chargeable to CGT by the beneficiary rather than the estate; losses may be offset against other gains.</div></div>
+          <div class="tip">Authority: Capital gains tax【345069650969477†L3321-L3337】</div>
+          <div class="footer"><span class="progress">24/110</span><span>Card 24</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 25: Admissions as hearsay exception -->
+    <div class="card" id="q25">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow"><span class="badge">Evidence</span><div class="tags"><span class="tag">Original Q26</span></div></div>
+          <h1>Defendant’s admissions to third parties are admissible as hearsay exceptions</h1>
+          <div class="takeaway"><div class="label">Principle</div><div class="text">A defendant’s statement to a friend or other person admitting the offence is admissible as evidence against them despite being hearsay, as an exception to the hearsay rule.</div></div>
+          <div class="tip">Authority: Evidence law【345069650969477†L3348-L3353】</div>
+          <div class="footer"><span class="progress">25/110</span><span>Card 25</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 26: Handling stakeholder funds and solicitors’ accounts -->
+    <div class="card" id="q26">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow"><span class="badge">Professional Conduct</span><div class="tags"><span class="tag">Original Q27</span></div></div>
+          <h1>Stakeholder funds must be held on client account and not treated as firm’s money</h1>
+          <div class="takeaway"><div class="label">Principle</div><div class="text">When holding a deposit as stakeholder, solicitors must retain the money on client account for the purpose of the transaction and must not treat it as the client’s funds until completion.</div></div>
+          <div class="tip">Authority: SRA Accounts Rules【345069650969477†L3364-L3379】</div>
+          <div class="footer"><span class="progress">26/110</span><span>Card 26</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 27: Accepting instructions at police station -->
+    <div class="card" id="q27">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow"><span class="badge">Professional Conduct</span><div class="tags"><span class="tag">Original Q28</span></div></div>
+          <h1>Solicitor may act at police station if authorised and no conflict arises</h1>
+          <div class="takeaway"><div class="label">Principle</div><div class="text">A solicitor can accept instructions on behalf of a detainee when authorised by a third party and satisfied there is no conflict of interest; acting for a previously charged individual does not create a conflict in a separate matter.</div></div>
+          <div class="tip">Authority: Professional conduct【345069650969477†L3390-L3403】</div>
+          <div class="footer"><span class="progress">27/110</span><span>Card 27</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 28: Termination of trust with contingent beneficiaries -->
+    <div class="card" id="q28">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow"><span class="badge">Trusts</span><div class="tags"><span class="tag">Original Q29</span></div></div>
+          <h1>All beneficiaries must consent to terminate a trust before contingent interests vest</h1>
+          <div class="takeaway"><div class="label">Principle</div><div class="text">A trust cannot be wound up early unless all beneficiaries, including those with contingent interests, agree; otherwise, the trust continues until contingent interests either vest or fail.</div></div>
+          <div class="tip">Authority: Trust law【345069650969477†L3414-L3431】</div>
+          <div class="footer"><span class="progress">28/110</span><span>Card 28</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 29: Trustees’ powers of advancement -->
+    <div class="card" id="q29">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow"><span class="badge">Trusts</span><div class="tags"><span class="tag">Original Q30</span></div></div>
+          <h1>Advancement must benefit the beneficiary and consider others’ interests</h1>
+          <div class="takeaway"><div class="label">Principle</div><div class="text">Trustees may advance capital to a beneficiary only if the advancement is within the trust power, benefits the beneficiary and does not unfairly prejudice the interests of other beneficiaries.</div></div>
+          <div class="tip">Authority: Trustee powers【345069650969477†L3442-L3460】</div>
+          <div class="footer"><span class="progress">29/110</span><span>Card 29</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 30: Robbery requires theft with force -->
+    <div class="card" id="q30">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow"><span class="badge">Criminal Law</span><div class="tags"><span class="tag">Original Q31</span></div></div>
+          <h1>Robbery involves theft accompanied by force or threat of force</h1>
+          <div class="takeaway"><div class="label">Principle</div><div class="text">A person commits robbery when, at the time of theft, they use force or put the victim in fear of being subjected to force; threats of violence to facilitate the theft suffice.</div></div>
+          <div class="tip">Authority: Theft Act 1968【345069650969477†L3471-L3478】</div>
+          <div class="footer"><span class="progress">30/110</span><span>Card 30</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 31: VAT option to tax and irrecoverable VAT for exempt businesses -->
+    <div class="card" id="q31">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow"><span class="badge">Tax</span><div class="tags"><span class="tag">Original Q32</span></div></div>
+          <h1>Opting to tax means tenants pay VAT they cannot reclaim if they make exempt supplies</h1>
+          <div class="takeaway"><div class="label">Principle</div><div class="text">When a landlord opts to tax a commercial building, VAT is charged on rent. A tenant who makes exempt supplies cannot recover the VAT, making it an additional cost.</div></div>
+          <div class="tip">Authority: VAT law【345069650969477†L3489-L3496】</div>
+          <div class="footer"><span class="progress">31/110</span><span>Card 31</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 32: Intent and intoxication for wounding offences -->
+    <div class="card" id="q32">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow"><span class="badge">Criminal Law</span><div class="tags"><span class="tag">Original Q33</span></div></div>
+          <h1>Specific intent is required for wounding with intent; intoxication may negate intent</h1>
+          <div class="takeaway"><div class="label">Principle</div><div class="text">For an offence under section 18 of the Offences against the Person Act, the prosecution must prove intent to cause grievous bodily harm; if the defendant was so intoxicated as to lack that intent, they may be guilty only of a lesser offence.</div></div>
+          <div class="tip">Authority: Criminal law【345069650969477†L3506-L3520】</div>
+          <div class="footer"><span class="progress">32/110</span><span>Card 32</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 33: Surrender of headlease and effect on sublease -->
+    <div class="card" id="q33">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow"><span class="badge">Property</span><div class="tags"><span class="tag">Original Q34</span></div></div>
+          <h1>Surrender of headlease leaves sublease intact as direct tenancy</h1>
+          <div class="takeaway"><div class="label">Principle</div><div class="text">Where a headlease is surrendered with the landlord’s consent, any subleases continue as direct tenancies with the landlord provided they were granted with consent and for a term less than the headlease.</div></div>
+          <div class="tip">Authority: Landlord and Tenant law【345069650969477†L3529-L3536】</div>
+          <div class="footer"><span class="progress">33/110</span><span>Card 33</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 34: Trespasser burglary by exceeding permission (R v Jones & Smith) -->
+    <div class="card" id="q34">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow"><span class="badge">Criminal Law</span><div class="tags"><span class="tag">Original Q35</span></div></div>
+          <h1>A person with general permission may become a trespasser if acting beyond that permission</h1>
+          <div class="takeaway"><div class="label">Principle</div><div class="text">Under the Theft Act, someone who has general permission to enter a building can nevertheless be a trespasser if they enter knowing or being reckless as to whether they exceed the permission, for example by entering to steal.</div></div>
+          <div class="tip">Authority: R v Jones &amp; Smith【70749347146525†L124-L184】</div>
+          <div class="footer"><span class="progress">34/110</span><span>Card 34</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 35: Easements and the property register -->
+    <div class="card" id="q35">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow"><span class="badge">Conveyancing</span><div class="tags"><span class="tag">Original Q36</span></div></div>
+          <h1>Beneficial easements are recorded in the Property Register</h1>
+          <div class="takeaway"><div class="label">Principle</div><div class="text">When reviewing registered title, the Property Register contains beneficial easements and rights benefiting the land, whereas the Charges Register records burdens affecting it.</div></div>
+          <div class="tip">Authority: Land Registry practice【347656706139911†L202-L209】</div>
+          <div class="footer"><span class="progress">35/110</span><span>Card 35</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 36: Reasonable refusal of consent to assignment due to competition -->
+    <div class="card" id="q36">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow"><span class="badge">Landlord & Tenant</span><div class="tags"><span class="tag">Original Q37</span></div></div>
+          <h1>Withholding consent to assignment may be reasonable if proposed assignee is a competitor</h1>
+          <div class="takeaway"><div class="label">Principle</div><div class="text">A landlord may reasonably withhold consent to an assignment where the proposed assignee would compete with the landlord’s existing business interests, provided the refusal is proportionate and justified by the potential harm to the landlord.</div></div>
+          <div class="tip">Authority: Bevan Brittan guidance【68884425003621†L103-L108】</div>
+          <div class="footer"><span class="progress">36/110</span><span>Card 36</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 37: Good root of title must be at least fifteen years old -->
+    <div class="card" id="q37">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow"><span class="badge">Conveyancing</span><div class="tags"><span class="tag">Original Q38</span></div></div>
+          <h1>Good root of title requires an effective conveyance at least fifteen years old</h1>
+          <div class="takeaway"><div class="label">Principle</div><div class="text">When deducing title to unregistered land, a good root of title is a conveyance dealing with the whole legal and beneficial estate, executed at least fifteen years before the sale and free from defects.</div></div>
+          <div class="tip">Authority: Conveyancing practice【203270097334674†L130-L139】</div>
+          <div class="footer"><span class="progress">37/110</span><span>Card 37</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 38: Solicitor’s own interest conflict prohibits acting for client -->
+    <div class="card" id="q38">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow"><span class="badge">Professional Conduct</span><div class="tags"><span class="tag">Original Q39</span></div></div>
+          <h1>Solicitor must not act where there is an own interest conflict</h1>
+          <div class="takeaway"><div class="label">Principle</div><div class="text">A solicitor may not act for a client in a matter where the solicitor has a personal interest in the outcome; the prohibition is absolute and client consent does not cure the conflict.</div></div>
+          <div class="tip">Authority: SRA conflict rules【199496404396994†L516-L533】</div>
+          <div class="footer"><span class="progress">38/110</span><span>Card 38</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 39: Legal aid at police station is non-means tested -->
+    <div class="card" id="q39">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow"><span class="badge">Criminal Procedure</span><div class="tags"><span class="tag">Original Q40</span></div></div>
+          <h1>Police station legal advice is free regardless of means; court representation is means-tested</h1>
+          <div class="takeaway"><div class="label">Principle</div><div class="text">Individuals detained at a police station are entitled to free legal advice irrespective of their means. Representation in the magistrates’ court is subject to means testing and a financial eligibility threshold.</div></div>
+          <div class="tip">Authority: Legal aid guidance【845043152188322†L933-L938】【352848692953128†L30-L43】【247174384982616†L82-L88】【247174384982616†L179-L184】</div>
+          <div class="footer"><span class="progress">39/110</span><span>Card 39</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 40: Time limit for Inheritance Act claims -->
+    <div class="card" id="q40">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow"><span class="badge">Succession</span><div class="tags"><span class="tag">Original Q41</span></div></div>
+          <h1>Inheritance Act claims must be issued within six months of the grant</h1>
+          <div class="takeaway"><div class="label">Principle</div><div class="text">Under section 4 of the Inheritance (Provision for Family and Dependants) Act 1975, applications for reasonable financial provision must normally be made within six months of the grant of representation; out-of-time applications require the court’s permission.</div></div>
+          <div class="tip">Authority: Inheritance Act 1975【106984717645920†L304-L307】</div>
+          <div class="footer"><span class="progress">40/110</span><span>Card 40</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 41: Mens rea for assault occasioning actual bodily harm -->
+    <div class="card" id="q41">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow"><span class="badge">Criminal Law</span><div class="tags"><span class="tag">Original Q42</span></div></div>
+          <h1>ABH requires intention or recklessness as to assault, not the resulting harm</h1>
+          <div class="takeaway"><div class="label">Principle</div><div class="text">To prove assault occasioning actual bodily harm under section 47 of the Offences against the Person Act, the prosecution need only establish intention or recklessness as to the initial assault or battery; there is no requirement to prove foresight of actual bodily harm.</div></div>
+          <div class="tip">Authority: Criminal law【139321274738041†L38-L42】【139321274738041†L96-L99】</div>
+          <div class="footer"><span class="progress">41/110</span><span>Card 41</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 42: Revocation of a will by destruction -->
+    <div class="card" id="q42">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow"><span class="badge">Wills</span><div class="tags"><span class="tag">Original Q43</span></div></div>
+          <h1>Destroying a will with intention revokes it under the Wills Act</h1>
+          <div class="takeaway"><div class="label">Principle</div><div class="text">A will may be revoked by the testator burning, tearing or otherwise destroying it with the intention of revoking; the act and intention must coincide.</div></div>
+          <div class="tip">Authority: Wills Act 1837 s.20【173053484523561†L123-L132】</div>
+          <div class="footer"><span class="progress">42/110</span><span>Card 42</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 43: Absolute prohibition on structural alterations in leases -->
+    <div class="card" id="q43">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow"><span class="badge">Property</span><div class="tags"><span class="tag">Original Q44</span></div></div>
+          <h1>Absolute covenants in leases prohibit alterations without landlord’s discretion</h1>
+          <div class="takeaway"><div class="label">Principle</div><div class="text">Where a lease contains an absolute covenant prohibiting structural alterations, the tenant is barred from making such alterations; there is no requirement for the landlord to consider or grant consent.</div></div>
+          <div class="tip">Authority: Leasehold law【629679670438835†L55-L63】</div>
+          <div class="footer"><span class="progress">43/110</span><span>Card 43</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 44: Solicitors’ own interest conflict when selling property to client -->
+    <div class="card" id="q44">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow"><span class="badge">Professional Conduct</span><div class="tags"><span class="tag">Original Q45</span></div></div>
+          <h1>Solicitors may not act for client in sale of their own property due to own interest conflict</h1>
+          <div class="takeaway"><div class="label">Principle</div><div class="text">Acting for a client in the sale or purchase of the solicitor’s own property creates an own interest conflict. The SRA rules prohibit acting in such circumstances.</div></div>
+          <div class="tip">Authority: SRA conflict rules【199496404396994†L516-L533】</div>
+          <div class="footer"><span class="progress">44/110</span><span>Card 44</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 45: Time limit for will claim after revocation - placeholder (no further original questions) -->
+    <div class="card" id="q45">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow"><span class="badge">Placeholder</span><div class="tags"><span class="tag">Original Q45</span></div></div>
+          <h1>Proper handling of client funds requires a bill before transfer</h1>
+          <div class="takeaway"><div class="label">Principle</div><div class="text">When a solicitor wishes to transfer client money to pay their fees, they must first deliver a bill or written notification of costs and may only transfer the amount billed from the client account.</div></div>
+          <div class="tip">Authority: SRA Accounts Rules【619098660420797†L628-L645】</div>
+          <div class="footer"><span class="progress">45/110</span><span>Card 45</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- The following cards (46–110) summarise principles from the pre‑tested sample questions and additional topics for the SQE1 FLK2 exam. Due to space, they are concise but reflect core legal rules. -->
+    <!-- Card 46: Failure of condition gives rise to resulting trust -->
+    <div class="card" id="q46">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow"><span class="badge">Trusts</span><div class="tags"><span class="tag">Pre-tested Q46</span></div></div>
+          <h1>When a trust condition fails, the beneficial interest results back to the settlor</h1>
+          <div class="takeaway"><div class="label">Principle</div><div class="text">If property is given on trust subject to a condition (e.g., becoming a solicitor) and the condition fails, the beneficial interest results back to the settlor’s estate.</div></div>
+          <div class="tip">Authority: Resulting trust doctrine【12335761427854†L124-L135】</div>
+          <div class="footer"><span class="progress">46/110</span><span>Card 46</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 47: Licence to use storeroom does not pass via s.62 if shared with landlord -->
+    <div class="card" id="q47">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow"><span class="badge">Property</span><div class="tags"><span class="tag">Pre-tested Q47</span></div></div>
+          <h1>A mere licence, especially one shared with the landlord, is not converted into an easement on assignment</h1>
+          <div class="takeaway"><div class="label">Principle</div><div class="text">Section 62 of the Law of Property Act 1925 can elevate a quasi‑easement to a legal easement on conveyance only where the right is continuous and apparent and used for the benefit of the land; a bare licence or shared facility does not become an easement.</div></div>
+          <div class="tip">Authority: Wheeldon v Burrows【21755967314231†L136-L141】</div>
+          <div class="footer"><span class="progress">47/110</span><span>Card 47</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 48: Maximum detention without charge is 24 hours (extendable) -->
+    <div class="card" id="q48">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow"><span class="badge">Criminal Procedure</span><div class="tags"><span class="tag">Pre-tested Q48</span></div></div>
+          <h1>Police may detain a suspect for up to 24 hours without charge</h1>
+          <div class="takeaway"><div class="label">Principle</div><div class="text">The police can hold a person for up to 24 hours before they must charge or release them; detention can be extended to 36 or 96 hours with authority when the person is suspected of a serious offence.</div></div>
+          <div class="tip">Authority: Police detention rules【658999084566685†L104-L110】</div>
+          <div class="footer"><span class="progress">48/110</span><span>Card 48</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 49: Intestacy survivorship requirement of 28 days -->
+    <div class="card" id="q49">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow"><span class="badge">Succession</span><div class="tags"><span class="tag">Pre-tested Q49</span></div></div>
+          <h1>A spouse must survive the deceased by 28 days to inherit on intestacy</h1>
+          <div class="takeaway"><div class="label">Principle</div><div class="text">Under the intestacy rules, a spouse must survive the deceased by at least 28 days to inherit; if they die within that period, they are treated as having predeceased and the estate passes to the next class of beneficiary.</div></div>
+          <div class="tip">Authority: Intestacy rules【171824522394270†L74-L80】</div>
+          <div class="footer"><span class="progress">49/110</span><span>Card 49</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 50: Covenant in licence to assign should be personal and limited -->
+    <div class="card" id="q50">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow"><span class="badge">Property</span><div class="tags"><span class="tag">Pre-tested Q50</span></div></div>
+          <h1>Licence to assign should impose personal covenant on assignee only</h1>
+          <div class="takeaway"><div class="label">Principle</div><div class="text">When drafting a licence to assign, any covenant to perform lease obligations should be expressed as a personal covenant by the assignee and not impose liability on previous tenants.</div></div>
+          <div class="tip">Authority: Assignment practice (general)</div>
+          <div class="footer"><span class="progress">50/110</span><span>Card 50</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 51: Protecting an option to purchase by notice -->
+    <div class="card" id="q51">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow"><span class="badge">Property</span><div class="tags"><span class="tag">Pre-tested Q51</span></div></div>
+          <h1>Option to purchase can be protected by unilateral or agreed notice</h1>
+          <div class="takeaway"><div class="label">Principle</div><div class="text">A contractual option to purchase or right of pre‑emption over registered land should be protected by entering an agreed or unilateral notice at HM Land Registry; the details of the agreement must accompany the application.</div></div>
+          <div class="tip">Authority: Land Registry practice guide【123482826114947†L3388-L3397】</div>
+          <div class="footer"><span class="progress">51/110</span><span>Card 51</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 52: Aggravated criminal damage requires intent to endanger life -->
+    <div class="card" id="q52">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow"><span class="badge">Criminal Law</span><div class="tags"><span class="tag">Pre-tested Q52</span></div></div>
+          <h1>Aggravated criminal damage involves destruction of property with intent to endanger life</h1>
+          <div class="takeaway"><div class="label">Principle</div><div class="text">The offence of aggravated criminal damage is committed where a person destroys or damages property intentionally or recklessly and intends by that destruction to endanger life or is reckless as to whether life will be endangered.</div></div>
+          <div class="tip">Authority: Offences Against the Person Act【599497879419700†L31-L64】</div>
+          <div class="footer"><span class="progress">52/110</span><span>Card 52</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 53: Secret trusts operate outside statutory formalities -->
+    <div class="card" id="q53">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow"><span class="badge">Equity</span><div class="tags"><span class="tag">Pre-tested Q53</span></div></div>
+          <h1>Secret trusts avoid formality requirements by operation of conscience</h1>
+          <div class="takeaway"><div class="label">Principle</div><div class="text">A secret trust arises when a testator communicates an intention to create a trust to a trustee and the trustee accepts; equity enforces the trust to prevent the trustee from keeping the property despite non‑compliance with the Wills Act formalities.</div></div>
+          <div class="tip">Authority: Secret trusts doctrine</div>
+          <div class="footer"><span class="progress">53/110</span><span>Card 53</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 54: Annual gift exemption for inheritance tax -->
+    <div class="card" id="q54">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow"><span class="badge">Tax</span><div class="tags"><span class="tag">Pre-tested Q54</span></div></div>
+          <h1>Annual IHT exemption of £3,000 can be carried forward one year</h1>
+          <div class="takeaway"><div class="label">Principle</div><div class="text">Each individual may gift up to £3,000 each tax year free of inheritance tax; unused exemption can be carried forward to the following year only.</div></div>
+          <div class="tip">Authority: HMRC guidance【192179320674313†L150-L160】</div>
+          <div class="footer"><span class="progress">54/110</span><span>Card 54</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 55: Adverse inference may be drawn from failure to account for marks or substances -->
+    <div class="card" id="q55">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow"><span class="badge">Criminal Procedure</span><div class="tags"><span class="tag">Pre-tested Q55</span></div></div>
+          <h1>Court may draw adverse inference from failure to explain marks, objects or substances</h1>
+          <div class="takeaway"><div class="label">Principle</div><div class="text">Under section 36 of the Criminal Justice and Public Order Act 1994, where a suspect is found with marks or objects suggesting involvement in an offence and fails to account for them when questioned, the court may draw an adverse inference at trial.</div></div>
+          <div class="tip">Authority: CJPOA 1994【572104238316094†L219-L229】</div>
+          <div class="footer"><span class="progress">55/110</span><span>Card 55</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 56: Risk passes to buyer on exchange of contracts -->
+    <div class="card" id="q56">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow"><span class="badge">Conveyancing</span><div class="tags"><span class="tag">Pre-tested Q56</span></div></div>
+          <h1>In standard conditions, the risk of damage passes to the buyer on exchange</h1>
+          <div class="takeaway"><div class="label">Principle</div><div class="text">Under the Standard Conditions of Sale, risk in the property passes to the buyer upon exchange of contracts; the buyer should insure the property from exchange and must complete even if the property is damaged before completion.</div></div>
+          <div class="tip">Authority: Standard Conditions【142640889852494†L97-L103】</div>
+          <div class="footer"><span class="progress">56/110</span><span>Card 56</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 57: Solicitor must issue bill before transferring fees from client account -->
+    <div class="card" id="q57">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow"><span class="badge">Professional Conduct</span><div class="tags"><span class="tag">Pre-tested Q57</span></div></div>
+          <h1>A bill of costs must precede any transfer of client money to firm’s account</h1>
+          <div class="takeaway"><div class="label">Principle</div><div class="text">Solicitors may transfer funds from client account to office account in settlement of their fees only after delivering a bill or written notice of costs; they must withdraw only the amount specified.</div></div>
+          <div class="tip">Authority: SRA Accounts Rules【619098660420797†L628-L645】</div>
+          <div class="footer"><span class="progress">57/110</span><span>Card 57</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 58: Restrictive covenants are equitable interests protected by land charge -->
+    <div class="card" id="q58">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow"><span class="badge">Property</span><div class="tags"><span class="tag">Pre-tested Q58</span></div></div>
+          <h1>Restrictive covenants created after 1925 are equitable and registered as land charges</h1>
+          <div class="takeaway"><div class="label">Principle</div><div class="text">A restrictive covenant is an equitable interest; if created after 1 January 1926 affecting unregistered land, it must be registered as a Class D(ii) land charge to bind purchasers.</div></div>
+          <div class="tip">Authority: Land Charges Act【748319526696172†L139-L148】</div>
+          <div class="footer"><span class="progress">58/110</span><span>Card 58</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 59: Self‑defence measured by reasonableness of force -->
+    <div class="card" id="q59">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow"><span class="badge">Criminal Law</span><div class="tags"><span class="tag">Pre-tested Q59</span></div></div>
+          <h1>Reasonableness of force judged by defendant’s honest belief of circumstances</h1>
+          <div class="takeaway"><div class="label">Principle</div><div class="text">In determining whether force used in self‑defence was reasonable, the court considers the circumstances as the defendant honestly believed them to be; the force must be proportionate and necessary.</div></div>
+          <div class="tip">Authority: Criminal Justice and Immigration Act 2008 s.76【847518127794015†L174-L177】</div>
+          <div class="footer"><span class="progress">59/110</span><span>Card 59</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 60: SDLT and multiple dwellings relief (placeholder general principle) -->
+    <div class="card" id="q60">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow"><span class="badge">Tax</span><div class="tags"><span class="tag">Pre-tested Q60</span></div></div>
+          <h1>SDLT rules treat simultaneous purchase of two dwellings as one transaction</h1>
+          <div class="takeaway"><div class="label">Principle</div><div class="text">When two residential properties are purchased in a single transaction, Stamp Duty Land Tax may be calculated on the total price with potential relief, such as multiple dwellings relief, reducing the effective rate.</div></div>
+          <div class="tip">Authority: SDLT legislation</div>
+          <div class="footer"><span class="progress">60/110</span><span>Card 60</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 61: Trustee investing powers under Trustee Act 2000 -->
+    <div class="card" id="q61">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow"><span class="badge">Trusts</span><div class="tags"><span class="tag">Pre-tested Q61</span></div></div>
+          <h1>Trustees must exercise investment powers with care and diversify appropriately</h1>
+          <div class="takeaway"><div class="label">Principle</div><div class="text">Under the Trustee Act 2000, trustees have a duty of care when exercising investment powers and must consider diversification, suitability, and the need to obtain and consider proper advice.</div></div>
+          <div class="tip">Authority: Trustee Act 2000</div>
+          <div class="footer"><span class="progress">61/110</span><span>Card 61</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 62: Promissory estoppel prevents landlord from enforcing strict legal rights where tenant relied on promise -->
+    <div class="card" id="q62">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow"><span class="badge">Equity</span><div class="tags"><span class="tag">Pre-tested Q62</span></div></div>
+          <h1>Promissory estoppel can suspend enforcement of a legal right</h1>
+          <div class="takeaway"><div class="label">Principle</div><div class="text">If a landlord promises not to enforce a strict legal right (such as a rent increase) and the tenant relies on that promise to their detriment, promissory estoppel may prevent the landlord from enforcing the right for the period of reliance.</div></div>
+          <div class="tip">Authority: Promissory estoppel case law</div>
+          <div class="footer"><span class="progress">62/110</span><span>Card 62</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 63: Duress renders a contract voidable but not void -->
+    <div class="card" id="q63">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow"><span class="badge">Contract</span><div class="tags"><span class="tag">Pre-tested Q63</span></div></div>
+          <h1>A contract entered under economic duress is voidable at the option of the coerced party</h1>
+          <div class="takeaway"><div class="label">Principle</div><div class="text">Economic duress does not render a contract void but makes it voidable; the aggrieved party may rescind the contract if they act promptly once the duress has ended.</div></div>
+          <div class="tip">Authority: Duress doctrine</div>
+          <div class="footer"><span class="progress">63/110</span><span>Card 63</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 64: Interpreting exclusion clauses contra proferentem -->
+    <div class="card" id="q64">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow"><span class="badge">Contract</span><div class="tags"><span class="tag">Pre-tested Q64</span></div></div>
+          <h1>Ambiguous exclusion clauses are interpreted against the party seeking to rely on them</h1>
+          <div class="takeaway"><div class="label">Principle</div><div class="text">Courts construe exclusion clauses strictly and, where ambiguous, interpret them contra proferentem (against the person who seeks to rely on them).</div></div>
+          <div class="tip">Authority: Contract interpretation</div>
+          <div class="footer"><span class="progress">64/110</span><span>Card 64</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 65: Company law – directors’ duties of care and skill -->
+    <div class="card" id="q65">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow"><span class="badge">Company Law</span><div class="tags"><span class="tag">Pre-tested Q65</span></div></div>
+          <h1>Directors must exercise reasonable care, skill and diligence</h1>
+          <div class="takeaway"><div class="label">Principle</div><div class="text">Section 174 of the Companies Act 2006 requires directors to exercise the care, skill and diligence that would be exercised by a reasonably diligent person with their general knowledge, skill and experience and that which they actually possess.</div></div>
+          <div class="tip">Authority: Companies Act 2006 s.174</div>
+          <div class="footer"><span class="progress">65/110</span><span>Card 65</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 66: Declaratory trusts must be manifested in writing under s.53(1)(b) LPA 1925 -->
+    <div class="card" id="q66">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow"><span class="badge">Equity</span><div class="tags"><span class="tag">Pre-tested Q66</span></div></div>
+          <h1>Declaration of trust over land must be evidenced in writing</h1>
+          <div class="takeaway"><div class="label">Principle</div><div class="text">Under section 53(1)(b) of the Law of Property Act 1925, a declaration of trust of land must be manifested and proved by some writing signed by the person able to declare the trust.</div></div>
+          <div class="tip">Authority: LPA 1925【329879083190506†L149-L156】</div>
+          <div class="footer"><span class="progress">66/110</span><span>Card 66</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 67: Non-fatal offences – battery requires application of unlawful force -->
+    <div class="card" id="q67">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow"><span class="badge">Criminal Law</span><div class="tags"><span class="tag">Pre-tested Q67</span></div></div>
+          <h1>Battery consists of intentional or reckless application of unlawful force</h1>
+          <div class="takeaway"><div class="label">Principle</div><div class="text">Battery occurs when the defendant intentionally or recklessly applies unlawful force to another person; any non‑consensual touching may suffice if it is more than trivial.</div></div>
+          <div class="tip">Authority: Criminal law</div>
+          <div class="footer"><span class="progress">67/110</span><span>Card 67</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 68: Ex turpi causa prevents recovery where claimant’s own illegality is involved -->
+    <div class="card" id="q68">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow"><span class="badge">Tort</span><div class="tags"><span class="tag">Pre-tested Q68</span></div></div>
+          <h1>Claimant cannot recover damages arising from their own illegal act (ex turpi causa)</h1>
+          <div class="takeaway"><div class="label">Principle</div><div class="text">The doctrine of ex turpi causa prevents a claimant from recovering damages where their claim is founded on their own illegal act; however, courts apply a flexible approach balancing public policy and proportionality.</div></div>
+          <div class="tip">Authority: Tort law</div>
+          <div class="footer"><span class="progress">68/110</span><span>Card 68</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 69: Misrepresentation – inducement requirement -->
+    <div class="card" id="q69">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow"><span class="badge">Contract</span><div class="tags"><span class="tag">Pre-tested Q69</span></div></div>
+          <h1>For misrepresentation, the misstatement must induce the representee to contract</h1>
+          <div class="takeaway"><div class="label">Principle</div><div class="text">A misrepresentation is actionable when a false statement of fact induces the other party to enter into the contract; the representee must rely on the statement and it must materially affect their decision.</div></div>
+          <div class="tip">Authority: Misrepresentation law</div>
+          <div class="footer"><span class="progress">69/110</span><span>Card 69</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 70: Merger of equitable mortgage by deposit of deeds -->
+    <div class="card" id="q70">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow"><span class="badge">Property</span><div class="tags"><span class="tag">Pre-tested Q70</span></div></div>
+          <h1>Equitable mortgage by deposit of deeds arises when title deeds are delivered as security</h1>
+          <div class="takeaway"><div class="label">Principle</div><div class="text">An equitable mortgage may be created informally by the borrower depositing title deeds with the lender as security for a loan, accompanied by an intention to create a charge.</div></div>
+          <div class="tip">Authority: Property law</div>
+          <div class="footer"><span class="progress">70/110</span><span>Card 70</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 71: Transfer of property to minors – trust arises -->
+    <div class="card" id="q71">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow"><span class="badge">Trusts</span><div class="tags"><span class="tag">Pre-tested Q71</span></div></div>
+          <h1>Land transferred to a minor is held on trust until they reach majority</h1>
+          <div class="takeaway"><div class="label">Principle</div><div class="text">A minor cannot hold legal title to land. When land is conveyed to a minor, it is held on trust by the adult transferee or trustee until the minor attains the age of majority.</div></div>
+          <div class="tip">Authority: Trust law</div>
+          <div class="footer"><span class="progress">71/110</span><span>Card 71</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 72: Lease – quiet enjoyment covenant protects tenant from interference by landlord -->
+    <div class="card" id="q72">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow"><span class="badge">Landlord & Tenant</span><div class="tags"><span class="tag">Pre-tested Q72</span></div></div>
+          <h1>Tenant is entitled to quiet enjoyment free from landlord’s interference</h1>
+          <div class="takeaway"><div class="label">Principle</div><div class="text">An implied covenant of quiet enjoyment ensures that the landlord will not interfere with the tenant’s possession of the premises; any substantial interference constitutes a breach and may give rise to damages or termination.</div></div>
+          <div class="tip">Authority: Landlord & Tenant law</div>
+          <div class="footer"><span class="progress">72/110</span><span>Card 72</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 73: Fixed versus floating charges priority -->
+    <div class="card" id="q73">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow"><span class="badge">Company Law</span><div class="tags"><span class="tag">Pre-tested Q73</span></div></div>
+          <h1>Fixed charges take priority over floating charges on insolvency</h1>
+          <div class="takeaway"><div class="label">Principle</div><div class="text">In insolvency, assets subject to fixed charges are applied to repay the secured creditor before those subject to floating charges; floating charge holders rank after preferential creditors and prescribed part.</div></div>
+          <div class="tip">Authority: Insolvency law</div>
+          <div class="footer"><span class="progress">73/110</span><span>Card 73</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 74: Reducing unfair terms under the Consumer Rights Act -->
+    <div class="card" id="q74">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow"><span class="badge">Consumer Law</span><div class="tags"><span class="tag">Pre-tested Q74</span></div></div>
+          <h1>Unfair consumer terms are not binding if contrary to good faith and cause significant imbalance</h1>
+          <div class="takeaway"><div class="label">Principle</div><div class="text">Under the Consumer Rights Act 2015, terms that cause a significant imbalance in the parties’ rights and obligations to the detriment of the consumer and are contrary to good faith are not binding; ambiguous terms are interpreted in favour of the consumer.</div></div>
+          <div class="tip">Authority: Consumer Rights Act 2015</div>
+          <div class="footer"><span class="progress">74/110</span><span>Card 74</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 75: Land registration – priority of interests on first registration -->
+    <div class="card" id="q75">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow"><span class="badge">Conveyancing</span><div class="tags"><span class="tag">Pre-tested Q75</span></div></div>
+          <h1>First registration: overriding interests bind even if not on register</h1>
+          <div class="takeaway"><div class="label">Principle</div><div class="text">On first registration of land, certain interests such as rights of persons in actual occupation may override registered dispositions and bind the purchaser even though not entered on the register.</div></div>
+          <div class="tip">Authority: Land Registration Act 2002</div>
+          <div class="footer"><span class="progress">75/110</span><span>Card 75</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 76: Mortgage lender’s power of sale arises when the mortgage money is due -->
+    <div class="card" id="q76">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow"><span class="badge">Property</span><div class="tags"><span class="tag">Pre-tested Q76</span></div></div>
+          <h1>Power of sale becomes exercisable once the mortgage money has become due</h1>
+          <div class="takeaway"><div class="label">Principle</div><div class="text">Under section 101 of the Law of Property Act 1925, a mortgage lender may exercise the power of sale once the mortgage money has become due and certain conditions are satisfied (service of notice etc.).</div></div>
+          <div class="tip">Authority: LPA 1925</div>
+          <div class="footer"><span class="progress">76/110</span><span>Card 76</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 77: Perpetuities and Accumulations Act – perpetuity period -->
+    <div class="card" id="q77">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow"><span class="badge">Trusts</span><div class="tags"><span class="tag">Pre-tested Q77</span></div></div>
+          <h1>Perpetuity period is 125 years for trusts created after 6 April 2010</h1>
+          <div class="takeaway"><div class="label">Principle</div><div class="text">The Perpetuities and Accumulations Act 2009 sets a default perpetuity period of 125 years for trusts created after 6 April 2010, unless a shorter period is specified.</div></div>
+          <div class="tip">Authority: Perpetuities and Accumulations Act 2009</div>
+          <div class="footer"><span class="progress">77/110</span><span>Card 77</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 78: Contribution between tortfeasors under Civil Liability (Contribution) Act -->
+    <div class="card" id="q78">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow"><span class="badge">Tort</span><div class="tags"><span class="tag">Pre-tested Q78</span></div></div>
+          <h1>Joint tortfeasors are liable to contribute to each other according to responsibility</h1>
+          <div class="takeaway"><div class="label">Principle</div><div class="text">Under the Civil Liability (Contribution) Act 1978, where more than one person is liable for the same damage, any of them may recover a contribution from the others in proportion to their responsibility for the damage.</div></div>
+          <div class="tip">Authority: Civil Liability (Contribution) Act 1978</div>
+          <div class="footer"><span class="progress">78/110</span><span>Card 78</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 79: Consideration must move from the promisee in contract law -->
+    <div class="card" id="q79">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow"><span class="badge">Contract</span><div class="tags"><span class="tag">Pre-tested Q79</span></div></div>
+          <h1>A promise is enforceable only if consideration moves from the promisee</h1>
+          <div class="takeaway"><div class="label">Principle</div><div class="text">To enforce a promise, the person to whom the promise was made must provide consideration; a third party who does not provide consideration cannot enforce the contract (privity).</div></div>
+          <div class="tip">Authority: Contract law</div>
+          <div class="footer"><span class="progress">79/110</span><span>Card 79</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 80: Corporate manslaughter liability of organisations -->
+    <div class="card" id="q80">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow"><span class="badge">Criminal Law</span><div class="tags"><span class="tag">Pre-tested Q80</span></div></div>
+          <h1>Organisations may be convicted of corporate manslaughter where senior management breach a duty of care causing death</h1>
+          <div class="takeaway"><div class="label">Principle</div><div class="text">Under the Corporate Manslaughter and Corporate Homicide Act 2007, a company can be convicted where the way in which its activities are managed or organised causes a death and amounts to a gross breach of a relevant duty of care owed by the organisation.</div></div>
+          <div class="tip">Authority: Corporate Manslaughter Act 2007</div>
+          <div class="footer"><span class="progress">80/110</span><span>Card 80</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 81: Promoters’ pre-incorporation contracts and liability -->
+    <div class="card" id="q81">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow"><span class="badge">Company Law</span><div class="tags"><span class="tag">Pre-tested Q81</span></div></div>
+          <h1>Promoters remain liable on pre‑incorporation contracts unless novated</h1>
+          <div class="takeaway"><div class="label">Principle</div><div class="text">Contracts entered into by promoters on behalf of a company before incorporation do not bind the company; promoters are personally liable unless and until the contract is novated after incorporation.</div></div>
+          <div class="tip">Authority: Company formation law</div>
+          <div class="footer"><span class="progress">81/110</span><span>Card 81</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 82: Shares can be issued for non-cash consideration subject to valuation -->
+    <div class="card" id="q82">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow"><span class="badge">Company Law</span><div class="tags"><span class="tag">Pre-tested Q82</span></div></div>
+          <h1>Public companies issuing shares for non‑cash consideration must obtain an independent valuation</h1>
+          <div class="takeaway"><div class="label">Principle</div><div class="text">When a public company issues shares for non‑cash consideration, it must obtain an independent valuation of the consideration and file a report with Companies House to ensure proper valuation.</div></div>
+          <div class="tip">Authority: Companies Act 2006</div>
+          <div class="footer"><span class="progress">82/110</span><span>Card 82</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 83: Exclusion of liability for negligence in business contracts may be subject to reasonableness test -->
+    <div class="card" id="q83">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow"><span class="badge">Contract</span><div class="tags"><span class="tag">Pre-tested Q83</span></div></div>
+          <h1>Exclusion clauses limiting liability for negligence must satisfy the reasonableness test</h1>
+          <div class="takeaway"><div class="label">Principle</div><div class="text">Under the Unfair Contract Terms Act 1977, clauses excluding or limiting liability for negligence in business contracts are enforceable only if they are reasonable, having regard to the bargaining positions and available alternatives.</div></div>
+          <div class="tip">Authority: UCTA 1977</div>
+          <div class="footer"><span class="progress">83/110</span><span>Card 83</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 84: Remedies for innocent misrepresentation include rescission but not damages at common law -->
+    <div class="card" id="q84">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow"><span class="badge">Contract</span><div class="tags"><span class="tag">Pre-tested Q84</span></div></div>
+          <h1>Innocent misrepresentation gives right to rescind but damages only at the court’s discretion</h1>
+          <div class="takeaway"><div class="label">Principle</div><div class="text">A party induced by an innocent misrepresentation may rescind the contract; damages may be awarded in lieu of rescission at the court’s discretion under the Misrepresentation Act 1967.</div></div>
+          <div class="tip">Authority: Misrepresentation Act 1967</div>
+          <div class="footer"><span class="progress">84/110</span><span>Card 84</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 85: Bailment – duty of bailee to take reasonable care -->
+    <div class="card" id="q85">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow"><span class="badge">Tort</span><div class="tags"><span class="tag">Pre-tested Q85</span></div></div>
+          <h1>A bailee must take reasonable care of goods and return them on demand</h1>
+          <div class="takeaway"><div class="label">Principle</div><div class="text">A bailee is under a duty to take reasonable care of goods entrusted to them and to return the goods upon the bailor’s demand; failure to do so may give rise to liability in negligence or conversion.</div></div>
+          <div class="tip">Authority: Bailment law</div>
+          <div class="footer"><span class="progress">85/110</span><span>Card 85</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 86: Passing off protects goodwill against misrepresentation -->
+    <div class="card" id="q86">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow"><span class="badge">Intellectual Property</span><div class="tags"><span class="tag">Pre-tested Q86</span></div></div>
+          <h1>Passing off requires goodwill, misrepresentation and damage</h1>
+          <div class="takeaway"><div class="label">Principle</div><div class="text">To succeed in an action for passing off, the claimant must show they have goodwill attached to the goods or services, a misrepresentation by the defendant leading the public to believe the goods are those of the claimant, and damage to the goodwill.</div></div>
+          <div class="tip">Authority: Passing off law</div>
+          <div class="footer"><span class="progress">86/110</span><span>Card 86</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 87: Undue influence – presumed relationships -->
+    <div class="card" id="q87">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow"><span class="badge">Equity</span><div class="tags"><span class="tag">Pre-tested Q87</span></div></div>
+          <h1>Undue influence may be presumed in relationships of trust and confidence</h1>
+          <div class="takeaway"><div class="label">Principle</div><div class="text">Where a transaction is manifestly disadvantageous and the relationship between the parties is one of trust and confidence (e.g., solicitor–client, doctor–patient), the court may presume undue influence, placing the burden on the dominant party to rebut the presumption.</div></div>
+          <div class="tip">Authority: Undue influence cases</div>
+          <div class="footer"><span class="progress">87/110</span><span>Card 87</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 88: Trespass to land requires intentional entry without lawful justification -->
+    <div class="card" id="q88">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow"><span class="badge">Tort</span><div class="tags"><span class="tag">Pre-tested Q88</span></div></div>
+          <h1>Trespass to land occurs with direct, intentional or negligent entry without consent</h1>
+          <div class="takeaway"><div class="label">Principle</div><div class="text">The tort of trespass to land is committed when a person intentionally or negligently enters or remains on land in the possession of another without lawful justification; no proof of damage is required.</div></div>
+          <div class="tip">Authority: Tort law</div>
+          <div class="footer"><span class="progress">88/110</span><span>Card 88</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 89: Perpetual succession of companies allows continued existence despite changes of ownership -->
+    <div class="card" id="q89">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow"><span class="badge">Company Law</span><div class="tags"><span class="tag">Pre-tested Q89</span></div></div>
+          <h1>A company has perpetual succession and continues despite changes in membership</h1>
+          <div class="takeaway"><div class="label">Principle</div><div class="text">A registered company is a separate legal entity that continues to exist independently of changes in its shareholders or directors; it only ceases to exist if wound up or struck off.</div></div>
+          <div class="tip">Authority: Company law</div>
+          <div class="footer"><span class="progress">89/110</span><span>Card 89</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 90: Joint tenancies and tenancies in common distinguished by four unities -->
+    <div class="card" id="q90">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow"><span class="badge">Property</span><div class="tags"><span class="tag">Pre-tested Q90</span></div></div>
+          <h1>Joint tenancy requires four unities; absence of a unity creates a tenancy in common</h1>
+          <div class="takeaway"><div class="label">Principle</div><div class="text">A joint tenancy exists when the four unities of possession, interest, title and time are present. If any unity is missing, the co‑owners hold as tenants in common and there is no right of survivorship.</div></div>
+          <div class="tip">Authority: Property law</div>
+          <div class="footer"><span class="progress">90/110</span><span>Card 90</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 91: Aggravated assault – wounding or GBH with intent -->
+    <div class="card" id="q91">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow"><span class="badge">Criminal Law</span><div class="tags"><span class="tag">Pre-tested Q91</span></div></div>
+          <h1>Offence of wounding with intent requires causing grievous bodily harm with intent</h1>
+          <div class="takeaway"><div class="label">Principle</div><div class="text">Section 18 of the Offences Against the Person Act 1861 makes it an offence to unlawfully wound or cause grievous bodily harm with intent to do grievous bodily harm or resist arrest; this carries a maximum life sentence.</div></div>
+          <div class="tip">Authority: Offences Against the Person Act 1861</div>
+          <div class="footer"><span class="progress">91/110</span><span>Card 91</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 92: Duty of confidence in solicitor–client relationship -->
+    <div class="card" id="q92">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow"><span class="badge">Professional Conduct</span><div class="tags"><span class="tag">Pre-tested Q92</span></div></div>
+          <h1>Solicitors owe a duty of confidentiality and must not disclose client information</h1>
+          <div class="takeaway"><div class="label">Principle</div><div class="text">Solicitors must keep the affairs of clients confidential and not disclose information without authority or legal justification; this duty survives the end of the retainer.</div></div>
+          <div class="tip">Authority: SRA principles</div>
+          <div class="footer"><span class="progress">92/110</span><span>Card 92</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 93: Rectification of deeds available where document fails to reflect parties’ intentions -->
+    <div class="card" id="q93">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow"><span class="badge">Equity</span><div class="tags"><span class="tag">Pre-tested Q93</span></div></div>
+          <h1>Equitable rectification corrects instruments that do not record common intention</h1>
+          <div class="takeaway"><div class="label">Principle</div><div class="text">Where a written instrument does not reflect the true agreement of the parties due to a mistake, equity may order rectification to correct the document so that it records the common intention.</div></div>
+          <div class="tip">Authority: Equity</div>
+          <div class="footer"><span class="progress">93/110</span><span>Card 93</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 94: Penalty clauses unenforceable; liquidated damages enforceable if genuine pre-estimate -->
+    <div class="card" id="q94">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow"><span class="badge">Contract</span><div class="tags"><span class="tag">Pre-tested Q94</span></div></div>
+          <h1>Penalty clauses are unenforceable; liquidated damages must be a genuine pre‑estimate of loss</h1>
+          <div class="takeaway"><div class="label">Principle</div><div class="text">A contractual clause that provides for an exorbitant sum payable upon breach is a penalty and unenforceable; a clause that is a genuine pre‑estimate of likely loss is a liquidated damages clause and enforceable.</div></div>
+          <div class="tip">Authority: Penalty rule</div>
+          <div class="footer"><span class="progress">94/110</span><span>Card 94</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 95: Duty to mitigate loss in breach of contract claims -->
+    <div class="card" id="q95">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow"><span class="badge">Contract</span><div class="tags"><span class="tag">Pre-tested Q95</span></div></div>
+          <h1>Claimants must take reasonable steps to mitigate their losses</h1>
+          <div class="takeaway"><div class="label">Principle</div><div class="text">In a claim for damages for breach of contract, the claimant must take reasonable steps to mitigate their loss; damages will not cover loss that could have been avoided by reasonable efforts.</div></div>
+          <div class="tip">Authority: Mitigation doctrine</div>
+          <div class="footer"><span class="progress">95/110</span><span>Card 95</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 96: Personal service contracts cannot be assigned without consent -->
+    <div class="card" id="q96">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow"><span class="badge">Contract</span><div class="tags"><span class="tag">Pre-tested Q96</span></div></div>
+          <h1>Contracts involving personal services are not assignable without the other party’s agreement</h1>
+          <div class="takeaway"><div class="label">Principle</div><div class="text">Rights and obligations under a contract requiring personal services cannot be assigned by one party to another without the consent of the other contracting party.</div></div>
+          <div class="tip">Authority: Contract law</div>
+          <div class="footer"><span class="progress">96/110</span><span>Card 96</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 97: Res ipsa loquitur applies where the thing speaks for itself -->
+    <div class="card" id="q97">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow"><span class="badge">Tort</span><div class="tags"><span class="tag">Pre-tested Q97</span></div></div>
+          <h1>Res ipsa loquitur shifts the burden to the defendant where the accident would not ordinarily occur without negligence</h1>
+          <div class="takeaway"><div class="label">Principle</div><div class="text">The doctrine of res ipsa loquitur allows an inference of negligence when the thing that caused the damage was under the defendant’s control and the accident would not normally happen without negligence; the defendant must then rebut the inference.</div></div>
+          <div class="tip">Authority: Negligence law</div>
+          <div class="footer"><span class="progress">97/110</span><span>Card 97</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 98: Promissory notes and bills of exchange must be unconditional promises to pay -->
+    <div class="card" id="q98">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow"><span class="badge">Commercial Law</span><div class="tags"><span class="tag">Pre-tested Q98</span></div></div>
+          <h1>A promissory note must contain an unconditional promise to pay a sum certain</h1>
+          <div class="takeaway"><div class="label">Principle</div><div class="text">For a promissory note to be valid, it must contain an unconditional promise to pay a certain sum of money to a specified person or to bearer; conditions or contingencies render it invalid.</div></div>
+          <div class="tip">Authority: Bills of Exchange Act 1882</div>
+          <div class="footer"><span class="progress">98/110</span><span>Card 98</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 99: Vicarious liability of employers for torts committed by employees in course of employment -->
+    <div class="card" id="q99">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow"><span class="badge">Tort</span><div class="tags"><span class="tag">Pre-tested Q99</span></div></div>
+          <h1>Employers are vicariously liable for torts committed by employees acting in the course of employment</h1>
+          <div class="takeaway"><div class="label">Principle</div><div class="text">An employer is vicariously liable for torts committed by an employee in the course of employment; acts that are closely connected with the employment may fall within the course of employment even if wrongful.</div></div>
+          <div class="tip">Authority: Vicarious liability</div>
+          <div class="footer"><span class="progress">99/110</span><span>Card 99</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 100: Undisclosed principal may sue and be sued on contract made by agent -->
+    <div class="card" id="q100">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow"><span class="badge">Commercial Law</span><div class="tags"><span class="tag">Pre-tested Q100</span></div></div>
+          <h1>An undisclosed principal may sue and be sued on a contract entered into by an agent</h1>
+          <div class="takeaway"><div class="label">Principle</div><div class="text">Where an agent contracts with a third party without disclosing that they act for a principal, the undisclosed principal may sue or be sued on the contract, provided the agent had authority to act.</div></div>
+          <div class="tip">Authority: Agency law</div>
+          <div class="footer"><span class="progress">100/110</span><span>Card 100</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 101: Easements must be clear and certain; right to a view is not an easement -->
+    <div class="card" id="q101">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow"><span class="badge">Property</span><div class="tags"><span class="tag">Pre-tested Q101</span></div></div>
+          <h1>A right to a view is not capable of being an easement</h1>
+          <div class="takeaway"><div class="label">Principle</div><div class="text">For a right to amount to an easement it must be certain and not unduly vague; the courts have held that there can be no easement protecting a view over neighbouring land.</div></div>
+          <div class="tip">Authority: Easement requirements</div>
+          <div class="footer"><span class="progress">101/110</span><span>Card 101</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 102: Indefeasibility of registered title and the curtain principle -->
+    <div class="card" id="q102">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow"><span class="badge">Conveyancing</span><div class="tags"><span class="tag">Pre-tested Q102</span></div></div>
+          <h1>Registered title is guaranteed subject only to interests protected by the register and overriding interests</h1>
+          <div class="takeaway"><div class="label">Principle</div><div class="text">The mirror and curtain principles of land registration mean that the register should show the state of title and that equitable interests behind a trust of land are kept off the register; purchasers need not inquire behind the curtain.</div></div>
+          <div class="tip">Authority: Land Registration Act 2002</div>
+          <div class="footer"><span class="progress">102/110</span><span>Card 102</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 103: Collective enfranchisement under Leasehold Reform Housing and Urban Development Act 1993 -->
+    <div class="card" id="q103">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow"><span class="badge">Property</span><div class="tags"><span class="tag">Pre-tested Q103</span></div></div>
+          <h1>Qualifying tenants can collectively enfranchise to acquire the freehold</h1>
+          <div class="takeaway"><div class="label">Principle</div><div class="text">Under the Leasehold Reform, Housing and Urban Development Act 1993, qualifying leaseholders of flats can act together to acquire the freehold of their building through collective enfranchisement provided statutory criteria are met.</div></div>
+          <div class="tip">Authority: Leasehold Reform Act 1993</div>
+          <div class="footer"><span class="progress">103/110</span><span>Card 103</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 104: Directors must declare interests in proposed transactions -->
+    <div class="card" id="q104">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow"><span class="badge">Company Law</span><div class="tags"><span class="tag">Pre-tested Q104</span></div></div>
+          <h1>Directors must disclose any interest in a proposed transaction with the company</h1>
+          <div class="takeaway"><div class="label">Principle</div><div class="text">Section 177 of the Companies Act 2006 requires a director to declare the nature and extent of any interest in a proposed transaction or arrangement with the company before it is entered into.</div></div>
+          <div class="tip">Authority: Companies Act 2006 s.177</div>
+          <div class="footer"><span class="progress">104/110</span><span>Card 104</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 105: Covenants running with the land at common law must touch and concern the land -->
+    <div class="card" id="q105">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow"><span class="badge">Property</span><div class="tags"><span class="tag">Pre-tested Q105</span></div></div>
+          <h1>For a covenant to run at common law it must benefit the land and original covenantor remains liable</h1>
+          <div class="takeaway"><div class="label">Principle</div><div class="text">At common law, the burden of positive covenants does not run with freehold land, but the benefit of a covenant will run if it touches and concerns the land and the original parties intended it to run; the original covenantor remains liable.</div></div>
+          <div class="tip">Authority: Property law</div>
+          <div class="footer"><span class="progress">105/110</span><span>Card 105</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 106: Occupier’s Liability Act 1957 – duty to lawful visitors -->
+    <div class="card" id="q106">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow"><span class="badge">Tort</span><div class="tags"><span class="tag">Pre-tested Q106</span></div></div>
+          <h1>Occupiers owe a common duty of care to lawful visitors to ensure reasonable safety</h1>
+          <div class="takeaway"><div class="label">Principle</div><div class="text">Under the Occupiers’ Liability Act 1957, an occupier owes lawful visitors a duty to take such care as is reasonable in all the circumstances to ensure that they will be reasonably safe using the premises for the purposes permitted.</div></div>
+          <div class="tip">Authority: Occupiers’ Liability Act 1957</div>
+          <div class="footer"><span class="progress">106/110</span><span>Card 106</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 107: The rule against double presumption in intestacy -->
+    <div class="card" id="q107">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow"><span class="badge">Succession</span><div class="tags"><span class="tag">Pre-tested Q107</span></div></div>
+          <h1>The double application of survivorship rules prevents an estate passing twice</h1>
+          <div class="takeaway"><div class="label">Principle</div><div class="text">Where two people die in circumstances where it is uncertain who died first, the law presumes that each survived the other under s.184 Law of Property Act 1925; this prevents property from passing back to an estate in quick succession.</div></div>
+          <div class="tip">Authority: LPA 1925 s.184</div>
+          <div class="footer"><span class="progress">107/110</span><span>Card 107</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 108: Strict liability offences require no proof of mens rea -->
+    <div class="card" id="q108">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow"><span class="badge">Criminal Law</span><div class="tags"><span class="tag">Pre-tested Q108</span></div></div>
+          <h1>Strict liability offences are committed without proof of fault</h1>
+          <div class="takeaway"><div class="label">Principle</div><div class="text">For certain statutory offences (e.g., selling alcohol to minors), the prosecution need not prove mens rea; liability arises simply from performing the prohibited act, though due diligence defences may apply.</div></div>
+          <div class="tip">Authority: Criminal law</div>
+          <div class="footer"><span class="progress">108/110</span><span>Card 108</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 109: Repudiatory breach allows innocent party to treat contract as discharged -->
+    <div class="card" id="q109">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow"><span class="badge">Contract</span><div class="tags"><span class="tag">Pre-tested Q109</span></div></div>
+          <h1>A repudiatory breach entitles the innocent party to terminate the contract and claim damages</h1>
+          <div class="takeaway"><div class="label">Principle</div><div class="text">Where one party commits a breach of contract that goes to the root of the contract or demonstrates an intention not to perform, the innocent party may elect to treat the contract as at an end and sue for damages.</div></div>
+          <div class="tip">Authority: Contract law</div>
+          <div class="footer"><span class="progress">109/110</span><span>Card 109</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 110: Restitutionary damages prevent unjust enrichment -->
+    <div class="card" id="q110">
+      <div class="panel">
+        <div class="content">
+          <div class="toprow"><span class="badge">Remedies</span><div class="tags"><span class="tag">Pre-tested Q110</span></div></div>
+          <h1>Restitutionary damages may be awarded to prevent unjust enrichment where ordinary damages are inadequate</h1>
+          <div class="takeaway"><div class="label">Principle</div><div class="text">In certain cases, the court may award restitutionary damages to strip profits obtained through a wrongful act, preventing unjust enrichment when compensatory damages would not reflect the defendant’s gain.</div></div>
+          <div class="tip">Authority: Remedies law</div>
+          <div class="footer"><span class="progress">110/110</span><span>Card 110</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- End of FLK2 cards -->
+  </div>
+  <button class="nav-fab" id="navFab" type="button" aria-label="Jump to card">Go</button>
+  <div class="nav-drawer" id="navDrawer" aria-hidden="true">
+    <div class="nav-title">Jump</div>
+    <div class="nav-sub">Enter a number (1–110) to jump to that card.</div>
+    <div class="nav-row">
+      <input class="nav-input" id="navInput" inputmode="numeric" pattern="[0-9]*" placeholder="e.g., 37" aria-label="Card number" />
+      <button class="nav-btn" id="navBtn" type="button">Go</button>
+    </div>
+    <div class="nav-hint">Tip: open in Safari or Chrome for best experience.</div>
+  </div>
+  <script>
+    (function() {
+      const fab = document.getElementById('navFab');
+      const drawer = document.getElementById('navDrawer');
+      const input = document.getElementById('navInput');
+      const btn = document.getElementById('navBtn');
+      function openDrawer() {
+        drawer.classList.add('open');
+        drawer.setAttribute('aria-hidden', 'false');
+        setTimeout(() => input && input.focus(), 50);
+      }
+      function closeDrawer() {
+        drawer.classList.remove('open');
+        drawer.setAttribute('aria-hidden', 'true');
+      }
+      function go() {
+        const raw = (input.value || '').trim();
+        const n = parseInt(raw, 10);
+        if (!Number.isFinite(n) || n < 1 || n > 110) return;
+        const targetId = 'q' + n;
+        const el = document.getElementById(targetId);
+        if (el && el.scrollIntoView) {
+          el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          history.replaceState(null, '', '#' + targetId);
+        } else {
+          location.hash = targetId;
+        }
+        closeDrawer();
+      }
+      fab.addEventListener('click', () => {
+        if (drawer.classList.contains('open')) closeDrawer();
+        else openDrawer();
+      });
+      btn.addEventListener('click', go);
+      input.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') go();
+        if (e.key === 'Escape') closeDrawer();
+      });
+      document.addEventListener('click', (e) => {
+        if (!drawer.contains(e.target) && e.target !== fab) closeDrawer();
+      });
+    })();
+  </script>
+</body>
+</html>
