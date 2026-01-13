@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SQE1 FLK2 – 110 Practice MCQs</title>
+  <style>
+  :root {
+    --bg1: #f6f7fb;
+    --bg2: #eef2ff;
+    --ink: #0f172a;
+    --muted: rgba(15, 23, 42, .7);
+    --card: rgba(255, 255, 255, .78);
+    --white: #ffffff;
+    --ok: #059669;
+    --bad: #dc2626;
+    --hair: rgba(0,0,0,.12);
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial;
+    background: radial-gradient(800px 500px at 20% 10%, #bae6fd, transparent 60%), radial-gradient(800px 500px at 80% 20%, #ddd6fe, transparent 60%), linear-gradient(180deg, var(--bg1), var(--bg2));
+    color: var(--ink);
+  }
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: rgba(246, 247, 251, .92);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--hair);
+    padding: 10px;
+  }
+  .topbar-inner {
+    max-width: 980px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .score {
+    font-size: 12px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+  }
+  .actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .btn {
+    height: 38px;
+    padding: 0 12px;
+    border-radius: 10px;
+    border: 1px solid var(--hair);
+    background: #fff;
+    font-size: 12px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+  .container {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 18px 12px 80px;
+  }
+  .card {
+    background: var(--card);
+    backdrop-filter: blur(16px);
+    border-radius: 22px;
+    padding: 18px;
+    border: 1px solid rgba(255,255,255,.7);
+    box-shadow: 0 18px 48px rgba(15,23,42,.12);
+  }
+  .meta {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .badge, .qpos {
+    font-size: 11px;
+    letter-spacing: .10em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .stem {
+    font-size: 16px;
+    line-height: 1.55;
+    margin: 12px 0 16px;
+  }
+  .option {
+    display: flex;
+    gap: 10px;
+    padding: 12px;
+    border-radius: 12px;
+    background: #fff;
+    border: 1px solid var(--hair);
+    margin-bottom: 10px;
+    cursor: pointer;
+  }
+  .option input {
+    margin-top: 3px;
+  }
+  .option.correct {
+    background: #ecfdf5;
+    border-color: var(--ok);
+  }
+  .option.wrong {
+    background: #fef2f2;
+    border-color: var(--bad);
+  }
+  .status {
+    font-size: 12px;
+    letter-spacing: .10em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .explain {
+    display: none;
+    margin-top: 14px;
+    background: #fff;
+    border-radius: 14px;
+    padding: 12px;
+    border: 1px solid var(--hair);
+  }
+  .explain .label {
+    font-size: 12px;
+    letter-spacing: .10em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 6px;
+  }
+  .navbar {
+    margin-top: 16px;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+  }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="topbar-inner">
+      <div class="score" id="score">Correct 0 • Answered 0 • 110</div>
+      <div class="actions">
+        <button class="btn" onclick="location.href='index.html'">Facts deck</button>
+        <button class="btn" id="resetBtn">Reset</button>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="card" id="card">
+      <!-- Question content will appear here -->
+    </div>
+  </div>
+  <script>
+  // We declare MCQ_JSON_DATA globally. It will be populated by fetchJson().
+  let MCQ_JSON_DATA = [];
+  let ORDERED = [];
+  let answered = {};
+  let idx = 0;
+  const cardEl = document.getElementById('card');
+  const scoreEl = document.getElementById('score');
+  // Utility to shuffle the array to randomise question order.
+  function shuffle(arr) {
+    for (let i = arr.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
+  }
+  // Update the score display.
+  function updateScore() {
+    let a = 0, c = 0;
+    ORDERED.forEach(q => {
+      if (answered[q.id] !== undefined) {
+        a++;
+        if (answered[q.id] === q.correct) c++;
+      }
+    });
+    scoreEl.textContent = `Correct ${c} • Answered ${a} • ${ORDERED.length}`;
+  }
+  // Render the current question.
+  function render() {
+    const q = ORDERED[idx];
+    const isAnswered = answered[q.id] !== undefined;
+    const chosen = answered[q.id];
+    cardEl.innerHTML = `\n      <div class="meta">\n        <div class="badge">${q.topic}</div>\n        <div class="qpos">Question ${idx + 1} of ${ORDERED.length}</div>\n      </div>\n      <div class="stem">${q.stem}</div>\n    `;
+    q.options.forEach((opt, i) => {
+      const label = document.createElement('label');
+      label.className = 'option';
+      label.innerHTML = `<input type='radio' name='q${q.id}'> ${opt}`;
+      const input = label.querySelector('input');
+      input.disabled = isAnswered;
+      if (chosen === i) input.checked = true;
+      input.onchange = () => {
+        if (isAnswered) return;
+        answered[q.id] = i;
+        updateScore();
+        render();
+      };
+      if (isAnswered) {
+        if (i === q.correct) label.classList.add('correct');
+        if (i === chosen && i !== q.correct) label.classList.add('wrong');
+      }
+      cardEl.appendChild(label);
+    });
+    const status = document.createElement('div');
+    status.className = 'status';
+    status.textContent = isAnswered ? (chosen === q.correct ? 'Correct' : 'Incorrect') : 'Select an option';
+    cardEl.appendChild(status);
+    if (isAnswered) {
+      const exp = document.createElement('div');
+      exp.className = 'explain';
+      exp.style.display = 'block';
+      exp.innerHTML = `<div class='label'>Principle</div>${q.principle}<br><br><div class='label'>Authority</div>${q.authority}`;
+      cardEl.appendChild(exp);
+    }
+    const nav = document.createElement('div');
+    nav.className = 'navbar';
+    const prev = document.createElement('button');
+    prev.className = 'btn';
+    prev.textContent = 'Previous';
+    prev.disabled = (idx === 0);
+    prev.onclick = () => { idx--; render(); };
+    const next = document.createElement('button');
+    next.className = 'btn';
+    next.textContent = 'Next';
+    next.disabled = (idx === ORDERED.length - 1) || (!isAnswered);
+    next.onclick = () => { idx++; render(); };
+    nav.appendChild(prev);
+    nav.appendChild(next);
+    cardEl.appendChild(nav);
+  }
+  // Reset all answers and shuffle the deck.
+  function resetQuiz() {
+    answered = {};
+    ORDERED = shuffle(MCQ_JSON_DATA.slice());
+    idx = 0;
+    updateScore();
+    render();
+  }
+  // Load JSON data from external file and initialise the quiz.
+  function fetchJson() {
+    fetch('mcqs_flk2.json')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Failed to load questions');
+        }
+        return response.json();
+      })
+      .then(data => {
+        MCQ_JSON_DATA = data;
+        ORDERED = shuffle(MCQ_JSON_DATA.slice());
+        updateScore();
+        render();
+      })
+      .catch(err => {
+        cardEl.innerHTML = `<p>Error loading questions: ${err.message}</p>`;
+      });
+  }
+  document.getElementById('resetBtn').onclick = () => {
+    resetQuiz();
+  };
+  // Start the quiz on page load.
+  fetchJson();
+  </script>
+</body>
+</html>
